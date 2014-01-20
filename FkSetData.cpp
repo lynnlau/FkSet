@@ -1,0 +1,27 @@
+// FkSetData.cpp: implementation of the CFkSetData class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "FkSet.h"
+#include "FkSetData.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CFkSetData::CFkSetData()
+{
+
+}
+
+CFkSetData::~CFkSetData()
+{
+
+}

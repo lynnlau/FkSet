@@ -1,0 +1,844 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 249, 355
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 FkSet"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,9,13,20,20
+    LTEXT           "FkSet 2.5 版",IDC_STATIC,36,10,119,8,SS_NOPREFIX
+    LTEXT           "北京煜邦版权所有 (C) 2011",IDC_STATIC,36,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,192,7,50,14,WS_GROUP
+    EDITTEXT        IDC_EDIT_INFO,7,67,235,281,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_VSCROLL
+END
+
+IDD_FKSET_DIALOG DIALOGEX 0, 0, 539, 499
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "FkSet- 福建专变终端(V2.5)"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "关闭",ID_CLICK_OK,482,478,50,14
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | WS_BORDER | 
+                    WS_TABSTOP,14,104,341,156
+    LTEXT           "终端：",IDC_STATIC,14,73,25,8
+    PUSHBUTTON      "增加终端",IDC_ADD,98,69,50,14
+    PUSHBUTTON      "删除终端",IDC_DEL,148,69,50,14
+    LTEXT           "串口设置：",IDC_STATIC,14,18,41,8
+    COMBOBOX        IDC_COMBO_COM,60,15,48,155,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "打开串口",IDC_OPEN_COM,236,70,50,14
+    PUSHBUTTON      "关闭串口",IDC_CLOSE_COM,285,70,50,14
+    PUSHBUTTON      "保电解除",IDC_BUTTON1,450,15,77,14
+    PUSHBUTTON      "配置电能表",IDC_BUTTON2,362,47,77,14
+    PUSHBUTTON      "配置脉冲",IDC_BUTTON3,362,63,77,14
+    PUSHBUTTON      "抄表间隔设置F24",IDC_BUTTON4,362,111,77,14
+    PUSHBUTTON      "4路遥信",IDC_BUTTON5,450,30,77,14
+    PUSHBUTTON      "总加组",IDC_BUTTON6,362,127,77,14
+    PUSHBUTTON      "告警",IDC_BUTTON7,450,90,77,14
+    PUSHBUTTON      "时段控（功控灯亮）",IDC_BUTTON9,450,105,77,14
+    PUSHBUTTON      "解除，功控灯灭",IDC_BUTTON10,450,120,77,14
+    PUSHBUTTON      "电控灯亮",IDC_BUTTON11,450,135,77,14
+    PUSHBUTTON      "解除，电控灯灭",IDC_BUTTON12,450,150,77,14
+    PUSHBUTTON      "保电投入",IDC_BUTTON13,450,165,77,14
+    PUSHBUTTON      "参数及数据初始化F3",IDC_BUTTON14,362,231,77,14
+    PUSHBUTTON      "数据初始化",IDC_BUTTON15,362,285,77,14
+    PUSHBUTTON      "硬件初始化",IDC_BUTTON16,362,267,77,14
+    CONTROL         "全选",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    35,72,32,10
+    PUSHBUTTON      "修改IP地址",IDC_BUTTON17,362,196,77,14
+    PUSHBUTTON      "对时",IDC_BUTTON18,362,179,77,14
+    LTEXT           "波特率：",IDC_STATIC,22,32,33,8
+    COMBOBOX        IDC_COMBO_B,60,28,48,113,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "上行通讯工作方式F8",IDC_BUTTON19,362,213,77,14
+    PUSHBUTTON      "门节点状态",IDC_BUTTON20,362,161,77,14
+    PUSHBUTTON      "版本信息",IDC_BUTTON21,362,15,77,14,NOT WS_TABSTOP
+    PUSHBUTTON      "清除",IDC_BUTTON8,302,478,50,14
+    EDITTEXT        IDC_EDIT,14,266,343,156,ES_MULTILINE | WS_VSCROLL
+    GROUPBOX        "",IDC_STATIC,14,3,104,62
+    GROUPBOX        "",IDC_STATIC,110,3,73,62
+    CONTROL         "华北负控",IDC_RADIO_FK,"Button",BS_AUTORADIOBUTTON,121,
+                    31,56,10
+    CONTROL         "国网终端",IDC_RADIO_698,"Button",BS_AUTORADIOBUTTON,121,
+                    46,50,10
+    LTEXT           "终端类型选择：",IDC_STATIC,123,15,56,11
+    GROUPBOX        "",IDC_STATIC,187,3,67,62
+    CONTROL         "长密码",IDC_RADIO_PWLONG,"Button",BS_AUTORADIOBUTTON,
+                    196,30,47,10
+    CONTROL         "短密码",IDC_RADIO_PWSHT,"Button",BS_AUTORADIOBUTTON,196,
+                    46,46,10
+    LTEXT           "密码(国网)",IDC_STATIC,196,16,47,8
+    PUSHBUTTON      "参数及数据初始化F4",IDC_BUTTON22,362,249,77,14,NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "配置交采",IDC_BUTTON23,362,79,77,14
+    PUSHBUTTON      "跳4轮闸",IDC_BUTTON24,450,45,77,14
+    PUSHBUTTON      "端口配置信息",IDC_BUTTON25,362,31,77,14
+    LTEXT           "交采",IDC_STATIC,275,21,19,8
+    EDITTEXT        IDC_EDIT_ACPORT,297,16,32,14,ES_AUTOHSCROLL
+    GROUPBOX        "通信端口号",IDC_STATIC,255,7,87,39
+    LTEXT           "485抄表",IDC_STATIC,263,34,31,8
+    EDITTEXT        IDC_EDIT_4851,297,30,32,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "4轮合闸",IDC_BUTTON26,450,60,77,14
+    PUSHBUTTON      "设置PTCT(脉冲测点)",IDC_BUTTON27,362,95,77,14
+    PUSHBUTTON      "告警声音打开",IDC_BUTTON28,450,75,77,14
+    GROUPBOX        "终端信息及设置",IDC_STATIC,358,7,174,317
+    GROUPBOX        "485读表测试(透抄，07-645,2400,8,1,偶)",IDC_STATIC,358,
+                    323,174,109
+    LTEXT           "485-1：",IDC_STATIC,363,323,28,8
+    COMBOBOX        IDC_COMBO4,366,334,44,63,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "测试",IDC_BUTTON29,470,334,32,14
+    LTEXT           "485-2：",IDC_STATIC,361,354,28,8
+    COMBOBOX        IDC_COMBO5,366,367,44,57,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "测试",IDC_BUTTON30,469,367,32,14
+    LTEXT           "485-3：",IDC_STATIC,361,389,28,8
+    COMBOBOX        IDC_COMBO6,366,401,44,55,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "测试",IDC_BUTTON31,469,400,32,14
+    LTEXT           "表号",IDC_STATIC,419,323,17,8
+    EDITTEXT        IDC_EDITMT1,412,334,57,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITMT2,411,367,58,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITMT3,412,400,58,14,ES_AUTOHSCROLL
+    LTEXT           "校验：",IDC_STATIC,22,48,25,8
+    COMBOBOX        IDC_COMBO_PARITY,60,44,48,113,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "设置MAC地址",IDC_BUTTON32,449,183,77,14
+    PUSHBUTTON      "读取内部软件版本号",IDC_BUTTON34,450,213,77,14
+    PUSHBUTTON      "查询MAC地址",IDC_BUTTON35,450,195,77,14,NOT WS_TABSTOP
+    LTEXT           "注意：终端地址一定要区分是9位还是12位(吉林12位)，不足的务必在第四个字符后补零",
+                    IDC_STATIC,17,89,324,12,WS_BORDER
+    PUSHBUTTON      "设置门节点状态有效",IDC_BUTTON_DOOR,362,143,78,14
+    PUSHBUTTON      "设置CDMA参数",IDC_BUTTON33,449,231,77,14
+    PUSHBUTTON      "读取CDMA参数",IDC_BUTTON36,449,249,77,14
+    PUSHBUTTON      "清交采表底",IDC_BUTTON_CLRAC,449,285,77,14
+    LTEXT           "脉冲路数",IDC_STATIC,260,51,33,8
+    GROUPBOX        "",IDC_STATIC,255,41,87,24
+    COMBOBOX        IDC_COMBO_PLUSENUM,297,49,32,91,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "关于",IDC_BUTTON37,365,478,50,14
+    PUSHBUTTON      "设置资产编码(福建)",IDC_BUTTON_SETID,449,267,77,14
+    PUSHBUTTON      "设置CDMA和资产号",IDC_BUTTON38,368,305,148,14
+END
+
+IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 187, 94
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,44,73,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,104,73,50,14
+    LTEXT           "抄表间隔时间（分钟）",IDC_STATIC,17,35,81,8
+    COMBOBOX        IDC_COMBO1,109,33,48,179,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_DIALOG2 DIALOG DISCARDABLE  0, 0, 187, 94
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,39,73,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,105,73,50,14
+    LTEXT           "告警路数:",IDC_STATIC,56,19,37,8
+    COMBOBOX        IDC_COMBO1,98,15,48,65,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "告警延时时间(分):",IDC_STATIC,24,37,69,8
+    COMBOBOX        IDC_COMBO2,98,35,48,65,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "计划限电时间(0.5h):",IDC_STATIC,16,56,77,8
+    COMBOBOX        IDC_COMBO3,98,54,48,65,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_DIALOG3 DIALOG DISCARDABLE  0, 0, 241, 119
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,41,98,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,137,98,50,14
+    LTEXT           "主用IP地址：",IDC_STATIC,8,19,49,8
+    EDITTEXT        IDC_EDIT_IP1,60,16,71,14,ES_AUTOHSCROLL
+    LTEXT           "主用端口号：",IDC_STATIC,135,19,49,8
+    EDITTEXT        IDC_EDIT_PORT1,187,16,40,14,ES_AUTOHSCROLL
+    LTEXT           "备用IP地址：",IDC_STATIC,7,43,49,8
+    EDITTEXT        IDC_EDIT_IP2,59,39,71,14,ES_AUTOHSCROLL
+    LTEXT           "备用端口号：",IDC_STATIC,135,43,49,8
+    EDITTEXT        IDC_EDIT_PORT2,187,39,40,14,ES_AUTOHSCROLL
+    LTEXT           "APN：",IDC_STATIC,35,64,21,8
+    EDITTEXT        IDC_EDIT_APN,59,59,71,14,ES_AUTOHSCROLL
+END
+
+IDD_DIALOGMAC DIALOG DISCARDABLE  0, 0, 216, 94
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MAC设置"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT2,12,47,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,42,47,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,72,47,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,102,47,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,132,47,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,162,48,21,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,43,73,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,121,73,50,14
+    LTEXT           "-",IDC_STATIC,34,49,8,8
+    LTEXT           "-",IDC_STATIC,63,50,8,8
+    LTEXT           "-",IDC_STATIC,93,50,8,8
+    LTEXT           "-",IDC_STATIC,123,50,8,8
+    LTEXT           "-",IDC_STATIC,153,50,8,8
+    LTEXT           " 请输入MAC地址：",IDC_STATIC,7,20,70,8
+END
+
+IDD_DIALOG4 DIALOG DISCARDABLE  0, 0, 187, 100
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "CDMA参数设置"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确认",IDOK,130,79,50,14
+    PUSHBUTTON      "取消",IDCANCEL,17,79,50,14
+    LTEXT           "CDMA用户名",IDC_STATIC,15,16,41,8
+    LTEXT           "CDMA密码",IDC_STATIC,15,45,33,8
+    EDITTEXT        IDC_EDIT_CDMAPWD,15,58,151,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_CDMAUSR,15,28,151,14,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG5 DIALOG DISCARDABLE  0, 0, 340, 185
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "设置参数 F8:  终端上行通信工作方式(以太网或虚拟专网)"
+FONT 10, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "设置",IDOK,283,164,50,14
+    PUSHBUTTON      "退出",IDCANCEL,7,164,50,14
+    LTEXT           "工作模式：",IDC_STATIC,54,16,37,8
+    LTEXT           "永久在线、时段在线模式重播间隔：",IDC_STATIC,26,56,65,
+                    20
+    LTEXT           "被动激活模式重拨次数：",IDC_STATIC,9,86,82,8
+    LTEXT           "被动激活模式连续无通信自动断线时间：",IDC_STATIC,22,104,
+                    69,17
+    LTEXT           "时段在线模式允许在线时段标志：",IDC_STATIC,30,128,61,17
+    COMBOBOX        IDC_COMBO1,100,26,73,52,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,100,57,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,100,82,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,100,106,40,14,ES_AUTOHSCROLL
+    LTEXT           "( 取值0~255。单位:分钟。无要求时设1  )",IDC_STATIC,152,
+                    108,151,8
+    LTEXT           "( 取值0~255。无要求时设3  )",IDC_STATIC,152,85,133,8
+    LTEXT           "( 取值0~65535。无要求时设3600  )",IDC_STATIC,152,59,141,
+                    8
+    LTEXT           "(无要求时设置永久在线)",IDC_STATIC,176,15,85,8
+    COMBOBOX        IDC_COMBO2,100,12,73,55,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,
+                    127,8,8
+    CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,112,
+                    127,8,8
+    CONTROL         "",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,124,
+                    127,8,8
+    CONTROL         "",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,136,
+                    127,8,8
+    CONTROL         "",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,148,
+                    127,8,8
+    CONTROL         "",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,160,
+                    127,8,8
+    CONTROL         "",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,
+                    127,8,8
+    CONTROL         "",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,184,
+                    127,8,8
+    CONTROL         "",IDC_CHECK9,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,196,
+                    127,8,8
+    CONTROL         "",IDC_CHECK10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,208,
+                    127,8,8
+    CONTROL         "",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,220,
+                    127,8,8
+    CONTROL         "",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,232,
+                    127,8,8
+    CONTROL         "",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,
+                    138,8,8
+    CONTROL         "",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,112,
+                    138,8,8
+    CONTROL         "",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,124,
+                    138,8,8
+    CONTROL         "",IDC_CHECK16,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,136,
+                    138,8,8
+    CONTROL         "",IDC_CHECK17,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,148,
+                    138,8,8
+    CONTROL         "",IDC_CHECK18,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,160,
+                    138,8,8
+    CONTROL         "",IDC_CHECK19,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,
+                    138,8,8
+    CONTROL         "",IDC_CHECK20,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,184,
+                    138,8,8
+    CONTROL         "",IDC_CHECK21,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,196,
+                    138,8,8
+    CONTROL         "",IDC_CHECK22,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,208,
+                    138,8,8
+    CONTROL         "",IDC_CHECK23,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,220,
+                    138,8,8
+    CONTROL         "",IDC_CHECK24,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,232,
+                    138,8,8
+    LTEXT           " 0  ~ 11 点",IDC_STATIC,246,127,53,8
+    LTEXT           "12 ~ 23 点",IDC_STATIC,250,138,50,8
+    COMBOBOX        IDC_COMBO3,100,39,73,54,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "(无要求时设客户机模式  )",IDC_STATIC,176,29,101,8
+    LTEXT           "(无要求时设TCP模式  )",IDC_STATIC,176,42,100,8
+    PUSHBUTTON      "读取并对比",IDC_BUTTON1,217,164,50,14
+    LTEXT           "（选中表示当前时段允许在线。无要求时全选）",IDC_STATIC,
+                    94,148,157,8
+END
+
+IDD_DIALOG6 DIALOGEX 0, 0, 262, 109
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MAC地址与终端地址对应关系"
+FONT 10, "System", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,144,88,50,14
+    PUSHBUTTON      "取消",IDCANCEL,205,88,50,14
+    CONTROL         "8位16进制",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | NOT 
+                    WS_VISIBLE | WS_DISABLED,13,17,51,10
+    CONTROL         "BCD码",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | NOT 
+                    WS_VISIBLE | WS_DISABLED,13,30,50,10
+    CONTROL         "十进制",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | NOT 
+                    WS_VISIBLE | WS_DISABLED,13,43,50,10,0,HIDC_RADIO3
+    EDITTEXT        IDC_EDIT1,83,28,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,141,28,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT10,82,57,99,14,ES_AUTOHSCROLL
+    LTEXT           "起始终端地址",IDC_STATIC,79,17,54,8
+    LTEXT           "终端数量",IDC_STATIC,140,16,41,8
+    LTEXT           "起始MAC地址",IDC_STATIC,80,45,46,8
+END
+
+IDD_DIALOG7 DIALOG DISCARDABLE  0, 0, 187, 94
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "设置资产编码（8个字符）"
+FONT 10, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,93,73,50,14
+    PUSHBUTTON      "取消",IDCANCEL,7,73,50,14
+    EDITTEXT        IDC_EDIT1,23,37,93,14,ES_AUTOHSCROLL
+    LTEXT           "设置资产编码（8个字符）：",IDC_STATIC,22,19,101,8
+END
+
+IDD_DIALOG8 DIALOG DISCARDABLE  0, 0, 213, 132
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "对话"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,24,111,50,14
+    PUSHBUTTON      "取消",IDCANCEL,105,111,50,14
+    EDITTEXT        IDC_EDIT1,78,13,86,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,72,69,93,14,ES_AUTOHSCROLL
+    LTEXT           "起始条码",IDC_STATIC,23,17,54,8
+    LTEXT           "终端数量",IDC_STATIC,21,38,41,8
+    LTEXT           "该按钮自动设置CDMA及读取CDMA",IDC_STATIC,16,92,152,13
+    LTEXT           "终端地址",IDC_STATIC,20,71,41,8
+    EDITTEXT        IDC_EDIT9,75,40,86,14,ES_AUTOHSCROLL
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "FkSet Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "FkSet\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2008\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "FkSet.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "FkSet 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 242
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 348
+    END
+
+    IDD_FKSET_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 14
+        RIGHTMARGIN, 532
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 492
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+
+    IDD_DIALOGMAC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_DIALOG4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_DIALOG5, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 333
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_DIALOG6, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 102
+    END
+
+    IDD_DIALOG7, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_DIALOG8, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 205
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_FKSET_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x314d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x324d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x334d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x344d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x354d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x364d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x374d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x384d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x394d, "\000" 
+    IDC_COMBO_COM, 0x403, 6, 0
+0x4f43, 0x314d, 0x0030, 
+    IDC_COMBO_B, 0x403, 4, 0
+0x3131, 0x0030, 
+    IDC_COMBO_B, 0x403, 4, 0
+0x3033, 0x0030, 
+    IDC_COMBO_B, 0x403, 4, 0
+0x3036, 0x0030, 
+    IDC_COMBO_B, 0x403, 5, 0
+0x3231, 0x3030, "\000" 
+    IDC_COMBO_B, 0x403, 5, 0
+0x3432, 0x3030, "\000" 
+    IDC_COMBO_B, 0x403, 5, 0
+0x3834, 0x3030, "\000" 
+    IDC_COMBO_B, 0x403, 5, 0
+0x3639, 0x3030, "\000" 
+    IDC_COMBO_B, 0x403, 6, 0
+0x3431, 0x3034, 0x0030, 
+    IDC_COMBO_B, 0x403, 6, 0
+0x3931, 0x3032, 0x0030, 
+    IDC_COMBO_B, 0x403, 6, 0
+0x3833, 0x3034, 0x0030, 
+    IDC_COMBO_B, 0x403, 6, 0
+0x3635, 0x3030, 0x0030, 
+    IDC_COMBO_B, 0x403, 6, 0
+0x3735, 0x3036, 0x0030, 
+    IDC_COMBO_B, 0x403, 7, 0
+0x3131, 0x3235, 0x3030, "\000" 
+    IDC_COMBO_B, 0x403, 7, 0
+0x3231, 0x3038, 0x3030, "\000" 
+    IDC_COMBO_B, 0x403, 7, 0
+0x3532, 0x3036, 0x3030, "\000" 
+    IDC_COMBO4, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0031, 
+    IDC_COMBO4, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0032, 
+    IDC_COMBO4, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0033, 
+    IDC_COMBO4, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0034, 
+    IDC_COMBO5, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0031, 
+    IDC_COMBO5, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0032, 
+    IDC_COMBO5, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0033, 
+    IDC_COMBO5, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0034, 
+    IDC_COMBO6, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0031, 
+    IDC_COMBO6, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0032, 
+    IDC_COMBO6, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0033, 
+    IDC_COMBO6, 0x403, 6, 0
+0xcbb6, 0xdabf, 0x0034, 
+    IDC_COMBO_PARITY, 0x403, 7, 0
+0xdece, 0xa3d0, 0xe9d1, "\000" 
+    IDC_COMBO_PARITY, 0x403, 7, 0
+0xe6c6, 0xa3d0, 0xe9d1, "\000" 
+    IDC_COMBO_PARITY, 0x403, 7, 0
+0xbcc5, 0xa3d0, 0xe9d1, "\000" 
+    IDC_COMBO_PLUSENUM, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO_PLUSENUM, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO_PLUSENUM, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO_PLUSENUM, 0x403, 2, 0
+0x0034, 
+    0
+END
+
+IDD_DIALOG1 DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0035, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0036, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0037, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0038, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0039, 
+    IDC_COMBO1, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3131, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3531, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3731, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3831, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3931, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3032, "\000" 
+    0
+END
+
+IDD_DIALOG2 DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0030, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0035, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0036, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0037, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0038, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0039, 
+    IDC_COMBO2, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_COMBO2, 0x403, 3, 0
+0x3131, "\000" 
+    IDC_COMBO2, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO2, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO2, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO2, 0x403, 3, 0
+0x3531, "\000" 
+    IDC_COMBO3, 0x403, 2, 0
+0x0030, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0035, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0036, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0037, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0038, 
+    IDC_COMBO3, 0x403, 2, 0
+0x0039, 
+    IDC_COMBO3, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_COMBO3, 0x403, 3, 0
+0x3131, "\000" 
+    IDC_COMBO3, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO3, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO3, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO3, 0x403, 3, 0
+0x3531, "\000" 
+    0
+END
+
+IDD_DIALOG5 DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 12, 0
+0xecbb, 0xcfba, 0xa3c4, 0xbdca, 0x3028, 0x0029, 
+    IDC_COMBO1, 0x403, 14, 0
+0xcdbf, 0xa7bb, 0xfabb, 0xa3c4, 0xbdca, 0x3128, 0x0029, 
+    IDC_COMBO1, 0x403, 14, 0
+0xfeb7, 0xf1ce, 0xf7c6, 0xa3c4, 0xbdca, 0x3228, 0x0029, 
+    IDC_COMBO2, 0x403, 16, 0
+0xc0d3, 0xc3be, 0xdad4, 0xdfcf, 0xa3c4, 0xbdca, 0x3128, 0x0029, 
+    IDC_COMBO2, 0x403, 16, 0
+0xbbb1, 0xafb6, 0xa4bc, 0xeebb, 0xa3c4, 0xbdca, 0x3228, 0x0029, 
+    IDC_COMBO2, 0x403, 16, 0
+0xb1ca, 0xceb6, 0xdad4, 0xdfcf, 0xa3c4, 0xbdca, 0x3328, 0x0029, 
+    IDC_COMBO3, 0x403, 7, 0
+0x4354, 0x2850, 0x2930, "\000" 
+    IDC_COMBO3, 0x403, 7, 0
+0x4455, 0x2850, 0x2931, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "20130222115850729_easyicon_cn_48.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 FkSet(&A)..."
+END
+
+#endif    // Chinese (中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

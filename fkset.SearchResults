@@ -1,0 +1,4 @@
+---- 2.1 Matches (3 in 2 files) ----
+FkSet.rc:    LTEXT           "FkSet 2.1 版",IDC_STATIC,36,10,119,8,SS_NOPREFIX
+FkSet.rc:CAPTION "FkSet- 华北负控&国网终端(V2.1)"
+FkSetDlg.cpp:	strInfo+="2.1版本修改了:(20130118)\r\n";
