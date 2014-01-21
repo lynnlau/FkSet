@@ -1,4 +1,15 @@
----- 2.1 Matches (3 in 2 files) ----
-FkSet.rc:    LTEXT           "FkSet 2.1 版",IDC_STATIC,36,10,119,8,SS_NOPREFIX
-FkSet.rc:CAPTION "FkSet- 华北负控&国网终端(V2.1)"
-FkSetDlg.cpp:	strInfo+="2.1版本修改了:(20130118)\r\n";
+---- BEGIN_MESSAGE_MAP 匹配 (14 在 12 文件 ) ----
+DlgCDMAPara.cpp:37:BEGIN_MESSAGE_MAP(CDlgCDMAPara, CDialog)
+DlgCDMASeria.cpp (e:\fkset):36:BEGIN_MESSAGE_MAP(CDlgCDMASeria, CDialog)
+DlgMACSet.cpp:37:BEGIN_MESSAGE_MAP(CDlgMACSet, CDialog)
+DLGSET.cpp:52:BEGIN_MESSAGE_MAP(CDLGSET, CDialog)
+DlgSetParaF8.cpp:36:BEGIN_MESSAGE_MAP(CDlgSetParaF8, CDialog)
+EditListCtrl.cpp:31:BEGIN_MESSAGE_MAP(CEditListCtrl, CListCtrl)
+EditListCtrl.cpp:247:BEGIN_MESSAGE_MAP(CListCtrlEdit, CEdit)
+FkSet.cpp:17:BEGIN_MESSAGE_MAP(CFkSetApp, CWinApp)
+FkSetDlg.cpp:408:BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
+FkSetDlg.cpp:456:BEGIN_MESSAGE_MAP(CFkSetDlg, CDialog)
+SetAlarm.cpp:43:BEGIN_MESSAGE_MAP(CSetAlarm, CDialog)
+SetIPAndPort.cpp:40:BEGIN_MESSAGE_MAP(CSetIPAndPort, CDialog)
+SetTermID.cpp (e:\fkset):36:BEGIN_MESSAGE_MAP(CSetTermID, CDialog)
+SetTime.cpp:37:BEGIN_MESSAGE_MAP(CSetTime, CDialog)

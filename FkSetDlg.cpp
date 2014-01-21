@@ -1,5 +1,4 @@
-// FkSetDlg.cpp : implementation file
-//
+
 
 #include "stdafx.h"
 #include "FkSet.h"
@@ -293,7 +292,7 @@ BYTE SendDataSetF225[] = {0x68,0x92,0x00,0x92,0x00,0x68,0x4A,0x03,0x35,0xF6,0x1F
 
 //终端类型
 int g_RtuType = TERMINAL_TYPE_GW698;
-BOOL g_bPwdLong = FALSE;
+BOOL g_bPwdLong = TRUE;
 BOOL g_PortInfo = FALSE;
 BOOL g_bAddrLong = FALSE;
 /////////////////////////////////////////////////////////////////////////////
@@ -432,7 +431,7 @@ void CFkSetDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CFkSetDlg)
-	DDX_Control(pDX, IDC_COMBO_PLUSENUM, m_PluseNum);
+	//DDX_Control(pDX, IDC_COMBO_PLUSENUM, m_PluseNum);
 	DDX_Control(pDX, IDC_COMBO_PARITY, m_selParity);
 	DDX_Control(pDX, IDC_COMBO6, m_sel4853);
 	DDX_Control(pDX, IDC_COMBO5, m_sel4852);
@@ -441,9 +440,9 @@ void CFkSetDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_COMBO_B, m_ctlB);
 	DDX_Control(pDX, IDC_COMBO_COM, m_ctlCom);
 	DDX_Control(pDX, IDC_LIST, m_AddressList);
-	DDX_Text(pDX, IDC_EDIT_ACPORT, m_nAcPort);
+	//DDX_Text(pDX, IDC_EDIT_ACPORT, m_nAcPort);
 	DDV_MinMaxInt(pDX, m_nAcPort, 0, 32);
-	DDX_Text(pDX, IDC_EDIT_4851, m_n4851Port);
+	//DDX_Text(pDX, IDC_EDIT_4851, m_n4851Port);
 	DDV_MinMaxInt(pDX, m_n4851Port, 0, 32);
 	DDX_Text(pDX, IDC_EDITMT1, m_editmt1);
 	DDV_MaxChars(pDX, m_editmt1, 12);
@@ -468,7 +467,7 @@ BEGIN_MESSAGE_MAP(CFkSetDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, OnButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, OnButton3)
-	ON_BN_CLICKED(IDC_BUTTON4, OnButton4)
+	//ON_BN_CLICKED(IDC_BUTTON4, OnButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, OnButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, OnButton6)
 	ON_BN_CLICKED(IDC_BUTTON7, OnButton7)
@@ -487,14 +486,9 @@ BEGIN_MESSAGE_MAP(CFkSetDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON19, OnButton19)
 	ON_BN_CLICKED(IDC_BUTTON20, OnButton20)
 	ON_BN_CLICKED(IDC_BUTTON21, OnButton21)
-	ON_BN_CLICKED(IDC_RADIO_FK, OnRadioFk)
-	ON_BN_CLICKED(IDC_RADIO_698, OnRadio698)
-	ON_BN_CLICKED(IDC_RADIO_PWLONG, OnRadioPwlong)
-	ON_BN_CLICKED(IDC_RADIO_PWSHT, OnRadioPwsht)
 	ON_BN_CLICKED(IDC_BUTTON22, OnButton22)
 	ON_BN_CLICKED(IDC_BUTTON23, OnButton23)
 	ON_BN_CLICKED(IDC_BUTTON24, OnButton24)
-	ON_BN_CLICKED(IDC_BUTTON25, OnButton25)
 	ON_BN_CLICKED(IDC_BUTTON26, OnButton26)
 	ON_BN_CLICKED(IDC_BUTTON27, OnButton27)
 	ON_BN_CLICKED(IDC_BUTTON29, OnButton29)
@@ -566,12 +560,12 @@ BOOL CFkSetDlg::OnInitDialog()
 
 	LoadParamFile();
 
-	((CButton*)GetDlgItem(IDC_RADIO_698))->SetCheck(TRUE);
+	//((CButton*)GetDlgItem(IDC_RADIO_698))->SetCheck(TRUE);
 	g_RtuType = TERMINAL_TYPE_GW698;
-	((CButton*)GetDlgItem(IDC_RADIO_PWLONG))->SetCheck(TRUE);
-	g_bPwdLong = TRUE;	
+	//((CButton*)GetDlgItem(IDC_RADIO_PWLONG))->SetCheck(TRUE);
+	//g_bPwdLong = TRUE;	
 
-	GetDlgItem(IDC_BUTTON4)->EnableWindow(FALSE);
+//	GetDlgItem(IDC_BUTTON4)->EnableWindow(FALSE);
 //	GetDlgItem(IDC_BUTTON7)->EnableWindow(FALSE);
 //	GetDlgItem(IDC_BUTTON19)->EnableWindow(FALSE);
 	GetDlgItem(IDC_BUTTON22)->EnableWindow(TRUE);
@@ -831,7 +825,7 @@ void CFkSetDlg::SetCheckTmu(unsigned char cType, unsigned char* pReport, unsigne
 		return;
 	}
 	
-	EnableAllButton(0);
+	//EnableAllButton(0);
 
 	for(int i = 0 ; i < m_AddressList.GetItemCount() ; i++)
 	{
@@ -1165,14 +1159,15 @@ void CFkSetDlg::SetCheckTmu(unsigned char cType, unsigned char* pReport, unsigne
 				//set edit
 				CTime tm = CTime::GetCurrentTime();
 				strTmp.Format("串口发送(%d-%02d-%02d %02d:%02d:%02d):", tm.GetYear(), tm.GetMonth(), tm.GetDay(), tm.GetHour(), tm.GetMinute(), tm.GetSecond());
-				AddStr2Edit(strTmp);
+				//AddStr2Edit(strTmp);
 
-				strTmp = "";
-				for( k = 0 ; k < templen ; k++)
-				{
-					strTmp1.Format("%c", (BYTE)m_conData.m_sendBuf[k]);
-					strTmp += strTmp1;
-				}
+				//strTmp = "";
+				//for( k = 0 ; k < templen ; k++)
+				//{
+					//strTmp1.Format("%c", (BYTE)m_conData.m_sendBuf[k]);
+					//strTmp1.Format("%02x", (BYTE)m_conData.m_sendBuf[k]);
+					//strTmp += strTmp1;
+				//}
 				AddStr2Edit(strTmp);
 
 				strTmp = "";
@@ -1449,40 +1444,8 @@ void CFkSetDlg::OnButton2()
 }
 
 void CFkSetDlg::OnButton3() 
-{
-	// TODO: Add your control notification handler code here
-	if(g_RtuType == TERMINAL_TYPE_FK)
-	{
-		SetCheckTmu(3,SendData3,sizeof(SendData3));
-	}
-	else
-	{
-//		SetCheckTmu(3,SendData6983,sizeof(SendData6983),g_bPwdLong);
-
-		int n = GetDlgItemInt(IDC_COMBO_PLUSENUM);
-		
-		switch(n)
-		{
-		case 1:
-			SetCheckTmu(3,SendData6983_1,sizeof(SendData6983_1),g_bPwdLong);
-			break;
-		case 2:
-			SetCheckTmu(3,SendData6983_2,sizeof(SendData6983_2),g_bPwdLong);
-			break;
-		case 3:
-			SetCheckTmu(3,SendData6983_3,sizeof(SendData6983_3),g_bPwdLong);
-		    break;
-		case 4:
-			SetCheckTmu(3,SendData6983_4,sizeof(SendData6983_4),g_bPwdLong);
-		    break;
-		default:
-			CString	strTmp;
-			strTmp.Format("不能设置%d路脉冲", n);
-			AddStr2Edit(strTmp);
-		    break;
-		}
-	}
-
+{ 
+	SetCheckTmu(3,SendData6983_2,sizeof(SendData6983_2),g_bPwdLong);
 }
 
 void CFkSetDlg::OnButton4() 
@@ -1686,18 +1649,13 @@ void CFkSetDlg::OnButton17()
 	CSetIPAndPort dlg;
 	if(dlg.DoModal() == IDOK)
 	{		
-		//SetCheckTmu(17,SendData17,sizeof(SendData17),(void*)&dlg.m_data);
-		if(g_RtuType == TERMINAL_TYPE_FK)
-		{
-			SetCheckTmu(17,SendData17,sizeof(SendData17),FALSE,(void*)&dlg.m_data);
-		}
-		else
-		{
-			SetCheckTmu(17,SendData69817,sizeof(SendData69817),g_bPwdLong,(void*)&dlg.m_data);
-		}
+		
+		SetCheckTmu(17,SendData69817,sizeof(SendData69817),g_bPwdLong,(void*)&dlg.m_data);
 	}	
 }
 
+
+//对时
 void CFkSetDlg::OnButton18() 
 {
 	//SetCheckTmu(18,SendData18,sizeof(SendData18));
@@ -2092,18 +2050,16 @@ void CFkSetDlg::EnableAllButton(BOOL b)
 	GetDlgItem(IDC_BUTTON1)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON2)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON3)->EnableWindow(b);
-//	GetDlgItem(IDC_BUTTON4)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON5)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON6)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON7)->EnableWindow(b);	
 	GetDlgItem(IDC_BUTTON9)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON10)->EnableWindow(b);
-
 	GetDlgItem(IDC_BUTTON11)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON12)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON13)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON14)->EnableWindow(b);
-	GetDlgItem(IDC_BUTTON15)->EnableWindow(b);
+	//GetDlgItem(IDC_BUTTON15)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON16)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON17)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON18)->EnableWindow(b);
@@ -2113,7 +2069,7 @@ void CFkSetDlg::EnableAllButton(BOOL b)
 	GetDlgItem(IDC_BUTTON22)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON23)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON24)->EnableWindow(b);
-	GetDlgItem(IDC_BUTTON25)->EnableWindow(b);
+	//GetDlgItem(IDC_BUTTON25)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON26)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON27)->EnableWindow(b);
 	GetDlgItem(IDC_BUTTON28)->EnableWindow(b);
@@ -2230,63 +2186,37 @@ void CFkSetDlg::SaveParamFile()
 }
 
 
-void CFkSetDlg::OnRadioFk() 
-{
+
+
+
+
+//void CFkSetDlg::OnRadioPwlong() 
+//{
 	// TODO: Add your control notification handler code here
-	if (((CButton*)GetDlgItem(IDC_RADIO_FK))->GetCheck())
-	{
-		g_RtuType = TERMINAL_TYPE_FK;
-		GetDlgItem(IDC_BUTTON4)->EnableWindow(TRUE);
-//		GetDlgItem(IDC_BUTTON7)->EnableWindow(TRUE);
-		GetDlgItem(IDC_BUTTON19)->EnableWindow(FALSE);
-		GetDlgItem(IDC_BUTTON22)->EnableWindow(FALSE);
+//		if (((CButton*)GetDlgItem(IDC_RADIO_PWLONG))->GetCheck())
+//	{
+//		g_bPwdLong = TRUE;
+//	}
+//	else
+//	{
+//		g_bPwdLong = FALSE;	
+//	}
 
-	}
+//}
 
-}
-
-void CFkSetDlg::OnRadio698() 
-{
+//void CFkSetDlg::OnRadioPwsht() 
+//{
 	// TODO: Add your control notification handler code here
-	if (((CButton*)GetDlgItem(IDC_RADIO_698))->GetCheck())
-	{
-		g_RtuType = TERMINAL_TYPE_GW698;
-		GetDlgItem(IDC_BUTTON4)->EnableWindow(FALSE);
-//		GetDlgItem(IDC_BUTTON7)->EnableWindow(FALSE);
-		GetDlgItem(IDC_BUTTON19)->EnableWindow(TRUE);
-		GetDlgItem(IDC_BUTTON22)->EnableWindow(TRUE);
-
-	}
-
-}
-
-void CFkSetDlg::OnRadioPwlong() 
-{
-	// TODO: Add your control notification handler code here
-		if (((CButton*)GetDlgItem(IDC_RADIO_PWLONG))->GetCheck())
-	{
-		g_bPwdLong = TRUE;
-	}
-	else
-	{
-		g_bPwdLong = FALSE;	
-	}
-
-}
-
-void CFkSetDlg::OnRadioPwsht() 
-{
-	// TODO: Add your control notification handler code here
-	if (((CButton*)GetDlgItem(IDC_RADIO_PWSHT))->GetCheck())
-	{
-		g_bPwdLong = FALSE;
-	}
-	else
-	{
-		g_bPwdLong = TRUE;	
-	}
+//	if (((CButton*)GetDlgItem(IDC_RADIO_PWSHT))->GetCheck())
+//	{
+//		g_bPwdLong = FALSE;
+//	}
+//	else
+//	{
+//		g_bPwdLong = TRUE;	
+//	}
 	
-}
+//}
 
 void CFkSetDlg::OnButton22() 
 {
@@ -2320,36 +2250,12 @@ void CFkSetDlg::OnButton23()
 
 }
 
-//跳4轮闸
+//跳2轮闸
 void CFkSetDlg::OnButton24() 
 {
-	// TODO: Add your control notification handler code here
-	if(g_RtuType == TERMINAL_TYPE_FK)
-	{
-		
-	}
-	else
-	{
-		SetCheckTmu(24,SendData69824,sizeof(SendData69824),g_bPwdLong);
-	}
-	
+		SetCheckTmu(24,SendData69824,sizeof(SendData69824),g_bPwdLong);	
 }
 
-// 终端端口配置
-void CFkSetDlg::OnButton25() 
-{
-	// TODO: Add your control notification handler code here
-	if(g_RtuType == TERMINAL_TYPE_FK)
-	{
-	//	SetCheckTmu(21,SendData21,sizeof(SendData21));
-	}
-	else
-	{
-		g_PortInfo = TRUE;
-		SetCheckTmu(25,SendData69825,sizeof(SendData69825),g_bPwdLong);
-	}
-	
-}
 
 // 4轮合闸
 void CFkSetDlg::OnButton26() 
@@ -2405,68 +2311,50 @@ void CFkSetDlg::OnButton28()
 // 485  透抄
 void CFkSetDlg::OnButton29() 
 {
-	// TODO: Add your control notification handler code here
-	if(g_RtuType == TERMINAL_TYPE_FK)
-	{
-	
-	}
-	else
-	{
-		char straddr[6];
-		SendData69829_4851[18] = m_sel4851.GetCurSel() + 1;
-		memset(straddr,0,6);
-		if (GetMeteraddr(1,straddr) < 0)
-			return;
 
-		memcpy(SendData69829_4851+29,straddr,6);
-		SetCheckTmu(29,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
-	}
+	char straddr[6];
+	SendData69829_4851[18] = m_sel4851.GetCurSel() + 1;
+	memset(straddr,0,6);
+	if (GetMeteraddr(1,straddr) < 0)
+		return;
+
+	memcpy(SendData69829_4851+29,straddr,6);
+	SetCheckTmu(29,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
+
 }
 
 void CFkSetDlg::OnButton30() 
 {
-	// TODO: Add your control notification handler code here
-	if(g_RtuType == TERMINAL_TYPE_FK)
-	{
+
+	SendData69829_4851[18] = m_sel4852.GetCurSel() + 1;
+
+	char straddr[6];
+	memset(straddr,0,6);
+	if (GetMeteraddr(2,straddr) < 0)
+		return;
+
+	memcpy(SendData69829_4851+29,straddr,6);
+
+	SetCheckTmu(30,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
 	
-	}
-	else
-	{
-		SendData69829_4851[18] = m_sel4852.GetCurSel() + 1;
-
-		char straddr[6];
-		memset(straddr,0,6);
-		if (GetMeteraddr(2,straddr) < 0)
-			return;
-
-		memcpy(SendData69829_4851+29,straddr,6);
-
-		SetCheckTmu(30,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
-	}	
 }
 
 
 void CFkSetDlg::OnButton31() 
 {
-	// TODO: Add your control notification handler code here
-	if(g_RtuType == TERMINAL_TYPE_FK)
+
+	SendData69829_4851[18] = m_sel4853.GetCurSel() + 1;
+
+	char straddr[6];
+	memset(straddr,0,6);
+	if (GetMeteraddr(3,straddr) < 0)
 	{
-	
+		return;
 	}
-	else
-	{
-		SendData69829_4851[18] = m_sel4853.GetCurSel() + 1;
+	memcpy(SendData69829_4851+29,straddr,6);
 
-		char straddr[6];
-		memset(straddr,0,6);
-		if (GetMeteraddr(3,straddr) < 0)
-		{
-			return;
-		}
-		memcpy(SendData69829_4851+29,straddr,6);
-
-		SetCheckTmu(31,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
-	}		
+	SetCheckTmu(31,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
+		
 }
 int CFkSetDlg::MakeSetMacFrame(BYTE *pReport,CString &strAddr)
 {
@@ -2632,50 +2520,23 @@ int CFkSetDlg::MakeSetSERFrametwo(BYTE *pReport,CString &strAddr)
 
 void CFkSetDlg::OnButtonSetMac() 
 {
-	// TODO: Add your control notification handler code here
-	
-	if(m_macdlg.DoModal() == IDOK)
-	{		
-		//SetCheckTmu(17,SendData17,sizeof(SendData17),(void*)&dlg.m_data);
-		if(g_RtuType == TERMINAL_TYPE_FK)
-		{
-		//	SetCheckTmu(32,SendData17,sizeof(SendData17),FALSE,(void*)&dlg.m_data);
-		}
-		else
-		{
-		//	void* pp;
-		//	SetCheckTmu(32,SendData69832_mac,sizeof(SendData69832_mac),g_bPwdLong,(void*)dlg.m_strMac);
-			SetCheckTmu(32,SendData69832_mac,sizeof(SendData69832_mac),g_bPwdLong);
-		}
-	}	
+	SetCheckTmu(32,SendData69832_mac,sizeof(SendData69832_mac),g_bPwdLong);
 }
 
 // 33
 void CFkSetDlg::OnButtonRdMac() 
 {
-	// TODO: Add your control notification handler code here
-	if(g_RtuType == TERMINAL_TYPE_FK)
-	{
-	
-	}
-	else
-	{
-		SetCheckTmu(33,SendData69833_mac,sizeof(SendData69833_mac),g_bPwdLong);
-	}		
+
+	SetCheckTmu(33,SendData69833_mac,sizeof(SendData69833_mac),g_bPwdLong);
+		
 }
 
 //34
 void CFkSetDlg::OnButtonRdVer() 
 {
-	// TODO: Add your control notification handler code here
-	if(g_RtuType == TERMINAL_TYPE_FK)
-	{
-	
-	}
-	else
-	{
+
 		SetCheckTmu(34,SendData69834_ver,sizeof(SendData69834_ver),g_bPwdLong);
-	}		
+		
 }
 
 int CFkSetDlg::GetMeteraddr(int index,char *pAddr) 
@@ -2752,15 +2613,9 @@ void CFkSetDlg::OnReturnList(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CFkSetDlg::OnButtonDoor() 
 {
-	// TODO: Add your control notification handler code here
-		if(g_RtuType == TERMINAL_TYPE_FK)
-	{
-	
-	}
-	else
-	{
+
 		SetCheckTmu(35,SendData69835_door,sizeof(SendData69835_door),g_bPwdLong);
-	}		
+		
 }
 
 
