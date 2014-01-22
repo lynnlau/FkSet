@@ -13,25 +13,25 @@ Class2=CFkSetDlg
 Class3=CAboutDlg
 
 ResourceCount=12
-Resource1=IDD_DIALOG5
+Resource1=IDD_DIALOG1
 Resource2=IDR_MAINFRAME
-Resource3=IDD_DIALOG7
+Resource3=IDD_DIALOG3
 Class4=CSetTime
-Resource4=IDD_DIALOG1
+Resource4=IDD_DIALOG6
 Class5=CSetAlarm
-Resource5=IDD_DIALOGMAC
+Resource5=IDD_ABOUTBOX
 Class6=CSetIPAndPort
-Resource6=IDD_DIALOG6
+Resource6=IDD_FKSET_DIALOG
 Class7=CDLGSET
-Resource7=IDD_DIALOG4
+Resource7=IDD_DIALOG2
 Class8=CDlgCDMAPara
-Resource8=IDD_FKSET_DIALOG
+Resource8=IDD_DIALOGMAC
 Class9=CDlgSetParaF8
-Resource9=IDD_DIALOG3
+Resource9=IDD_DIALOG4
 Class10=CDlgMACSet
-Resource10=IDD_ABOUTBOX
+Resource10=IDD_DIALOG5
 Class11=CSetTermID
-Resource11=IDD_DIALOG2
+Resource11=IDD_DIALOG7
 Class12=CDlgCDMASeria
 Resource12=IDD_DIALOG8
 
@@ -149,11 +149,8 @@ Control72=IDC_BUTTON40,button,1342242816
 [DLG:IDD_DIALOG1]
 Type=1
 Class=CSetTime
-ControlCount=4
-Control1=IDOK,button,1342242817
-Control2=IDCANCEL,button,1342242816
-Control3=IDC_STATIC,static,1342308352
-Control4=IDC_COMBO1,combobox,1344339970
+ControlCount=1
+Control1=IDC_STATIC,static,1342308352
 
 [CLS:CSetTime]
 Type=0

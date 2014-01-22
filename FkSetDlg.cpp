@@ -5,7 +5,6 @@
 #include "FkSetDlg.h"
 
 #include "global.h"
-#include "SetTime.h"
 #include "SetAlarm.h"
 #include "SetIPAndPort.h"
 #include "DLGSET.h"
@@ -441,7 +440,7 @@ void CFkSetDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_COMBO_COM, m_ctlCom);
 	DDX_Control(pDX, IDC_LIST, m_AddressList);
 	//DDX_Text(pDX, IDC_EDIT_ACPORT, m_nAcPort);
-	DDV_MinMaxInt(pDX, m_nAcPort, 0, 32);
+	//DDV_MinMaxInt(pDX, m_nAcPort, 0, 32);
 	//DDX_Text(pDX, IDC_EDIT_4851, m_n4851Port);
 	DDV_MinMaxInt(pDX, m_n4851Port, 0, 32);
 	DDX_Text(pDX, IDC_EDITMT1, m_editmt1);
@@ -467,7 +466,7 @@ BEGIN_MESSAGE_MAP(CFkSetDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, OnButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, OnButton3)
-	//ON_BN_CLICKED(IDC_BUTTON4, OnButton4)
+	ON_BN_CLICKED(IDC_BUTTON4, OnButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, OnButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, OnButton6)
 	ON_BN_CLICKED(IDC_BUTTON7, OnButton7)
@@ -912,7 +911,7 @@ void CFkSetDlg::SetCheckTmu(unsigned char cType, unsigned char* pReport, unsigne
 
 			if(cType == 4)
 			{
-				pReport[18] = (unsigned char)param1;
+				//读取电池电压，代码待写。。。
 			}
 
 			if(cType == 7)
@@ -1450,17 +1449,11 @@ void CFkSetDlg::OnButton3()
 
 void CFkSetDlg::OnButton4() 
 {
-	// TODO: Add your control notification handler code here
-	CSetTime dlg;
 
-	if(dlg.DoModal() == IDOK)
-	{
-		int nMin = dlg.m_nMin;
-		if(g_RtuType == TERMINAL_TYPE_FK)
-			SetCheckTmu(4,SendData4,sizeof(SendData4) ,FALSE, (void*)nMin);
-		else
-			SetCheckTmu(4,SendData6984,sizeof(SendData6984) ,g_bPwdLong,(void*)nMin);
-	}
+	SetCheckTmu(4,SendData4,sizeof(SendData4) ,FALSE);
+
+	SetCheckTmu(4,SendData6984,sizeof(SendData6984) ,g_bPwdLong);
+
 }
 
 void CFkSetDlg::OnButton5() 
