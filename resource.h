@@ -103,14 +103,11 @@
 #define IDC_BUTTON29                    1052
 #define IDC_COMBO5                      1053
 #define IDC_BUTTON30                    1054
-#define IDC_COMBO6                      1055
-#define IDC_BUTTON31                    1056
 #define IDC_EDITMT1                     1057
 #define IDC_EDITMT2                     1058
 #define IDC_EDIT1                       1058
 #define IDC_EDIT_CDMAPWD                1058
 #define IDC_EDIT_INFO                   1058
-#define IDC_EDITMT3                     1059
 #define IDC_STATIC_INFO                 1059
 #define IDC_EDIT_CDMAUSR                1059
 #define IDC_EDIT8                       1059
@@ -127,6 +124,7 @@
 #define IDC_EDIT3                       1069
 #define IDC_EDIT4                       1070
 #define IDC_BUTTON39                    1070
+#define IDC_BUTTON_UPMODEM              1070
 #define IDC_EDIT5                       1071
 #define IDC_BUTTON40                    1071
 #define IDC_EDIT6                       1072

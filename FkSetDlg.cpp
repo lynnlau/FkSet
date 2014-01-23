@@ -420,7 +420,7 @@ CFkSetDlg::CFkSetDlg(CWnd* pParent /*=NULL*/)
 	m_n4851Port = 2;
 	m_editmt1 = _T("");
 	m_editmt2 = _T("");
-	m_editmt3 = _T("");
+	//m_editmt3 = _T("");
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -432,7 +432,7 @@ void CFkSetDlg::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CFkSetDlg)
 	//DDX_Control(pDX, IDC_COMBO_PLUSENUM, m_PluseNum);
 	DDX_Control(pDX, IDC_COMBO_PARITY, m_selParity);
-	DDX_Control(pDX, IDC_COMBO6, m_sel4853);
+	
 	DDX_Control(pDX, IDC_COMBO5, m_sel4852);
 	DDX_Control(pDX, IDC_COMBO4, m_sel4851);
 	DDX_Control(pDX, IDC_EDIT, m_ctlResult);
@@ -442,13 +442,12 @@ void CFkSetDlg::DoDataExchange(CDataExchange* pDX)
 	//DDX_Text(pDX, IDC_EDIT_ACPORT, m_nAcPort);
 	//DDV_MinMaxInt(pDX, m_nAcPort, 0, 32);
 	//DDX_Text(pDX, IDC_EDIT_4851, m_n4851Port);
-	DDV_MinMaxInt(pDX, m_n4851Port, 0, 32);
+	//DDV_MinMaxInt(pDX, m_n4851Port, 0, 32);
 	DDX_Text(pDX, IDC_EDITMT1, m_editmt1);
 	DDV_MaxChars(pDX, m_editmt1, 12);
 	DDX_Text(pDX, IDC_EDITMT2, m_editmt2);
 	DDV_MaxChars(pDX, m_editmt2, 12);
-	DDX_Text(pDX, IDC_EDITMT3, m_editmt3);
-	DDV_MaxChars(pDX, m_editmt3, 12);
+	
 	//}}AFX_DATA_MAP
 }
 
@@ -488,11 +487,11 @@ BEGIN_MESSAGE_MAP(CFkSetDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON22, OnButton22)
 	ON_BN_CLICKED(IDC_BUTTON23, OnButton23)
 	ON_BN_CLICKED(IDC_BUTTON24, OnButton24)
+	ON_BN_CLICKED(IDC_BUTTON25, OnButton25)
 	ON_BN_CLICKED(IDC_BUTTON26, OnButton26)
 	ON_BN_CLICKED(IDC_BUTTON27, OnButton27)
 	ON_BN_CLICKED(IDC_BUTTON29, OnButton29)
 	ON_BN_CLICKED(IDC_BUTTON30, OnButton30)
-	ON_BN_CLICKED(IDC_BUTTON31, OnButton31)
 	ON_BN_CLICKED(IDC_BUTTON28, OnButton28)
 	ON_BN_CLICKED(IDC_BUTTON32, OnButtonSetMac)
 	ON_BN_CLICKED(IDC_BUTTON35, OnButtonRdMac)
@@ -507,6 +506,7 @@ BEGIN_MESSAGE_MAP(CFkSetDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON37, OnButton37)
 	ON_BN_CLICKED(IDC_BUTTON_SETID, OnButtonSetid)
 	ON_BN_CLICKED(IDC_BUTTON38, OnButton38)
+	ON_BN_CLICKED(IDC_BUTTON_UPMODEM, OnButtonUpmodem)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1157,16 +1157,9 @@ void CFkSetDlg::SetCheckTmu(unsigned char cType, unsigned char* pReport, unsigne
 
 				//set edit
 				CTime tm = CTime::GetCurrentTime();
+				AddStr2Edit("\n");
 				strTmp.Format("串口发送(%d-%02d-%02d %02d:%02d:%02d):", tm.GetYear(), tm.GetMonth(), tm.GetDay(), tm.GetHour(), tm.GetMinute(), tm.GetSecond());
-				//AddStr2Edit(strTmp);
-
-				//strTmp = "";
-				//for( k = 0 ; k < templen ; k++)
-				//{
-					//strTmp1.Format("%c", (BYTE)m_conData.m_sendBuf[k]);
-					//strTmp1.Format("%02x", (BYTE)m_conData.m_sendBuf[k]);
-					//strTmp += strTmp1;
-				//}
+	
 				AddStr2Edit(strTmp);
 
 				strTmp = "";
@@ -1176,13 +1169,13 @@ void CFkSetDlg::SetCheckTmu(unsigned char cType, unsigned char* pReport, unsigne
 					strTmp += strTmp1;
 				}
 				AddStr2Edit(strTmp);
-//				AddStr2Edit("\r\n");
+
 				
 				
 
 				do 
 				{
-					tmp = WaitForSingleObject(m_conData.m_recEvent , 10000);
+					tmp = WaitForSingleObject(m_conData.m_recEvent ,6000);
 					
 					if(tmp == WAIT_TIMEOUT)
 					{
@@ -1210,7 +1203,7 @@ void CFkSetDlg::SetCheckTmu(unsigned char cType, unsigned char* pReport, unsigne
 			if(j == 1)
 			{
 				m_AddressList.SetItemText(i, 2, "发送数据超时.");
-				AfxMessageBox("发送数据超时.");
+				//AfxMessageBox("发送数据超时.");
 				EnableAllButton(1);
 				if (g_RtuType == TERMINAL_TYPE_FK)
 				{
@@ -1614,16 +1607,9 @@ void CFkSetDlg::OnButton15()
 
 void CFkSetDlg::OnButton16() 
 {
-	// TODO: Add your control notification handler code here
-	//SetCheckTmu(16,SendData16,sizeof(SendData16));
-		if(g_RtuType == TERMINAL_TYPE_FK)
-	{
-		SetCheckTmu(16,SendData16,sizeof(SendData16));
-	}
-	else
-	{
-		SetCheckTmu(16,SendData69816,sizeof(SendData69816),g_bPwdLong);
-	}
+	
+	SetCheckTmu(16,SendData69816,sizeof(SendData69816),g_bPwdLong);
+	
 }
 
 void CFkSetDlg::OnCheck1() 
@@ -2333,22 +2319,7 @@ void CFkSetDlg::OnButton30()
 }
 
 
-void CFkSetDlg::OnButton31() 
-{
 
-	SendData69829_4851[18] = m_sel4853.GetCurSel() + 1;
-
-	char straddr[6];
-	memset(straddr,0,6);
-	if (GetMeteraddr(3,straddr) < 0)
-	{
-		return;
-	}
-	memcpy(SendData69829_4851+29,straddr,6);
-
-	SetCheckTmu(31,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
-		
-}
 int CFkSetDlg::MakeSetMacFrame(BYTE *pReport,CString &strAddr)
 {
 
@@ -2549,10 +2520,7 @@ int CFkSetDlg::GetMeteraddr(int index,char *pAddr)
 		lenId = m_editmt2.GetLength();
 		strMtno.Format("%s",m_editmt2);
 		break;
-	case 3:
-		lenId = m_editmt3.GetLength();
-		strMtno.Format("%s",m_editmt3);
-		break;
+
 	}
 	CString strtmp = "";
 	if (lenId < 1)
@@ -2660,7 +2628,6 @@ void CFkSetDlg::OnButtonSetid()
 }
 void CFkSetDlg::OnButton38() 
 {
-	// TODO: Add your control notification handler code here
 
 	if(m_CDMAsERIA.DoModal() == IDOK)
 	{		
@@ -2679,4 +2646,10 @@ void CFkSetDlg::OnButton38()
 		
 	}	
 
+}
+
+void CFkSetDlg::OnButtonUpmodem() 
+{
+	// TODO: Add your control notification handler code here
+	
 }

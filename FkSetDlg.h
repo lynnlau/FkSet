@@ -38,7 +38,7 @@ public:
 	int		m_n4852Port;
 	CString	m_editmt1;
 	CString	m_editmt2;
-	CString	m_editmt3;
+	//CString	m_editmt3;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -100,7 +100,6 @@ protected:
 	afx_msg void OnButton27();
 	afx_msg void OnButton29();
 	afx_msg void OnButton30();
-	afx_msg void OnButton31();
 	afx_msg void OnButton28();
 	afx_msg void OnButtonSetMac();
 	afx_msg void OnButtonRdMac();
@@ -115,6 +114,8 @@ protected:
 	afx_msg void OnButton37();
 	afx_msg void OnButtonSetid();
 	afx_msg void OnButton38();
+	afx_msg void OnButton25();
+	afx_msg void OnButtonUpmodem();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

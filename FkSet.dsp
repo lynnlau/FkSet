@@ -152,10 +152,6 @@ SOURCE=.\SetTermID.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\SetTime.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\StdAfx.cpp
 # ADD CPP /Yc"stdafx.h"
 # End Source File
@@ -222,10 +218,6 @@ SOURCE=.\SetIPAndPort.h
 # Begin Source File
 
 SOURCE=.\SetTermID.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\SetTime.h
 # End Source File
 # Begin Source File
 
