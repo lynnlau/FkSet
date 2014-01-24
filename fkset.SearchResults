@@ -1,3 +1,2930 @@
----- SetCheckTmu(4, 匹配 (2 在 1 文件 ) ----
-FkSetDlg.cpp:1446:	SetCheckTmu(4,SendData4,sizeof(SendData4) ,FALSE);
-FkSetDlg.cpp:1448:	SetCheckTmu(4,SendData6984,sizeof(SendData6984) ,g_bPwdLong);
+---- i 匹配 (3983 在 28 文件 ) ----
+DlgCDMAPara.cpp:// DlgCDMAPara.cpp : implementation file
+DlgCDMAPara.cpp:#include "stdafx.h"
+DlgCDMAPara.cpp:#include "FkSet.h"
+DlgCDMAPara.cpp:#include "DlgCDMAPara.h"
+DlgCDMAPara.cpp:#include "global.h"
+DlgCDMAPara.cpp:#ifdef _DEBUG
+DlgCDMAPara.cpp:#define new DEBUG_NEW
+DlgCDMAPara.cpp:#undef THIS_FILE
+DlgCDMAPara.cpp:static char THIS_FILE[] = __FILE__;
+DlgCDMAPara.cpp:#endif
+DlgCDMAPara.cpp:// CDlgCDMAPara dialog
+DlgCDMAPara.cpp:	: CDialog(CDlgCDMAPara::IDD, pParent)
+DlgCDMAPara.cpp:	//{{AFX_DATA_INIT(CDlgCDMAPara)
+DlgCDMAPara.cpp:		// NOTE: the ClassWizard will add member initialization here
+DlgCDMAPara.cpp:	//}}AFX_DATA_INIT
+DlgCDMAPara.cpp:void CDlgCDMAPara::DoDataExchange(CDataExchange* pDX)
+DlgCDMAPara.cpp:	CDialog::DoDataExchange(pDX);
+DlgCDMAPara.cpp:	DDX_Control(pDX, IDC_EDIT_CDMAUSR, m_usr);
+DlgCDMAPara.cpp:	DDX_Control(pDX, IDC_EDIT_CDMAPWD, m_pwd);
+DlgCDMAPara.cpp:BEGIN_MESSAGE_MAP(CDlgCDMAPara, CDialog)
+DlgCDMAPara.cpp:void CDlgCDMAPara::OnOK() 
+DlgCDMAPara.cpp:	// TODO: Add extra validation here
+DlgCDMAPara.cpp:	SaveParamFile();
+DlgCDMAPara.cpp:	CDialog::OnOK();
+DlgCDMAPara.cpp:BOOL CDlgCDMAPara::OnInitDialog() 
+DlgCDMAPara.cpp:	CDialog::OnInitDialog();
+DlgCDMAPara.cpp:	if(LoadParamFile())
+DlgCDMAPara.cpp:		m_usr.SetWindowText(m_data.usr);
+DlgCDMAPara.cpp:		m_pwd.SetWindowText(m_data.pwd);
+DlgCDMAPara.cpp:	return TRUE;  // return TRUE unless you set the focus to a control	              // EXCEPTION: OCX Property Pages should return FALSE
+DlgCDMAPara.cpp:BOOL CDlgCDMAPara::LoadParamFile()
+DlgCDMAPara.cpp:	CFile f;
+DlgCDMAPara.cpp:	CFileException e;
+DlgCDMAPara.cpp:	if( !f.Open( path,CFile::modeReadWrite, &e ) )
+DlgCDMAPara.cpp:#ifdef _DEBUG
+DlgCDMAPara.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+DlgCDMAPara.cpp:#endif
+DlgCDMAPara.cpp:	f.Read(&m_data,sizeof(CDMAPara));	
+DlgCDMAPara.cpp:BOOL CDlgCDMAPara::SaveParamFile()
+DlgCDMAPara.cpp:	CFile f;
+DlgCDMAPara.cpp:	CFileException e;
+DlgCDMAPara.cpp:	CString strTmp;
+DlgCDMAPara.cpp:	if( !f.Open( path, CFile::modeCreate | CFile::modeReadWrite, &e ) )
+DlgCDMAPara.cpp:#ifdef _DEBUG
+DlgCDMAPara.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+DlgCDMAPara.cpp:#endif
+DlgCDMAPara.cpp:	m_usr.GetWindowText(strTmp);
+DlgCDMAPara.cpp:	m_pwd.GetWindowText(strTmp);
+DlgCDMAPara.cpp:	f.Write(&m_data,sizeof(CDMAPara));
+DlgCDMAPara.h:#if !defined(AFX_DLGCDMAPARA_H__3E7665C5_1308_44E8_90AF_16CE1D3F6878__INCLUDED_)
+DlgCDMAPara.h:#define AFX_DLGCDMAPARA_H__3E7665C5_1308_44E8_90AF_16CE1D3F6878__INCLUDED_
+DlgCDMAPara.h:#if _MSC_VER > 1000
+DlgCDMAPara.h:#endif // _MSC_VER > 1000
+DlgCDMAPara.h:// DlgCDMAPara.h : header file
+DlgCDMAPara.h:// CDlgCDMAPara dialog
+DlgCDMAPara.h:class CDlgCDMAPara : public CDialog
+DlgCDMAPara.h:// Construction
+DlgCDMAPara.h:public:
+DlgCDMAPara.h:// Dialog Data
+DlgCDMAPara.h:	enum { IDD = IDD_DIALOG4 };
+DlgCDMAPara.h:	CEdit	m_usr;
+DlgCDMAPara.h:	CEdit	m_pwd;
+DlgCDMAPara.h:// Overrides
+DlgCDMAPara.h:	// ClassWizard generated virtual function overrides
+DlgCDMAPara.h:	//{{AFX_VIRTUAL(CDlgCDMAPara)
+DlgCDMAPara.h:	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+DlgCDMAPara.h:	//}}AFX_VIRTUAL
+DlgCDMAPara.h:// Implementation
+DlgCDMAPara.h:	// Generated message map functions
+DlgCDMAPara.h:	virtual void OnOK();
+DlgCDMAPara.h:	virtual BOOL OnInitDialog();
+DlgCDMAPara.h:	BOOL LoadParamFile();
+DlgCDMAPara.h:	BOOL SaveParamFile();
+DlgCDMAPara.h://{{AFX_INSERT_LOCATION}}
+DlgCDMAPara.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+DlgCDMAPara.h:#endif // !defined(AFX_DLGCDMAPARA_H__3E7665C5_1308_44E8_90AF_16CE1D3F6878__INCLUDED_)
+DlgMACSet.cpp:// DlgMACSet.cpp : implementation file
+DlgMACSet.cpp:#include "stdafx.h"
+DlgMACSet.cpp:#include "FkSet.h"
+DlgMACSet.cpp:#include "DlgMACSet.h"
+DlgMACSet.cpp:#include "global.h"
+DlgMACSet.cpp:#ifdef _DEBUG
+DlgMACSet.cpp:#define new DEBUG_NEW
+DlgMACSet.cpp:#undef THIS_FILE
+DlgMACSet.cpp:static char THIS_FILE[] = __FILE__;
+DlgMACSet.cpp:#endif
+DlgMACSet.cpp:// CDlgMACSet dialog
+DlgMACSet.cpp:	: CDialog(CDlgMACSet::IDD, pParent)
+DlgMACSet.cpp:	//{{AFX_DATA_INIT(CDlgMACSet)
+DlgMACSet.cpp:		// NOTE: the ClassWizard will add member initialization here
+DlgMACSet.cpp:	//}}AFX_DATA_INIT
+DlgMACSet.cpp:void CDlgMACSet::DoDataExchange(CDataExchange* pDX)
+DlgMACSet.cpp:	CDialog::DoDataExchange(pDX);
+DlgMACSet.cpp:		// NOTE: the ClassWizard will add DDX and DDV calls here
+DlgMACSet.cpp:BEGIN_MESSAGE_MAP(CDlgMACSet, CDialog)
+DlgMACSet.cpp:　　GetPrivateProfileInt() 从私有初始化文件获取整型数值
+DlgMACSet.cpp:　　GetPrivateProfileString() 从私有初始化文件获取字符串型值
+DlgMACSet.cpp:　　GetProfileInt 从win.ini 获取整数值
+DlgMACSet.cpp:　　GetProfileString 从win.ini 获取字符串值
+DlgMACSet.cpp:　　WritePrivateProfileString 写字符串到私有初始化文件
+DlgMACSet.cpp:　　WriteProfileString 写字符串到win.ini
+DlgMACSet.cpp:void CDlgMACSet::LoadPara() 
+DlgMACSet.cpp:	strcat(path,"setting.ini");
+DlgMACSet.cpp:	int Result ;
+DlgMACSet.cpp://	Result	= GetPrivateProfileInt("SET_MAC_ADDR","START_TERM_ADDR",4369,path);
+DlgMACSet.cpp:	Result	= GetPrivateProfileInt("SET_MAC_ADDR","ADDR_IS_BCD",0,path);
+DlgMACSet.cpp:	m_para.bAddrIsBCD=Result?TRUE:FALSE;
+DlgMACSet.cpp:	if(	m_para.bAddrIsBCD)
+DlgMACSet.cpp:		((CButton*)GetDlgItem(IDC_RADIO1))->SetCheck(0);
+DlgMACSet.cpp:		((CButton*)GetDlgItem(IDC_RADIO2))->SetCheck(1);	
+DlgMACSet.cpp:		((CButton*)GetDlgItem(IDC_RADIO3))->SetCheck(0);
+DlgMACSet.cpp:		((CButton*)GetDlgItem(IDC_RADIO1))->SetCheck(0);
+DlgMACSet.cpp:		((CButton*)GetDlgItem(IDC_RADIO2))->SetCheck(0);	
+DlgMACSet.cpp:		((CButton*)GetDlgItem(IDC_RADIO3))->SetCheck(1);
+DlgMACSet.cpp:	GetPrivateProfileString("SET_MAC_ADDR","START_TERM_ADDR","111104369",m_para.szStratTermAddr,13,path);
+DlgMACSet.cpp:	SetDlgItemText(IDC_EDIT1,m_para.szStratTermAddr);
+DlgMACSet.cpp:	m_para.dwTermNumber	= GetPrivateProfileInt("SET_MAC_ADDR","TERM_NUMBER",1,path);
+DlgMACSet.cpp:	SetDlgItemInt(IDC_EDIT8,m_para.dwTermNumber);	
+DlgMACSet.cpp:	GetPrivateProfileString("SET_MAC_ADDR","START_MAC_ADDR","3C081E000001",m_para.szStratMAC,13,path);
+DlgMACSet.cpp:	SetDlgItemText(IDC_EDIT10,m_para.szStratMAC);
+DlgMACSet.cpp:void CDlgMACSet::SavePara() 
+DlgMACSet.cpp:	strcat(path,"setting.ini");
+DlgMACSet.cpp:	//	Result	= GetPrivateProfileInt("SET_MAC_ADDR","START_TERM_ADDR",4369,path);
+DlgMACSet.cpp:	if(	((CButton*)GetDlgItem(IDC_RADIO2))->GetCheck())
+DlgMACSet.cpp:		m_para.bAddrIsBCD=TRUE;
+DlgMACSet.cpp:		m_para.bAddrIsBCD=FALSE;
+DlgMACSet.cpp:	sprintf(szTemp,"%d",m_para.bAddrIsBCD);
+DlgMACSet.cpp:	WritePrivateProfileString("SET_MAC_ADDR","ADDR_IS_BCD",szTemp,path);	
+DlgMACSet.cpp:	GetDlgItemText(IDC_EDIT1,m_para.szStratTermAddr,12);
+DlgMACSet.cpp:	WritePrivateProfileString("SET_MAC_ADDR","START_TERM_ADDR",m_para.szStratTermAddr,path);
+DlgMACSet.cpp:	GetDlgItemText(IDC_EDIT8,szTemp,10);
+DlgMACSet.cpp:	m_para.dwTermNumber =atoi(szTemp);
+DlgMACSet.cpp:	WritePrivateProfileString("SET_MAC_ADDR","TERM_NUMBER",szTemp,path);
+DlgMACSet.cpp:	GetDlgItemText(IDC_EDIT10,m_para.szStratMAC,13);
+DlgMACSet.cpp:	WritePrivateProfileString("SET_MAC_ADDR","START_MAC_ADDR",m_para.szStratMAC,path);
+DlgMACSet.cpp:void CDlgMACSet::OnOK() 
+DlgMACSet.cpp:	// TODO: Add extra validation here
+DlgMACSet.cpp:	CDialog::OnOK();
+DlgMACSet.cpp:BOOL CDlgMACSet::OnInitDialog() 
+DlgMACSet.cpp:	CDialog::OnInitDialog();
+DlgMACSet.cpp:	// TODO: Add extra initialization here
+DlgMACSet.cpp:	              // EXCEPTION: OCX Property Pages should return FALSE
+DlgMACSet.h:#if !defined(AFX_DLGMACSET_H__73723742_2D36_4BDC_B8FA_5537F285F5EE__INCLUDED_)
+DlgMACSet.h:#define AFX_DLGMACSET_H__73723742_2D36_4BDC_B8FA_5537F285F5EE__INCLUDED_
+DlgMACSet.h:#if _MSC_VER > 1000
+DlgMACSet.h:#endif // _MSC_VER > 1000
+DlgMACSet.h:// DlgMACSet.h : header file
+DlgMACSet.h:// CDlgMACSet dialog
+DlgMACSet.h:typedef struct tagMACInfo
+DlgMACSet.h:	BOOL bAddrIsBCD;
+DlgMACSet.h:}MACParaInfo;
+DlgMACSet.h:class CDlgMACSet : public CDialog
+DlgMACSet.h:// Construction
+DlgMACSet.h:public:
+DlgMACSet.h:// Dialog Data
+DlgMACSet.h:	enum { IDD = IDD_DIALOG6 };
+DlgMACSet.h:		// NOTE: the ClassWizard will add data members here
+DlgMACSet.h:// Overrides
+DlgMACSet.h:	// ClassWizard generated virtual function overrides
+DlgMACSet.h:	//{{AFX_VIRTUAL(CDlgMACSet)
+DlgMACSet.h:	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+DlgMACSet.h:	//}}AFX_VIRTUAL
+DlgMACSet.h:// Implementation
+DlgMACSet.h:	// Generated message map functions
+DlgMACSet.h:	virtual void OnOK();
+DlgMACSet.h:	virtual BOOL OnInitDialog();
+DlgMACSet.h:public:
+DlgMACSet.h:	MACParaInfo m_para;
+DlgMACSet.h:	void LoadPara();
+DlgMACSet.h:	void SavePara();
+DlgMACSet.h://{{AFX_INSERT_LOCATION}}
+DlgMACSet.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+DlgMACSet.h:#endif // !defined(AFX_DLGMACSET_H__73723742_2D36_4BDC_B8FA_5537F285F5EE__INCLUDED_)
+DLGSET.cpp:// DLGSET.cpp : implementation file
+DLGSET.cpp:#include "stdafx.h"
+DLGSET.cpp:#include "FkSet.h"
+DLGSET.cpp:#include "DLGSET.h"
+DLGSET.cpp:#include "global.h"
+DLGSET.cpp:#ifdef _DEBUG
+DLGSET.cpp:#define new DEBUG_NEW
+DLGSET.cpp:#undef THIS_FILE
+DLGSET.cpp:static char THIS_FILE[] = __FILE__;
+DLGSET.cpp:#endif
+DLGSET.cpp:extern unsigned char g_mac[6];
+DLGSET.cpp:// CDLGSET dialog
+DLGSET.cpp:	: CDialog(CDLGSET::IDD, pParent)
+DLGSET.cpp:	//{{AFX_DATA_INIT(CDLGSET)
+DLGSET.cpp:	//}}AFX_DATA_INIT
+DLGSET.cpp:void CDLGSET::DoDataExchange(CDataExchange* pDX)
+DLGSET.cpp:	CDialog::DoDataExchange(pDX);
+DLGSET.cpp:	DDX_Text(pDX, IDC_EDIT2, m_mac1);
+DLGSET.cpp:	DDX_Text(pDX, IDC_EDIT3, m_mac2);
+DLGSET.cpp:	DDX_Text(pDX, IDC_EDIT4, m_mac3);
+DLGSET.cpp:	DDX_Text(pDX, IDC_EDIT5, m_mac4);
+DLGSET.cpp:	DDX_Text(pDX, IDC_EDIT6, m_mac5);
+DLGSET.cpp:	DDX_Text(pDX, IDC_EDIT7, m_mac6);
+DLGSET.cpp:BEGIN_MESSAGE_MAP(CDLGSET, CDialog)
+DLGSET.cpp:void CDLGSET::OnOK() 
+DLGSET.cpp:	// TODO: Add extra validation here
+DLGSET.cpp:	memset(m_strMac,0,sizeof(m_strMac));
+DLGSET.cpp:#if 0
+DLGSET.cpp:	CString strTmp;
+DLGSET.cpp:	GetDlgItem(IDC_EDIT2)->GetWindowText(strTmp);
+DLGSET.cpp:	GetDlgItem(IDC_EDIT3)->GetWindowText(strTmp);
+DLGSET.cpp:	GetDlgItem(IDC_EDIT4)->GetWindowText(strTmp);
+DLGSET.cpp:	GetDlgItem(IDC_EDIT5)->GetWindowText(strTmp);
+DLGSET.cpp:	GetDlgItem(IDC_EDIT6)->GetWindowText(strTmp);
+DLGSET.cpp:	GetDlgItem(IDC_EDIT7)->GetWindowText(strTmp);
+DLGSET.cpp:	for (int i =0;i<6;i++)
+DLGSET.cpp:		if (m_strMac[i] == 0x00)
+DLGSET.cpp:		g_mac[i] = m_strMac[i];
+DLGSET.cpp:#endif	
+DLGSET.cpp:	this->UpdateData(TRUE);
+DLGSET.cpp:	for (int i =0;i<6;i++)
+DLGSET.cpp:		g_mac[i] = m_strMac[i];
+DLGSET.cpp:	CFile f;
+DLGSET.cpp:	CFileException e;
+DLGSET.cpp:	CString strTmp;
+DLGSET.cpp:	if( !f.Open( path, CFile::modeCreate | CFile::modeReadWrite, &e ) )
+DLGSET.cpp:#ifdef _DEBUG
+DLGSET.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+DLGSET.cpp:#endif
+DLGSET.cpp:	f.Write(g_mac,6);
+DLGSET.cpp:	CDialog::OnOK();
+DLGSET.cpp:BOOL CDLGSET::OnInitDialog() 
+DLGSET.cpp:	CDialog::OnInitDialog();
+DLGSET.cpp:	// TODO: Add extra initialization here
+DLGSET.cpp:	CFile f;
+DLGSET.cpp:	CFileException e;
+DLGSET.cpp:	if( !f.Open( path,CFile::modeReadWrite, &e ) )
+DLGSET.cpp:#ifdef _DEBUG
+DLGSET.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+DLGSET.cpp:#endif
+DLGSET.cpp:	this->UpdateData(FALSE);
+DLGSET.cpp:	              // EXCEPTION: OCX Property Pages should return FALSE
+DLGSET.h:#if !defined(AFX_DLGSET_H__CB89FB71_7B37_49B0_B90F_53612C17E405__INCLUDED_)
+DLGSET.h:#define AFX_DLGSET_H__CB89FB71_7B37_49B0_B90F_53612C17E405__INCLUDED_
+DLGSET.h:#if _MSC_VER > 1000
+DLGSET.h:#endif // _MSC_VER > 1000
+DLGSET.h:// DLGSET.h : header file
+DLGSET.h:// CDLGSET dialog
+DLGSET.h:extern unsigned char g_mac[6];
+DLGSET.h:class CDLGSET : public CDialog
+DLGSET.h:// Construction
+DLGSET.h:public:
+DLGSET.h:// Dialog Data
+DLGSET.h:	enum { IDD = IDD_DIALOGMAC };
+DLGSET.h:	CString	m_mac1;
+DLGSET.h:	CString	m_mac2;
+DLGSET.h:	CString	m_mac3;
+DLGSET.h:	CString	m_mac4;
+DLGSET.h:	CString	m_mac5;
+DLGSET.h:	CString	m_mac6;
+DLGSET.h:	unsigned char m_strMac[10];
+DLGSET.h:// Overrides
+DLGSET.h:	// ClassWizard generated virtual function overrides
+DLGSET.h:	//{{AFX_VIRTUAL(CDLGSET)
+DLGSET.h:	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+DLGSET.h:	//}}AFX_VIRTUAL
+DLGSET.h:// Implementation
+DLGSET.h:	// Generated message map functions
+DLGSET.h:	virtual void OnOK();
+DLGSET.h:	virtual BOOL OnInitDialog();
+DLGSET.h:	BOOL LoadParamFile();
+DLGSET.h:	BOOL SaveParamFile();
+DLGSET.h://{{AFX_INSERT_LOCATION}}
+DLGSET.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+DLGSET.h:#endif // !defined(AFX_DLGSET_H__CB89FB71_7B37_49B0_B90F_53612C17E405__INCLUDED_)
+DlgSetParaF8.cpp:// DlgSetParaF8.cpp : implementation file
+DlgSetParaF8.cpp:#include "stdafx.h"
+DlgSetParaF8.cpp:#include "FkSet.h"
+DlgSetParaF8.cpp:#include "DlgSetParaF8.h"
+DlgSetParaF8.cpp:#include "Global.h"
+DlgSetParaF8.cpp:#ifdef _DEBUG
+DlgSetParaF8.cpp:#define new DEBUG_NEW
+DlgSetParaF8.cpp:#undef THIS_FILE
+DlgSetParaF8.cpp:static char THIS_FILE[] = __FILE__;
+DlgSetParaF8.cpp:#endif
+DlgSetParaF8.cpp:// CDlgSetParaF8 dialog
+DlgSetParaF8.cpp:	: CDialog(CDlgSetParaF8::IDD, pParent)
+DlgSetParaF8.cpp:	//{{AFX_DATA_INIT(CDlgSetParaF8)
+DlgSetParaF8.cpp:		// NOTE: the ClassWizard will add member initialization here
+DlgSetParaF8.cpp:	//}}AFX_DATA_INIT
+DlgSetParaF8.cpp:void CDlgSetParaF8::DoDataExchange(CDataExchange* pDX)
+DlgSetParaF8.cpp:	CDialog::DoDataExchange(pDX);
+DlgSetParaF8.cpp:		// NOTE: the ClassWizard will add DDX and DDV calls here
+DlgSetParaF8.cpp:BEGIN_MESSAGE_MAP(CDlgSetParaF8, CDialog)
+DlgSetParaF8.cpp:	ON_BN_CLICKED(IDOK, OnSet)
+DlgSetParaF8.cpp:	ON_BN_CLICKED(IDC_BUTTON1, OnRead)
+DlgSetParaF8.cpp:BOOL CDlgSetParaF8::OnInitDialog()
+DlgSetParaF8.cpp:	CDialog::OnInitDialog();
+DlgSetParaF8.cpp:	LoadParamFile();
+DlgSetParaF8.cpp:	((CComboBox*)GetDlgItem(IDC_COMBO2))->SetCurSel(m_para.nTypeOnLine-1); 
+DlgSetParaF8.cpp:	((CComboBox*)GetDlgItem(IDC_COMBO1))->SetCurSel(m_para.nTypeClientSvr); 
+DlgSetParaF8.cpp:	((CComboBox*)GetDlgItem(IDC_COMBO3))->SetCurSel(m_para.nTypeTCPUDP);
+DlgSetParaF8.cpp:	SetDlgItemInt(IDC_EDIT1,m_para.nIntervalForever);
+DlgSetParaF8.cpp:	SetDlgItemInt(IDC_EDIT2,m_para.nRetryPassive);
+DlgSetParaF8.cpp:	SetDlgItemInt(IDC_EDIT3,m_para.nIntervalPassive);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK1))->SetCheck((m_para.nFlgOnline>>0)&1); 
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK2))->SetCheck((m_para.nFlgOnline>>1)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK3))->SetCheck((m_para.nFlgOnline>>2)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK4))->SetCheck((m_para.nFlgOnline>>3)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK5))->SetCheck((m_para.nFlgOnline>>4)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK6))->SetCheck((m_para.nFlgOnline>>5)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK7))->SetCheck((m_para.nFlgOnline>>6)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK8))->SetCheck((m_para.nFlgOnline>>7)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK9))->SetCheck((m_para.nFlgOnline>>8)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK10))->SetCheck((m_para.nFlgOnline>>9)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK11))->SetCheck((m_para.nFlgOnline>>10)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK12))->SetCheck((m_para.nFlgOnline>>11)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK13))->SetCheck((m_para.nFlgOnline>>12)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK14))->SetCheck((m_para.nFlgOnline>>13)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK15))->SetCheck((m_para.nFlgOnline>>14)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK16))->SetCheck((m_para.nFlgOnline>>15)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK17))->SetCheck((m_para.nFlgOnline>>16)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK18))->SetCheck((m_para.nFlgOnline>>17)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK19))->SetCheck((m_para.nFlgOnline>>18)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK20))->SetCheck((m_para.nFlgOnline>>19)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK21))->SetCheck((m_para.nFlgOnline>>20)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK22))->SetCheck((m_para.nFlgOnline>>21)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK23))->SetCheck((m_para.nFlgOnline>>22)&1);
+DlgSetParaF8.cpp:	((CButton*)GetDlgItem(IDC_CHECK24))->SetCheck((m_para.nFlgOnline>>23)&1);
+DlgSetParaF8.cpp:BOOL CDlgSetParaF8::LoadParamFile()
+DlgSetParaF8.cpp:	CFile f;
+DlgSetParaF8.cpp:	CFileException e;
+DlgSetParaF8.cpp:	if( !f.Open( path,CFile::modeReadWrite, &e ) )
+DlgSetParaF8.cpp:#ifdef _DEBUG
+DlgSetParaF8.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+DlgSetParaF8.cpp:#endif
+DlgSetParaF8.cpp:		m_para.nTypeOnLine=1; //
+DlgSetParaF8.cpp:		m_para.nTypeClientSvr=1;
+DlgSetParaF8.cpp:		m_para.nIntervalForever=3600;
+DlgSetParaF8.cpp:		m_para.nRetryPassive=3;
+DlgSetParaF8.cpp:		m_para.nIntervalPassive=1;
+DlgSetParaF8.cpp:		m_para.nFlgOnline = 0xFFFFFF;
+DlgSetParaF8.cpp:	f.Read(&m_para,sizeof(F8Para));	
+DlgSetParaF8.cpp:BOOL CDlgSetParaF8::SaveParamFile()
+DlgSetParaF8.cpp:	CFile f;
+DlgSetParaF8.cpp:	CFileException e;
+DlgSetParaF8.cpp:	CString strTmp;
+DlgSetParaF8.cpp:	if( !f.Open( path, CFile::modeCreate | CFile::modeReadWrite, &e ) )
+DlgSetParaF8.cpp:#ifdef _DEBUG
+DlgSetParaF8.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+DlgSetParaF8.cpp:#endif
+DlgSetParaF8.cpp:	m_para.nTypeOnLine = ((CComboBox*)GetDlgItem(IDC_COMBO2))->GetCurSel()+1; 
+DlgSetParaF8.cpp:	m_para.nTypeClientSvr = ((CComboBox*)GetDlgItem(IDC_COMBO1))->GetCurSel(); 
+DlgSetParaF8.cpp:	m_para.nTypeTCPUDP = ((CComboBox*)GetDlgItem(IDC_COMBO3))->GetCurSel();
+DlgSetParaF8.cpp:	m_para.nIntervalForever=GetDlgItemInt(IDC_EDIT1);
+DlgSetParaF8.cpp:	m_para.nRetryPassive=GetDlgItemInt(IDC_EDIT2);
+DlgSetParaF8.cpp:	m_para.nIntervalPassive=GetDlgItemInt(IDC_EDIT3);
+DlgSetParaF8.cpp:	int nIDs[]={
+DlgSetParaF8.cpp:		IDC_CHECK1,
+DlgSetParaF8.cpp:		IDC_CHECK2,
+DlgSetParaF8.cpp:		IDC_CHECK3,
+DlgSetParaF8.cpp:		IDC_CHECK4,
+DlgSetParaF8.cpp:		IDC_CHECK5,
+DlgSetParaF8.cpp:		IDC_CHECK6,
+DlgSetParaF8.cpp:		IDC_CHECK7,
+DlgSetParaF8.cpp:		IDC_CHECK8,
+DlgSetParaF8.cpp:		IDC_CHECK9,
+DlgSetParaF8.cpp:		IDC_CHECK10,
+DlgSetParaF8.cpp:		IDC_CHECK11,
+DlgSetParaF8.cpp:		IDC_CHECK12,
+DlgSetParaF8.cpp:		IDC_CHECK13,
+DlgSetParaF8.cpp:		IDC_CHECK14,
+DlgSetParaF8.cpp:		IDC_CHECK15,
+DlgSetParaF8.cpp:		IDC_CHECK16,
+DlgSetParaF8.cpp:		IDC_CHECK17,
+DlgSetParaF8.cpp:		IDC_CHECK18,
+DlgSetParaF8.cpp:		IDC_CHECK19,
+DlgSetParaF8.cpp:		IDC_CHECK20,
+DlgSetParaF8.cpp:		IDC_CHECK21,
+DlgSetParaF8.cpp:		IDC_CHECK22,
+DlgSetParaF8.cpp:		IDC_CHECK23,
+DlgSetParaF8.cpp:		IDC_CHECK24,
+DlgSetParaF8.cpp:	int i;
+DlgSetParaF8.cpp:	m_para.nFlgOnline = 0;
+DlgSetParaF8.cpp:	for(i = 0; i < 24; i++)
+DlgSetParaF8.cpp:		int nChk = ((CButton*)GetDlgItem(nIDs[i]))->GetCheck();
+DlgSetParaF8.cpp:		if(nChk)
+DlgSetParaF8.cpp:			m_para.nFlgOnline |= (1 << i);
+DlgSetParaF8.cpp:	f.Write(&m_para,sizeof(F8Para));
+DlgSetParaF8.cpp:void CDlgSetParaF8::OnCancel() 
+DlgSetParaF8.cpp:	SaveParamFile();
+DlgSetParaF8.cpp:	CDialog::OnCancel();
+DlgSetParaF8.cpp:void CDlgSetParaF8::OnRead() 
+DlgSetParaF8.cpp:	// TODO: Add your control notification handler code here
+DlgSetParaF8.cpp:	SaveParamFile();
+DlgSetParaF8.cpp:void CDlgSetParaF8::OnSet() 
+DlgSetParaF8.cpp:	// TODO: Add your control notification handler code here
+DlgSetParaF8.cpp:	SaveParamFile();
+DlgSetParaF8.h:#if !defined(AFX_DLGSETPARAF8_H__4620FDAE_6FE0_47C2_9329_EDFC9C057E2F__INCLUDED_)
+DlgSetParaF8.h:#define AFX_DLGSETPARAF8_H__4620FDAE_6FE0_47C2_9329_EDFC9C057E2F__INCLUDED_
+DlgSetParaF8.h:#if _MSC_VER > 1000
+DlgSetParaF8.h:#endif // _MSC_VER > 1000
+DlgSetParaF8.h:// DlgSetParaF8.h : header file
+DlgSetParaF8.h:// CDlgSetParaF8 dialog
+DlgSetParaF8.h:	BYTE nTypeOnLine:2; //
+DlgSetParaF8.h:	BYTE nTypeClientSvr:2;
+DlgSetParaF8.h:	WORD nIntervalForever;
+DlgSetParaF8.h:	BYTE nRetryPassive;
+DlgSetParaF8.h:	BYTE nIntervalPassive;
+DlgSetParaF8.h:	DWORD nFlgOnline;
+DlgSetParaF8.h:class CDlgSetParaF8 : public CDialog
+DlgSetParaF8.h:// Construction
+DlgSetParaF8.h:public:
+DlgSetParaF8.h:	BOOL LoadParamFile();
+DlgSetParaF8.h:	BOOL SaveParamFile();
+DlgSetParaF8.h:// Dialog Data
+DlgSetParaF8.h:	enum { IDD = IDD_DIALOG5 };
+DlgSetParaF8.h:		// NOTE: the ClassWizard will add data members here
+DlgSetParaF8.h:// Overrides
+DlgSetParaF8.h:	// ClassWizard generated virtual function overrides
+DlgSetParaF8.h:	//{{AFX_VIRTUAL(CDlgSetParaF8)
+DlgSetParaF8.h:	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+DlgSetParaF8.h:	//}}AFX_VIRTUAL
+DlgSetParaF8.h:// Implementation
+DlgSetParaF8.h:	// Generated message map functions
+DlgSetParaF8.h:		virtual BOOL OnInitDialog();
+DlgSetParaF8.h:	afx_msg void OnSet();
+DlgSetParaF8.h:	virtual void OnCancel();
+DlgSetParaF8.h:	afx_msg void OnRead();
+DlgSetParaF8.h://{{AFX_INSERT_LOCATION}}
+DlgSetParaF8.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+DlgSetParaF8.h:#endif // !defined(AFX_DLGSETPARAF8_H__4620FDAE_6FE0_47C2_9329_EDFC9C057E2F__INCLUDED_)
+EditListCtrl.cpp:// EditListCtrl.cpp : implementation file
+EditListCtrl.cpp:#include "stdafx.h"
+EditListCtrl.cpp:#include "EditListCtrl.h"
+EditListCtrl.cpp:#include <windowsx.h>
+EditListCtrl.cpp:#ifdef _DEBUG
+EditListCtrl.cpp:#define new DEBUG_NEW
+EditListCtrl.cpp:#undef THIS_FILE
+EditListCtrl.cpp:static char THIS_FILE[] = __FILE__;
+EditListCtrl.cpp:#endif
+EditListCtrl.cpp:#define IDC_EDIT  0X01
+EditListCtrl.cpp:#define PROPERTY_ITEM 0x02
+EditListCtrl.cpp:#define PROPERTY_SUB  0x03
+EditListCtrl.cpp:// CEditListCtrl
+EditListCtrl.cpp:CEditListCtrl::CEditListCtrl()
+EditListCtrl.cpp:   m_edit.m_hWnd = NULL;	
+EditListCtrl.cpp:CEditListCtrl::~CEditListCtrl()
+EditListCtrl.cpp:BEGIN_MESSAGE_MAP(CEditListCtrl, CListCtrl)
+EditListCtrl.cpp:	//{{AFX_MSG_MAP(CEditListCtrl)
+EditListCtrl.cpp:	ON_WM_PARENTNOTIFY()
+EditListCtrl.cpp:	ON_MESSAGE(WM_USER_EDIT_END,OnEditEnd)
+EditListCtrl.cpp:void CEditListCtrl::OnLButtonDblClk(UINT nFlags, CPoint point) 
+EditListCtrl.cpp:	LVHITTESTINFO lvhti;
+EditListCtrl.cpp:    lvhti.pt = point;
+EditListCtrl.cpp:	int nItem = CListCtrl::SubItemHitTest(&lvhti);
+EditListCtrl.cpp:	if(nItem == -1)
+EditListCtrl.cpp:	int nSubItem = lvhti.iSubItem;
+EditListCtrl.cpp:	CListCtrl::GetSubItemRect(nItem,nSubItem,LVIR_LABEL,rcCtrl); 
+EditListCtrl.cpp:    ShowEdit(TRUE,nItem,nSubItem,rcCtrl);
+EditListCtrl.cpp:	CListCtrl::OnLButtonDblClk(nFlags, point);
+EditListCtrl.cpp:void CEditListCtrl::ShowEdit(BOOL bShow,int nItem,int nIndex,CRect rcCtrl)
+EditListCtrl.cpp:    if(m_edit.m_hWnd == NULL)
+EditListCtrl.cpp:		m_edit.Create(ES_AUTOHSCROLL|WS_CHILD|ES_LEFT|ES_WANTRETURN|WS_BORDER,CRect(0,0,0,0),this,IDC_EDIT);
+EditListCtrl.cpp:		m_edit.ShowWindow(SW_HIDE);
+EditListCtrl.cpp:		tpFont.CreateStockObject(DEFAULT_GUI_FONT);
+EditListCtrl.cpp:		m_edit.SetFont(&tpFont);
+EditListCtrl.cpp:	if(bShow == TRUE)
+EditListCtrl.cpp:		CString strItem = CListCtrl::GetItemText(nItem,nIndex);
+EditListCtrl.cpp:		m_edit.MoveWindow(rcCtrl);
+EditListCtrl.cpp:		m_edit.ShowWindow(SW_SHOW);
+EditListCtrl.cpp:		m_edit.SetWindowText(strItem);
+EditListCtrl.cpp:		::SetFocus(m_edit.GetSafeHwnd());
+EditListCtrl.cpp:		m_edit.SetSel(-1);  
+EditListCtrl.cpp:		m_edit.SetCtrlData(MAKEWPARAM(nIndex,nItem));	
+EditListCtrl.cpp:		m_edit.ShowWindow(SW_HIDE);
+EditListCtrl.cpp:void CEditListCtrl::OnEditEnd(WPARAM wParam,LPARAM lParam)
+EditListCtrl.cpp:	if(wParam == TRUE)
+EditListCtrl.cpp:		CString strText(_T(""));
+EditListCtrl.cpp:		m_edit.GetWindowText(strText);
+EditListCtrl.cpp:		DWORD dwData = m_edit.GetCtrlData();
+EditListCtrl.cpp:		int nItem= dwData>>16;
+EditListCtrl.cpp:		int nIndex = dwData&0x0000ffff;
+EditListCtrl.cpp:		CListCtrl::SetItemText(nItem,nIndex,strText);
+EditListCtrl.cpp:    if(lParam == FALSE)
+EditListCtrl.cpp:	    m_edit.ShowWindow(SW_HIDE);
+EditListCtrl.cpp:void CEditListCtrl::OnParentNotify(UINT message, LPARAM lParam) 
+EditListCtrl.cpp:	CListCtrl::OnParentNotify(message, lParam);
+EditListCtrl.cpp:	CHeaderCtrl* pHeaderCtrl = CListCtrl::GetHeaderCtrl();
+EditListCtrl.cpp:	if(pHeaderCtrl == NULL)
+EditListCtrl.cpp:	pHeaderCtrl->GetWindowRect(rcHeader);
+EditListCtrl.cpp:	ScreenToClient(rcHeader);
+EditListCtrl.cpp:	//The x coordinate is in the low-order word and the y coordinate is in the high-order word.
+EditListCtrl.cpp:	CPoint pt;
+EditListCtrl.cpp:	if(rcHeader.PtInRect(pt) && message == WM_LBUTTONDOWN)
+EditListCtrl.cpp:		if(m_edit.m_hWnd != NULL)
+EditListCtrl.cpp:			DWORD dwStyle = m_edit.GetStyle();
+EditListCtrl.cpp:			if((dwStyle&WS_VISIBLE) == WS_VISIBLE)
+EditListCtrl.cpp:				m_edit.ShowWindow(SW_HIDE);
+EditListCtrl.cpp:BOOL CEditListCtrl::PreTranslateMessage(MSG* pMsg) 
+EditListCtrl.cpp:	if(pMsg->message == WM_KEYDOWN)
+EditListCtrl.cpp:		if(pMsg->wParam == VK_TAB && m_edit.m_hWnd!= NULL)
+EditListCtrl.cpp:		 	DWORD dwStyle = m_edit.GetStyle();
+EditListCtrl.cpp:			if((dwStyle&WS_VISIBLE) == WS_VISIBLE)
+EditListCtrl.cpp:			     OnEditEnd(TRUE,TRUE);
+EditListCtrl.cpp:				 int nItem;
+EditListCtrl.cpp:				 int nSub;
+EditListCtrl.cpp:				 if(FALSE == Key_Ctrl(nItem,nSub))
+EditListCtrl.cpp:                    Key_Shift(nItem,nSub);
+EditListCtrl.cpp:                 CListCtrl::GetSubItemRect(nItem,nSub,LVIR_LABEL,rcCtrl); 
+EditListCtrl.cpp:				 CPoint pt(rcCtrl.left+1,rcCtrl.top+1);
+EditListCtrl.cpp:				 POSITION pos = CListCtrl::GetFirstSelectedItemPosition();
+EditListCtrl.cpp:				 if (pos == NULL)
+EditListCtrl.cpp:					 while (pos)
+EditListCtrl.cpp:						 int ntpItem = CListCtrl::GetNextSelectedItem(pos);
+EditListCtrl.cpp:						 CListCtrl::SetItemState(ntpItem,0,LVIS_SELECTED);
+EditListCtrl.cpp:				 CListCtrl::SetItemState(nItem,  LVIS_SELECTED,  LVIS_SELECTED);
+EditListCtrl.cpp:	return CListCtrl::PreTranslateMessage(pMsg);
+EditListCtrl.cpp:BOOL CEditListCtrl::Key_Shift(int& nItem,int& nSub)
+EditListCtrl.cpp:	int nItemCount = CListCtrl::GetItemCount();
+EditListCtrl.cpp:	DWORD dwData = m_edit.GetCtrlData();
+EditListCtrl.cpp:	nItem= dwData>>16;
+EditListCtrl.cpp:	CHeaderCtrl* pHeader = CListCtrl::GetHeaderCtrl();
+EditListCtrl.cpp:	if(pHeader == NULL)
+EditListCtrl.cpp:	short sRet = GetKeyState(VK_SHIFT);
+EditListCtrl.cpp:	int nSubcCount = pHeader->GetItemCount();
+EditListCtrl.cpp:	if(sRet == 0)
+EditListCtrl.cpp:		if(nSub >= nSubcCount)
+EditListCtrl.cpp:			if(nItem == nItemCount-1)
+EditListCtrl.cpp:				nItem = 0;
+EditListCtrl.cpp:				nItem += 1;
+EditListCtrl.cpp:		if(nItem >= nItemCount)
+EditListCtrl.cpp:			nItem = nItemCount-1;
+EditListCtrl.cpp:		if(nSub < 0)
+EditListCtrl.cpp:			nItem --;
+EditListCtrl.cpp:		if(nItem < 0)
+EditListCtrl.cpp:			nItem = nItemCount-1;
+EditListCtrl.cpp:BOOL CEditListCtrl::Key_Ctrl(int& nItem,int &nSub)
+EditListCtrl.cpp:	DWORD dwData = m_edit.GetCtrlData();
+EditListCtrl.cpp:	nItem= dwData>>16;
+EditListCtrl.cpp:	int nItemCount = CListCtrl::GetItemCount();
+EditListCtrl.cpp:	if(sRet == 0)
+EditListCtrl.cpp:		nItem = nItem >=nItemCount-1? 0:nItem+=1;
+EditListCtrl.cpp:CListCtrlEdit::CListCtrlEdit()
+EditListCtrl.cpp:CListCtrlEdit::~CListCtrlEdit()
+EditListCtrl.cpp:BEGIN_MESSAGE_MAP(CListCtrlEdit, CEdit)
+EditListCtrl.cpp:	//{{AFX_MSG_MAP(CListCtrlEdit)
+EditListCtrl.cpp:	ON_WM_KILLFOCUS()
+EditListCtrl.cpp:// CListCtrlEdit message handlers
+EditListCtrl.cpp:void CListCtrlEdit::SetCtrlData(DWORD dwData)
+EditListCtrl.cpp:DWORD CListCtrlEdit::GetCtrlData()
+EditListCtrl.cpp:void CListCtrlEdit::OnKillFocus(CWnd* pNewWnd) 
+EditListCtrl.cpp:	CEdit::OnKillFocus(pNewWnd);
+EditListCtrl.cpp:	CWnd* pParent = this->GetParent();
+EditListCtrl.cpp:	::PostMessage(pParent->GetSafeHwnd(),WM_USER_EDIT_END,m_bExchange,0);
+EditListCtrl.cpp:BOOL CListCtrlEdit::PreTranslateMessage(MSG* pMsg) 
+EditListCtrl.cpp:	if(pMsg->message == WM_KEYDOWN)
+EditListCtrl.cpp:		if(pMsg->wParam == VK_RETURN)
+EditListCtrl.cpp:			CWnd* pParent = this->GetParent();
+EditListCtrl.cpp:			::PostMessage(pParent->GetSafeHwnd(),WM_USER_EDIT_END,m_bExchange,0);
+EditListCtrl.cpp:		else if(pMsg->wParam == VK_ESCAPE)
+EditListCtrl.cpp:           CWnd* pParent = this->GetParent();
+EditListCtrl.cpp:			::PostMessage(pParent->GetSafeHwnd(),WM_USER_EDIT_END,m_bExchange,0);
+EditListCtrl.cpp:	return CEdit::PreTranslateMessage(pMsg);
+EditListCtrl.cpp:void CListCtrlEdit::OnSetFocus(CWnd* pOldWnd) 
+EditListCtrl.cpp:	CEdit::OnSetFocus(pOldWnd);
+EditListCtrl.h:#if !defined(AFX_EDITLISTCTRL_H__B26FE6EC_7377_4DA6_BEC1_E3C656DACFB8__INCLUDED_)
+EditListCtrl.h:#define AFX_EDITLISTCTRL_H__B26FE6EC_7377_4DA6_BEC1_E3C656DACFB8__INCLUDED_
+EditListCtrl.h:#if _MSC_VER > 1000
+EditListCtrl.h:#endif // _MSC_VER > 1000
+EditListCtrl.h:// EditListCtrl.h : header file
+EditListCtrl.h:#define WM_USER_EDIT_END WM_USER+1001
+EditListCtrl.h:class CListCtrlEdit : public CEdit
+EditListCtrl.h:// Construction
+EditListCtrl.h:public:
+EditListCtrl.h:	CListCtrlEdit();
+EditListCtrl.h:// Attributes
+EditListCtrl.h:public:
+EditListCtrl.h:	void  SetCtrlData(DWORD dwData);
+EditListCtrl.h:// Operations
+EditListCtrl.h:public:
+EditListCtrl.h:// Overrides
+EditListCtrl.h:	// ClassWizard generated virtual function overrides
+EditListCtrl.h:	//{{AFX_VIRTUAL(CListCtrlEdit)
+EditListCtrl.h:	public:
+EditListCtrl.h:	virtual BOOL PreTranslateMessage(MSG* pMsg);
+EditListCtrl.h:	//}}AFX_VIRTUAL
+EditListCtrl.h:// Implementation
+EditListCtrl.h:public:
+EditListCtrl.h:	virtual ~CListCtrlEdit();
+EditListCtrl.h:	// Generated message map functions
+EditListCtrl.h:	//{{AFX_MSG(CListCtrlEdit)
+EditListCtrl.h:	afx_msg void OnKillFocus(CWnd* pNewWnd);
+EditListCtrl.h:	afx_msg void OnSetFocus(CWnd* pOldWnd);
+EditListCtrl.h:private:
+EditListCtrl.h:class CEditListCtrl : public CListCtrl
+EditListCtrl.h:// Construction
+EditListCtrl.h:public:
+EditListCtrl.h:	CEditListCtrl();
+EditListCtrl.h:// Attributes
+EditListCtrl.h:public:
+EditListCtrl.h:// Operations
+EditListCtrl.h:public:
+EditListCtrl.h:// Overrides
+EditListCtrl.h:	// ClassWizard generated virtual function overrides
+EditListCtrl.h:	//{{AFX_VIRTUAL(CEditListCtrl)
+EditListCtrl.h:	public:
+EditListCtrl.h:	virtual BOOL PreTranslateMessage(MSG* pMsg);
+EditListCtrl.h:	//}}AFX_VIRTUAL
+EditListCtrl.h:// Implementation
+EditListCtrl.h:public:
+EditListCtrl.h:	virtual ~CEditListCtrl();
+EditListCtrl.h:	// Generated message map functions
+EditListCtrl.h:	//{{AFX_MSG(CEditListCtrl)
+EditListCtrl.h:	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
+EditListCtrl.h:	afx_msg void OnParentNotify(UINT message, LPARAM lParam);
+EditListCtrl.h:	afx_msg void OnEditEnd(WPARAM ,LPARAM lParam = FALSE);
+EditListCtrl.h:private:
+EditListCtrl.h:	void ShowEdit(BOOL bShow,int nItem,int nIndex,CRect rc = CRect(0,0,0,0));
+EditListCtrl.h:	CListCtrlEdit    m_edit;
+EditListCtrl.h:	int m_nItem;
+EditListCtrl.h:	int m_nSub;
+EditListCtrl.h:	BOOL Key_Shift(int& nItem,int& nSub);
+EditListCtrl.h:	BOOL Key_Ctrl(int& nItem,int &nSub);
+EditListCtrl.h://{{AFX_INSERT_LOCATION}}
+EditListCtrl.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+EditListCtrl.h:#endif // !defined(AFX_EDITLISTCTRL_H__B26FE6EC_7377_4DA6_BEC1_E3C656DACFB8__INCLUDED_)
+FkSet.cpp:// FkSet.cpp : Defines the class behaviors for the application.
+FkSet.cpp:#include "stdafx.h"
+FkSet.cpp:#include "FkSet.h"
+FkSet.cpp:#include "FkSetDlg.h"
+FkSet.cpp:#ifdef _DEBUG
+FkSet.cpp:#define new DEBUG_NEW
+FkSet.cpp:#undef THIS_FILE
+FkSet.cpp:static char THIS_FILE[] = __FILE__;
+FkSet.cpp:#endif
+FkSet.cpp:BEGIN_MESSAGE_MAP(CFkSetApp, CWinApp)
+FkSet.cpp:		// NOTE - the ClassWizard will add and remove mapping macros here.
+FkSet.cpp:		//    DO NOT EDIT what you see in these blocks of generated code!
+FkSet.cpp:	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
+FkSet.cpp:// CFkSetApp construction
+FkSet.cpp:	// TODO: add construction code here,
+FkSet.cpp:	// Place all significant initialization in InitInstance
+FkSet.cpp:// CFkSetApp initialization
+FkSet.cpp:BOOL CFkSetApp::InitInstance()
+FkSet.cpp:	AfxEnableControlContainer();
+FkSet.cpp:	// Standard initialization
+FkSet.cpp:	// If you are not using these features and wish to reduce the size
+FkSet.cpp:	//  of your final executable, you should remove from the following
+FkSet.cpp:	//  the specific initialization routines you do not need.
+FkSet.cpp:#ifdef _AFXDLL
+FkSet.cpp:	Enable3dControls();			// Call this when using MFC in a shared DLL
+FkSet.cpp:	Enable3dControlsStatic();	// Call this when linking to MFC statically
+FkSet.cpp:#endif
+FkSet.cpp:	m_pMainWnd = &dlg;
+FkSet.cpp:	int nResponse = dlg.DoModal();
+FkSet.cpp:	if (nResponse == IDOK)
+FkSet.cpp:		// TODO: Place code here to handle when the dialog is
+FkSet.cpp:		//  dismissed with OK
+FkSet.cpp:	else if (nResponse == IDCANCEL)
+FkSet.cpp:		// TODO: Place code here to handle when the dialog is
+FkSet.cpp:		//  dismissed with Cancel
+FkSet.cpp:	// Since the dialog has been closed, return FALSE so that we exit the
+FkSet.cpp:	//  application, rather than start the application's message pump.
+FkSet.h:// FkSet.h : main header file for the FKSET application
+FkSet.h:#if !defined(AFX_FKSET_H__F557A608_137C_4A48_8D4A_50EEBF3F5277__INCLUDED_)
+FkSet.h:#define AFX_FKSET_H__F557A608_137C_4A48_8D4A_50EEBF3F5277__INCLUDED_
+FkSet.h:#if _MSC_VER > 1000
+FkSet.h:#endif // _MSC_VER > 1000
+FkSet.h:#ifndef __AFXWIN_H__
+FkSet.h:	#error include 'stdafx.h' before including this file for PCH
+FkSet.h:#endif
+FkSet.h:#include "resource.h"		// main symbols
+FkSet.h:// See FkSet.cpp for the implementation of this class
+FkSet.h:class CFkSetApp : public CWinApp
+FkSet.h:public:
+FkSet.h:// Overrides
+FkSet.h:	// ClassWizard generated virtual function overrides
+FkSet.h:	//{{AFX_VIRTUAL(CFkSetApp)
+FkSet.h:	public:
+FkSet.h:	virtual BOOL InitInstance();
+FkSet.h:	//}}AFX_VIRTUAL
+FkSet.h:// Implementation
+FkSet.h:		// NOTE - the ClassWizard will add and remove member functions here.
+FkSet.h:		//    DO NOT EDIT what you see in these blocks of generated code !
+FkSet.h://{{AFX_INSERT_LOCATION}}
+FkSet.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+FkSet.h:#endif // !defined(AFX_FKSET_H__F557A608_137C_4A48_8D4A_50EEBF3F5277__INCLUDED_)
+FkSet.rc://Microsoft Developer Studio generated resource script.
+FkSet.rc:#include "resource.h"
+FkSet.rc:// Generated Help ID header file
+FkSet.rc:#define APSTUDIO_HIDDEN_SYMBOLS
+FkSet.rc:#include "resource.hm"
+FkSet.rc:#undef APSTUDIO_HIDDEN_SYMBOLS
+FkSet.rc:#define APSTUDIO_READONLY_SYMBOLS
+FkSet.rc:// Generated from the TEXTINCLUDE 2 resource.
+FkSet.rc:#include "afxres.h"
+FkSet.rc:#undef APSTUDIO_READONLY_SYMBOLS
+FkSet.rc:// Chinese (中国) resources
+FkSet.rc:#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+FkSet.rc:#ifdef _WIN32
+FkSet.rc:LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+FkSet.rc:#endif //_WIN32
+FkSet.rc:#ifdef APSTUDIO_INVOKED
+FkSet.rc:// TEXTINCLUDE
+FkSet.rc:1 TEXTINCLUDE DISCARDABLE 
+FkSet.rc:BEGIN
+FkSet.rc:2 TEXTINCLUDE DISCARDABLE 
+FkSet.rc:BEGIN
+FkSet.rc:    "#include ""afxres.h""\r\n"
+FkSet.rc:3 TEXTINCLUDE DISCARDABLE 
+FkSet.rc:BEGIN
+FkSet.rc:    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+FkSet.rc:    "#define _AFX_NO_OLE_RESOURCES\r\n"
+FkSet.rc:    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+FkSet.rc:    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+FkSet.rc:    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+FkSet.rc:    "#ifdef _WIN32\r\n"
+FkSet.rc:    "#endif //_WIN32\r\n"
+FkSet.rc:    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+FkSet.rc:    "#endif\r\n"
+FkSet.rc:#endif    // APSTUDIO_INVOKED
+FkSet.rc:// Dialog
+FkSet.rc:IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 249, 355
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "关于 FkSet"
+FkSet.rc:BEGIN
+FkSet.rc:    ICON            IDR_MAINFRAME,IDC_STATIC,9,13,20,20
+FkSet.rc:    LTEXT           "FkSet 2.5 版",IDC_STATIC,36,10,119,8,SS_NOPREFIX
+FkSet.rc:    LTEXT           "北京煜邦版权所有 (C) 2011",IDC_STATIC,36,25,119,8
+FkSet.rc:    DEFPUSHBUTTON   "确定",IDOK,192,7,50,14,WS_GROUP
+FkSet.rc:    EDITTEXT        IDC_EDIT_INFO,7,67,235,281,ES_MULTILINE | ES_AUTOHSCROLL | 
+FkSet.rc:IDD_FKSET_DIALOG DIALOGEX 0, 0, 539, 499
+FkSet.rc:STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+FkSet.rc:EXSTYLE WS_EX_APPWINDOW
+FkSet.rc:CAPTION "FkSet- 福建专变终端(V2.5)"
+FkSet.rc:BEGIN
+FkSet.rc:    DEFPUSHBUTTON   "关闭",ID_CLICK_OK,482,478,50,14
+FkSet.rc:    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | WS_BORDER | 
+FkSet.rc:    LTEXT           "终端：",IDC_STATIC,14,73,25,8
+FkSet.rc:    PUSHBUTTON      "增加终端",IDC_ADD,98,69,50,14
+FkSet.rc:    PUSHBUTTON      "删除终端",IDC_DEL,148,69,50,14
+FkSet.rc:    LTEXT           "串口设置：",IDC_STATIC,14,18,41,8
+FkSet.rc:    COMBOBOX        IDC_COMBO_COM,60,15,48,155,CBS_DROPDOWNLIST | WS_VSCROLL | 
+FkSet.rc:    PUSHBUTTON      "打开串口",IDC_OPEN_COM,122,15,50,14
+FkSet.rc:    PUSHBUTTON      "关闭串口",IDC_CLOSE_COM,121,33,50,14
+FkSet.rc:    PUSHBUTTON      "保电解除",IDC_BUTTON1,450,15,77,14
+FkSet.rc:    PUSHBUTTON      "配置电能表",IDC_BUTTON2,263,17,77,14
+FkSet.rc:    PUSHBUTTON      "配置脉冲",IDC_BUTTON3,179,37,77,14
+FkSet.rc:    PUSHBUTTON      "4路遥信",IDC_BUTTON5,450,34,77,14
+FkSet.rc:    PUSHBUTTON      "总加组",IDC_BUTTON6,362,43,77,14
+FkSet.rc:    PUSHBUTTON      "告警",IDC_BUTTON7,450,110,77,14
+FkSet.rc:    PUSHBUTTON      "时段控（功控灯亮）",IDC_BUTTON9,450,129,77,14
+FkSet.rc:    PUSHBUTTON      "解除，功控灯灭",IDC_BUTTON10,450,148,77,14
+FkSet.rc:    PUSHBUTTON      "电控灯亮",IDC_BUTTON11,450,167,77,14
+FkSet.rc:    PUSHBUTTON      "解除，电控灯灭",IDC_BUTTON12,450,186,77,14
+FkSet.rc:    PUSHBUTTON      "保电投入",IDC_BUTTON13,450,205,77,14
+FkSet.rc:    PUSHBUTTON      "参数及数据初始化F3",IDC_BUTTON14,364,138,77,14
+FkSet.rc:    PUSHBUTTON      "数据初始化",IDC_BUTTON15,363,195,77,14
+FkSet.rc:    PUSHBUTTON      "硬件初始化",IDC_BUTTON16,363,176,77,14
+FkSet.rc:    CONTROL         "全选",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+FkSet.rc:    PUSHBUTTON      "修改IP地址",IDC_BUTTON17,363,100,77,14
+FkSet.rc:    PUSHBUTTON      "对时",IDC_BUTTON18,362,24,77,14
+FkSet.rc:    LTEXT           "波特率：",IDC_STATIC,22,32,33,8
+FkSet.rc:    COMBOBOX        IDC_COMBO_B,60,28,48,113,CBS_DROPDOWNLIST | WS_VSCROLL | 
+FkSet.rc:    PUSHBUTTON      "上行通讯工作方式F8",IDC_BUTTON19,363,119,77,14
+FkSet.rc:    PUSHBUTTON      "门节点状态",IDC_BUTTON20,363,81,77,14
+FkSet.rc:    PUSHBUTTON      "版本信息",IDC_BUTTON21,184,17,77,14,NOT WS_TABSTOP
+FkSet.rc:    PUSHBUTTON      "清除",IDC_BUTTON8,302,478,50,14
+FkSet.rc:    EDITTEXT        IDC_EDIT,14,266,343,210,ES_MULTILINE | WS_VSCROLL
+FkSet.rc:    GROUPBOX        "",IDC_STATIC,14,3,104,62
+FkSet.rc:    PUSHBUTTON      "参数及数据初始化F4",IDC_BUTTON22,364,157,77,14,NOT 
+FkSet.rc:    PUSHBUTTON      "配置交采",IDC_BUTTON23,264,38,77,14
+FkSet.rc:    PUSHBUTTON      "跳2轮闸",IDC_BUTTON24,450,53,77,14
+FkSet.rc:    PUSHBUTTON      "2轮合闸",IDC_BUTTON26,450,72,77,14
+FkSet.rc:    PUSHBUTTON      "设置PTCT(脉冲测点)",IDC_BUTTON27,265,59,77,14
+FkSet.rc:    PUSHBUTTON      "告警声音打开",IDC_BUTTON28,450,91,77,14
+FkSet.rc:    GROUPBOX        "终端信息及设置",IDC_STATIC,358,7,174,377
+FkSet.rc:    GROUPBOX        "485读表测试(透抄，07-645,2400,8,1,偶)",IDC_STATIC,357,
+FkSet.rc:    LTEXT           "485-1：",IDC_STATIC,374,399,28,8
+FkSet.rc:    COMBOBOX        IDC_COMBO4,371,409,44,63,CBS_DROPDOWN | CBS_SORT | 
+FkSet.rc:    PUSHBUTTON      "测试",IDC_BUTTON29,475,408,32,14
+FkSet.rc:    LTEXT           "485-2：",IDC_STATIC,373,429,28,8
+FkSet.rc:    COMBOBOX        IDC_COMBO5,371,441,44,57,CBS_DROPDOWN | CBS_SORT | 
+FkSet.rc:    PUSHBUTTON      "测试",IDC_BUTTON30,475,441,32,14
+FkSet.rc:    LTEXT           "表号",IDC_STATIC,425,397,17,8
+FkSet.rc:    EDITTEXT        IDC_EDITMT1,417,408,57,14,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDITMT2,417,441,58,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "校验：",IDC_STATIC,22,48,25,8
+FkSet.rc:    COMBOBOX        IDC_COMBO_PARITY,60,44,48,113,CBS_DROPDOWNLIST | 
+FkSet.rc:    PUSHBUTTON      "设置MAC地址",IDC_BUTTON32,363,214,77,14
+FkSet.rc:    PUSHBUTTON      "读取内部软件版本号",IDC_BUTTON34,449,223,77,14
+FkSet.rc:    PUSHBUTTON      "查询MAC地址",IDC_BUTTON35,447,243,77,14,NOT WS_TABSTOP
+FkSet.rc:                    IDC_STATIC,62,88,280,8
+FkSet.rc:    PUSHBUTTON      "设置门节点状态有效",IDC_BUTTON_DOOR,363,62,77,14
+FkSet.rc:    PUSHBUTTON      "设置CDMA参数",IDC_BUTTON33,363,233,77,14
+FkSet.rc:    PUSHBUTTON      "读取CDMA参数",IDC_BUTTON36,448,262,77,14
+FkSet.rc:    PUSHBUTTON      "清交采表底",IDC_BUTTON_CLRAC,364,271,77,14
+FkSet.rc:    PUSHBUTTON      "关于",IDC_BUTTON37,365,478,50,14
+FkSet.rc:    PUSHBUTTON      "设置资产编码(福建)",IDC_BUTTON_SETID,365,252,77,14
+FkSet.rc:    PUSHBUTTON      "设置CDMA和资产号",IDC_BUTTON38,368,365,148,14
+FkSet.rc:    PUSHBUTTON      "读取电池电压",IDC_BUTTON4,448,281,77,14
+FkSet.rc:    PUSHBUTTON      "读取ESAM序列号",IDC_ESAM,449,300,77,14
+FkSet.rc:    PUSHBUTTON      "读取上行模块版本",IDC_BUTTON_UPMODEM,449,319,77,14
+FkSet.rc:    PUSHBUTTON      "读取下行模块版本",IDC_BUTTON40,446,338,74,14
+FkSet.rc:IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 187, 94
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "Dialog"
+FkSet.rc:BEGIN
+FkSet.rc:    LTEXT           "读取电池电压未做",IDC_STATIC,51,39,95,8
+FkSet.rc:IDD_DIALOG2 DIALOG DISCARDABLE  0, 0, 187, 94
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "Dialog"
+FkSet.rc:BEGIN
+FkSet.rc:    DEFPUSHBUTTON   "OK",IDOK,39,73,50,14
+FkSet.rc:    PUSHBUTTON      "Cancel",IDCANCEL,105,73,50,14
+FkSet.rc:    LTEXT           "告警路数:",IDC_STATIC,56,19,37,8
+FkSet.rc:    COMBOBOX        IDC_COMBO1,98,15,48,65,CBS_DROPDOWNLIST | WS_VSCROLL | 
+FkSet.rc:    LTEXT           "告警延时时间(分):",IDC_STATIC,24,37,69,8
+FkSet.rc:    COMBOBOX        IDC_COMBO2,98,35,48,65,CBS_DROPDOWNLIST | WS_VSCROLL | 
+FkSet.rc:    LTEXT           "计划限电时间(0.5h):",IDC_STATIC,16,56,77,8
+FkSet.rc:    COMBOBOX        IDC_COMBO3,98,54,48,65,CBS_DROPDOWNLIST | WS_VSCROLL | 
+FkSet.rc:IDD_DIALOG3 DIALOG DISCARDABLE  0, 0, 241, 119
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "Dialog"
+FkSet.rc:BEGIN
+FkSet.rc:    DEFPUSHBUTTON   "OK",IDOK,41,98,50,14
+FkSet.rc:    PUSHBUTTON      "Cancel",IDCANCEL,137,98,50,14
+FkSet.rc:    LTEXT           "主用IP地址：",IDC_STATIC,8,19,49,8
+FkSet.rc:    EDITTEXT        IDC_EDIT_IP1,60,16,71,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "主用端口号：",IDC_STATIC,135,19,49,8
+FkSet.rc:    EDITTEXT        IDC_EDIT_PORT1,187,16,40,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "备用IP地址：",IDC_STATIC,7,43,49,8
+FkSet.rc:    EDITTEXT        IDC_EDIT_IP2,59,39,71,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "备用端口号：",IDC_STATIC,135,43,49,8
+FkSet.rc:    EDITTEXT        IDC_EDIT_PORT2,187,39,40,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "APN：",IDC_STATIC,35,64,21,8
+FkSet.rc:    EDITTEXT        IDC_EDIT_APN,59,59,71,14,ES_AUTOHSCROLL
+FkSet.rc:IDD_DIALOGMAC DIALOG DISCARDABLE  0, 0, 216, 94
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "MAC设置"
+FkSet.rc:BEGIN
+FkSet.rc:    EDITTEXT        IDC_EDIT2,12,47,21,12,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT3,42,47,21,12,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT4,72,47,21,12,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT5,102,47,21,12,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT6,132,47,21,12,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT7,162,48,21,12,ES_AUTOHSCROLL
+FkSet.rc:    DEFPUSHBUTTON   "OK",IDOK,43,73,50,14
+FkSet.rc:    PUSHBUTTON      "Cancel",IDCANCEL,121,73,50,14
+FkSet.rc:    LTEXT           "-",IDC_STATIC,34,49,8,8
+FkSet.rc:    LTEXT           "-",IDC_STATIC,63,50,8,8
+FkSet.rc:    LTEXT           "-",IDC_STATIC,93,50,8,8
+FkSet.rc:    LTEXT           "-",IDC_STATIC,123,50,8,8
+FkSet.rc:    LTEXT           "-",IDC_STATIC,153,50,8,8
+FkSet.rc:    LTEXT           " 请输入MAC地址：",IDC_STATIC,7,20,70,8
+FkSet.rc:IDD_DIALOG4 DIALOG DISCARDABLE  0, 0, 187, 100
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "CDMA参数设置"
+FkSet.rc:BEGIN
+FkSet.rc:    DEFPUSHBUTTON   "确认",IDOK,130,79,50,14
+FkSet.rc:    PUSHBUTTON      "取消",IDCANCEL,17,79,50,14
+FkSet.rc:    LTEXT           "CDMA用户名",IDC_STATIC,15,16,41,8
+FkSet.rc:    LTEXT           "CDMA密码",IDC_STATIC,15,45,33,8
+FkSet.rc:    EDITTEXT        IDC_EDIT_CDMAPWD,15,58,151,14,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT_CDMAUSR,15,28,151,14,ES_AUTOHSCROLL
+FkSet.rc:IDD_DIALOG5 DIALOG DISCARDABLE  0, 0, 340, 185
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "设置参数 F8:  终端上行通信工作方式(以太网或虚拟专网)"
+FkSet.rc:BEGIN
+FkSet.rc:    DEFPUSHBUTTON   "设置",IDOK,283,164,50,14
+FkSet.rc:    PUSHBUTTON      "退出",IDCANCEL,7,164,50,14
+FkSet.rc:    LTEXT           "工作模式：",IDC_STATIC,54,16,37,8
+FkSet.rc:    LTEXT           "永久在线、时段在线模式重播间隔：",IDC_STATIC,26,56,65,
+FkSet.rc:    LTEXT           "被动激活模式重拨次数：",IDC_STATIC,9,86,82,8
+FkSet.rc:    LTEXT           "被动激活模式连续无通信自动断线时间：",IDC_STATIC,22,104,
+FkSet.rc:    LTEXT           "时段在线模式允许在线时段标志：",IDC_STATIC,30,128,61,17
+FkSet.rc:    COMBOBOX        IDC_COMBO1,100,26,73,52,CBS_DROPDOWNLIST | WS_VSCROLL | 
+FkSet.rc:    EDITTEXT        IDC_EDIT1,100,57,40,14,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT2,100,82,40,14,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT3,100,106,40,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "( 取值0~255。单位:分钟。无要求时设1  )",IDC_STATIC,152,
+FkSet.rc:    LTEXT           "( 取值0~255。无要求时设3  )",IDC_STATIC,152,85,133,8
+FkSet.rc:    LTEXT           "( 取值0~65535。无要求时设3600  )",IDC_STATIC,152,59,141,
+FkSet.rc:    LTEXT           "(无要求时设置永久在线)",IDC_STATIC,176,15,85,8
+FkSet.rc:    COMBOBOX        IDC_COMBO2,100,12,73,55,CBS_DROPDOWNLIST | WS_VSCROLL | 
+FkSet.rc:    CONTROL         "",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,
+FkSet.rc:    CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,112,
+FkSet.rc:    CONTROL         "",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,124,
+FkSet.rc:    CONTROL         "",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,136,
+FkSet.rc:    CONTROL         "",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,148,
+FkSet.rc:    CONTROL         "",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,160,
+FkSet.rc:    CONTROL         "",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,
+FkSet.rc:    CONTROL         "",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,184,
+FkSet.rc:    CONTROL         "",IDC_CHECK9,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,196,
+FkSet.rc:    CONTROL         "",IDC_CHECK10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,208,
+FkSet.rc:    CONTROL         "",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,220,
+FkSet.rc:    CONTROL         "",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,232,
+FkSet.rc:    CONTROL         "",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,
+FkSet.rc:    CONTROL         "",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,112,
+FkSet.rc:    CONTROL         "",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,124,
+FkSet.rc:    CONTROL         "",IDC_CHECK16,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,136,
+FkSet.rc:    CONTROL         "",IDC_CHECK17,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,148,
+FkSet.rc:    CONTROL         "",IDC_CHECK18,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,160,
+FkSet.rc:    CONTROL         "",IDC_CHECK19,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,172,
+FkSet.rc:    CONTROL         "",IDC_CHECK20,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,184,
+FkSet.rc:    CONTROL         "",IDC_CHECK21,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,196,
+FkSet.rc:    CONTROL         "",IDC_CHECK22,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,208,
+FkSet.rc:    CONTROL         "",IDC_CHECK23,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,220,
+FkSet.rc:    CONTROL         "",IDC_CHECK24,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,232,
+FkSet.rc:    LTEXT           " 0  ~ 11 点",IDC_STATIC,246,127,53,8
+FkSet.rc:    LTEXT           "12 ~ 23 点",IDC_STATIC,250,138,50,8
+FkSet.rc:    COMBOBOX        IDC_COMBO3,100,39,73,54,CBS_DROPDOWNLIST | WS_VSCROLL | 
+FkSet.rc:    LTEXT           "(无要求时设客户机模式  )",IDC_STATIC,176,29,101,8
+FkSet.rc:    LTEXT           "(无要求时设TCP模式  )",IDC_STATIC,176,42,100,8
+FkSet.rc:    PUSHBUTTON      "读取并对比",IDC_BUTTON1,217,164,50,14
+FkSet.rc:    LTEXT           "（选中表示当前时段允许在线。无要求时全选）",IDC_STATIC,
+FkSet.rc:IDD_DIALOG6 DIALOGEX 0, 0, 262, 109
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "MAC地址与终端地址对应关系"
+FkSet.rc:BEGIN
+FkSet.rc:    DEFPUSHBUTTON   "确定",IDOK,144,88,50,14
+FkSet.rc:    PUSHBUTTON      "取消",IDCANCEL,205,88,50,14
+FkSet.rc:    CONTROL         "8位16进制",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | NOT 
+FkSet.rc:                    WS_VISIBLE | WS_DISABLED,13,17,51,10
+FkSet.rc:    CONTROL         "BCD码",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | NOT 
+FkSet.rc:                    WS_VISIBLE | WS_DISABLED,13,30,50,10
+FkSet.rc:    CONTROL         "十进制",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | NOT 
+FkSet.rc:                    WS_VISIBLE | WS_DISABLED,13,43,50,10,0,HIDC_RADIO3
+FkSet.rc:    EDITTEXT        IDC_EDIT1,83,28,40,14,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT8,141,28,40,14,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT10,82,57,99,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "起始终端地址",IDC_STATIC,79,17,54,8
+FkSet.rc:    LTEXT           "终端数量",IDC_STATIC,140,16,41,8
+FkSet.rc:    LTEXT           "起始MAC地址",IDC_STATIC,80,45,46,8
+FkSet.rc:IDD_DIALOG7 DIALOG DISCARDABLE  0, 0, 187, 94
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "设置资产编码（8个字符）"
+FkSet.rc:BEGIN
+FkSet.rc:    DEFPUSHBUTTON   "确定",IDOK,93,73,50,14
+FkSet.rc:    PUSHBUTTON      "取消",IDCANCEL,7,73,50,14
+FkSet.rc:    EDITTEXT        IDC_EDIT1,23,37,93,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "设置资产编码（8个字符）：",IDC_STATIC,22,19,101,8
+FkSet.rc:IDD_DIALOG8 DIALOG DISCARDABLE  0, 0, 213, 132
+FkSet.rc:STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FkSet.rc:CAPTION "对话"
+FkSet.rc:BEGIN
+FkSet.rc:    DEFPUSHBUTTON   "确定",IDOK,24,111,50,14
+FkSet.rc:    PUSHBUTTON      "取消",IDCANCEL,105,111,50,14
+FkSet.rc:    EDITTEXT        IDC_EDIT1,78,13,86,14,ES_AUTOHSCROLL
+FkSet.rc:    EDITTEXT        IDC_EDIT8,72,69,93,14,ES_AUTOHSCROLL
+FkSet.rc:    LTEXT           "起始条码",IDC_STATIC,23,17,54,8
+FkSet.rc:    LTEXT           "终端数量",IDC_STATIC,21,38,41,8
+FkSet.rc:    LTEXT           "该按钮自动设置CDMA及读取CDMA",IDC_STATIC,16,92,152,13
+FkSet.rc:    LTEXT           "终端地址",IDC_STATIC,20,71,41,8
+FkSet.rc:    EDITTEXT        IDC_EDIT9,75,40,86,14,ES_AUTOHSCROLL
+FkSet.rc:#ifndef _MAC
+FkSet.rc:// Version
+FkSet.rc:VS_VERSION_INFO VERSIONINFO
+FkSet.rc: FILEVERSION 1,0,0,1
+FkSet.rc: PRODUCTVERSION 1,0,0,1
+FkSet.rc: FILEFLAGSMASK 0x3fL
+FkSet.rc:#ifdef _DEBUG
+FkSet.rc: FILEFLAGS 0x1L
+FkSet.rc: FILEFLAGS 0x0L
+FkSet.rc:#endif
+FkSet.rc: FILEOS 0x4L
+FkSet.rc: FILETYPE 0x1L
+FkSet.rc: FILESUBTYPE 0x0L
+FkSet.rc:BEGIN
+FkSet.rc:    BLOCK "StringFileInfo"
+FkSet.rc:    BEGIN
+FkSet.rc:        BEGIN
+FkSet.rc:            VALUE "FileDescription", "FkSet Microsoft 基础类应用程序\0"
+FkSet.rc:            VALUE "FileVersion", "1, 0, 0, 1\0"
+FkSet.rc:            VALUE "InternalName", "FkSet\0"
+FkSet.rc:            VALUE "LegalCopyright", "版权所有 (C) 2008\0"
+FkSet.rc:            VALUE "OriginalFilename", "FkSet.EXE\0"
+FkSet.rc:            VALUE "PrivateBuild", "\0"
+FkSet.rc:            VALUE "ProductVersion", "1, 0, 0, 1\0"
+FkSet.rc:            VALUE "SpecialBuild", "\0"
+FkSet.rc:    BLOCK "VarFileInfo"
+FkSet.rc:    BEGIN
+FkSet.rc:        VALUE "Translation", 0x804, 1200
+FkSet.rc:#endif    // !_MAC
+FkSet.rc:// DESIGNINFO
+FkSet.rc:#ifdef APSTUDIO_INVOKED
+FkSet.rc:GUIDELINES DESIGNINFO DISCARDABLE 
+FkSet.rc:BEGIN
+FkSet.rc:    IDD_ABOUTBOX, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 242
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 348
+FkSet.rc:    IDD_FKSET_DIALOG, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 14
+FkSet.rc:        RIGHTMARGIN, 532
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 492
+FkSet.rc:    IDD_DIALOG1, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 180
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 87
+FkSet.rc:    IDD_DIALOG2, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 180
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 87
+FkSet.rc:    IDD_DIALOG3, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 234
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 112
+FkSet.rc:    IDD_DIALOGMAC, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 209
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 87
+FkSet.rc:    IDD_DIALOG4, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 180
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 93
+FkSet.rc:    IDD_DIALOG5, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 333
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 178
+FkSet.rc:    IDD_DIALOG6, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 255
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 102
+FkSet.rc:    IDD_DIALOG7, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 180
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 87
+FkSet.rc:    IDD_DIALOG8, DIALOG
+FkSet.rc:    BEGIN
+FkSet.rc:        LEFTMARGIN, 7
+FkSet.rc:        RIGHTMARGIN, 205
+FkSet.rc:        TOPMARGIN, 7
+FkSet.rc:        BOTTOMMARGIN, 125
+FkSet.rc:#endif    // APSTUDIO_INVOKED
+FkSet.rc:// Dialog Info
+FkSet.rc:IDD_FKSET_DIALOG DLGINIT
+FkSet.rc:BEGIN
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_COM, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 4, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 4, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 4, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 5, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 7, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 7, 0
+FkSet.rc:    IDC_COMBO_B, 0x403, 7, 0
+FkSet.rc:    IDC_COMBO4, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO4, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO4, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO4, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO5, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO5, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO5, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO5, 0x403, 6, 0
+FkSet.rc:    IDC_COMBO_PARITY, 0x403, 7, 0
+FkSet.rc:    IDC_COMBO_PARITY, 0x403, 7, 0
+FkSet.rc:    IDC_COMBO_PARITY, 0x403, 7, 0
+FkSet.rc:IDD_DIALOG2 DLGINIT
+FkSet.rc:BEGIN
+FkSet.rc:    IDC_COMBO1, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO1, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO1, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO1, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 2, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 3, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 3, 0
+FkSet.rc:IDD_DIALOG5 DLGINIT
+FkSet.rc:BEGIN
+FkSet.rc:    IDC_COMBO1, 0x403, 12, 0
+FkSet.rc:    IDC_COMBO1, 0x403, 14, 0
+FkSet.rc:    IDC_COMBO1, 0x403, 14, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 16, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 16, 0
+FkSet.rc:    IDC_COMBO2, 0x403, 16, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 7, 0
+FkSet.rc:    IDC_COMBO3, 0x403, 7, 0
+FkSet.rc:// Icon
+FkSet.rc:// Icon with lowest ID value placed first to ensure application icon
+FkSet.rc:// remains consistent on all systems.
+FkSet.rc:IDR_MAINFRAME           ICON    DISCARDABLE     "20130222115850729_easyicon_cn_48.ico"
+FkSet.rc:// String Table
+FkSet.rc:STRINGTABLE DISCARDABLE 
+FkSet.rc:BEGIN
+FkSet.rc:    IDS_ABOUTBOX            "关于 FkSet(&A)..."
+FkSet.rc:#endif    // Chinese (中国) resources
+FkSet.rc:#ifndef APSTUDIO_INVOKED
+FkSet.rc:// Generated from the TEXTINCLUDE 3 resource.
+FkSet.rc:#define _AFX_NO_SPLITTER_RESOURCES
+FkSet.rc:#define _AFX_NO_OLE_RESOURCES
+FkSet.rc:#define _AFX_NO_TRACKER_RESOURCES
+FkSet.rc:#define _AFX_NO_PROPERTY_RESOURCES
+FkSet.rc:#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+FkSet.rc:#ifdef _WIN32
+FkSet.rc:#endif //_WIN32
+FkSet.rc:#include "l.chs\afxres.rc"          // Standard components
+FkSet.rc:#endif
+FkSet.rc:#endif    // not APSTUDIO_INVOKED
+FkSetData.cpp:// FkSetData.cpp: implementation of the CFkSetData class.
+FkSetData.cpp:#include "stdafx.h"
+FkSetData.cpp:#include "FkSet.h"
+FkSetData.cpp:#include "FkSetData.h"
+FkSetData.cpp:#ifdef _DEBUG
+FkSetData.cpp:#undef THIS_FILE
+FkSetData.cpp:static char THIS_FILE[]=__FILE__;
+FkSetData.cpp:#define new DEBUG_NEW
+FkSetData.cpp:#endif
+FkSetData.cpp:// Construction/Destruction
+FkSetData.h:// FkSetData.h: interface for the CFkSetData class.
+FkSetData.h:#if !defined(AFX_FKSETDATA_H__3493AC7C_C701_4D05_A577_79AF3A79C4EA__INCLUDED_)
+FkSetData.h:#define AFX_FKSETDATA_H__3493AC7C_C701_4D05_A577_79AF3A79C4EA__INCLUDED_
+FkSetData.h:#if _MSC_VER > 1000
+FkSetData.h:#endif // _MSC_VER > 1000
+FkSetData.h:#define		BUFFER_SIZE				5120
+FkSetData.h:	int m_cDevice; // device no.
+FkSetData.h:	int m_icommno;   // 串口号
+FkSetData.h:	int m_iBaud;	 //波特率 
+FkSetData.h:	BYTE m_cbDataBit;	 //数据位 8位:0/7位:1/6位:2/
+FkSetData.h:	BYTE m_cbStopBit;	 //停止位 1位:0/1.5位:1/2位:2/
+FkSetData.h:	BYTE m_cbParity;	 //奇偶校验 无校验:0/奇校验:1/偶校验:2/
+FkSetData.h:	char			m_recBuf[BUFFER_SIZE];
+FkSetData.h:	unsigned short	m_recLength;
+FkSetData.h:	CRITICAL_SECTION	m_recCS;
+FkSetData.h:	char			m_sendBuf[BUFFER_SIZE];
+FkSetData.h:	unsigned short	m_sendLength;
+FkSetData.h:	unsigned short	AreaCode;
+FkSetData.h:	unsigned short	UnitAddr;
+FkSetData.h:	unsigned char	HostAddr;
+FkSetData.h://	LMUCOMM	CommInfo;		//通讯参数
+FkSetData.h:	unsigned short		AreaCode;	//终端行政区码
+FkSetData.h:	unsigned short		UintAddr[9];	//终端地址
+FkSetData.h:	unsigned short		DA;		//终端交采所属测量点号
+FkSetData.h:	unsigned char		AddrFlag;	//地址使用标志
+FkSetData.h:		//bit0, function of using address, 0-single, 1-group
+FkSetData.h:		//bit7, address group valid, 0-invalid, 1-valid
+FkSetData.h:	unsigned char		HostPass[4*4];	//主站密码
+FkSetData.h:	unsigned char		FCB;
+FkSetData.h:	unsigned char		CtrlCode;		//本次主站的控制字
+FkSetData.h:	unsigned char		AppFC;		//本次主站的应用层功能码
+FkSetData.h:	unsigned char		PSEQ;
+FkSetData.h:	unsigned char		RSEQ;
+FkSetData.h:	unsigned char		Timeout;		//启动站延时, min
+FkSetData.h:	unsigned char		TimeLabel[7];	//启动站时间标签
+FkSetData.h:}LMUACKINFO;
+FkSetData.h:public:
+FkSetData.h:	virtual ~CFkSetData();
+FkSetData.h:#endif // !defined(AFX_FKSETDATA_H__3493AC7C_C701_4D05_A577_79AF3A79C4EA__INCLUDED_)
+FkSetDlg.cpp:#include "stdafx.h"
+FkSetDlg.cpp:#include "FkSet.h"
+FkSetDlg.cpp:#include "FkSetDlg.h"
+FkSetDlg.cpp:#include "global.h"
+FkSetDlg.cpp:#include "SetAlarm.h"
+FkSetDlg.cpp:#include "SetIPAndPort.h"
+FkSetDlg.cpp:#include "DLGSET.h"
+FkSetDlg.cpp:#include "DlgCDMAPara.h"
+FkSetDlg.cpp:#include "DlgSetParaF8.h"
+FkSetDlg.cpp:#include "SetTermID.h"
+FkSetDlg.cpp:#ifdef _DEBUG
+FkSetDlg.cpp:#define new DEBUG_NEW
+FkSetDlg.cpp:#undef THIS_FILE
+FkSetDlg.cpp:static char THIS_FILE[] = __FILE__;
+FkSetDlg.cpp:#endif
+FkSetDlg.cpp:#define		ANALY_RIGHT				1// 解析成功
+FkSetDlg.cpp:#define		ANALY_DATA_LESS			2// 解析成功
+FkSetDlg.cpp:#define		ANALY_WRONG				3// frame出错
+FkSetDlg.cpp:#define		MIN_SERVER_PACKET_LEN	14
+FkSetDlg.cpp:#define		TERMINAL_TYPE_GW698		0 //国网 专变、集中器
+FkSetDlg.cpp:#define		TERMINAL_TYPE_FK		1
+FkSetDlg.cpp://修改IP以及Port
+FkSetDlg.cpp://修改IP以及Port
+FkSetDlg.cpp:#define TYPE_SET_CDMA 100
+FkSetDlg.cpp:#define TYPE_GET_CDMA 101
+FkSetDlg.cpp:#define TYPE_CLR_AC   102
+FkSetDlg.cpp:#define TYPE_SET_F8 103
+FkSetDlg.cpp:#define TYPE_GET_F8 104
+FkSetDlg.cpp:#define TYPE_SET_225 105
+FkSetDlg.cpp:int g_RtuType = TERMINAL_TYPE_GW698;
+FkSetDlg.cpp:BOOL g_PortInfo = FALSE;
+FkSetDlg.cpp:// CAboutDlg dialog used for App About
+FkSetDlg.cpp:class CAboutDlg : public CDialog
+FkSetDlg.cpp:public:
+FkSetDlg.cpp:// Dialog Data
+FkSetDlg.cpp:	enum { IDD = IDD_ABOUTBOX };
+FkSetDlg.cpp:	// ClassWizard generated virtual function overrides
+FkSetDlg.cpp:	//{{AFX_VIRTUAL(CAboutDlg)
+FkSetDlg.cpp:	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+FkSetDlg.cpp:	//}}AFX_VIRTUAL
+FkSetDlg.cpp:// Implementation
+FkSetDlg.cpp:	virtual BOOL OnInitDialog();
+FkSetDlg.cpp:CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
+FkSetDlg.cpp:	//{{AFX_DATA_INIT(CAboutDlg)
+FkSetDlg.cpp:	//}}AFX_DATA_INIT
+FkSetDlg.cpp:BOOL CAboutDlg::OnInitDialog()
+FkSetDlg.cpp:	CString strInfo("");
+FkSetDlg.cpp:	CDialog::OnInitDialog();
+FkSetDlg.cpp:	strInfo+="版本说明：\r\n";
+FkSetDlg.cpp:	strInfo+="1.1版本加入了：\r\n";
+FkSetDlg.cpp:	strInfo+="  1.支持国网终端的设置；\r\n";
+FkSetDlg.cpp:	strInfo+="  2.密码字节数可以选择2或16，即短密码和长密码；\r\n";
+FkSetDlg.cpp:	strInfo+="  3.国网终端配置电能表时，485读表端口为端口1和4。\r\n";
+FkSetDlg.cpp:	strInfo+="1.2版本加入了(2010-04-06)：\r\n";
+FkSetDlg.cpp:	strInfo+="  1.设置交采测量点；\r\n";
+FkSetDlg.cpp:	strInfo+="  2.交采和抄表端口可设；\r\n";
+FkSetDlg.cpp:	strInfo+="  3.支持端口信息读取;\r\n";
+FkSetDlg.cpp:	strInfo+="  4.加入合闸。\r\n";
+FkSetDlg.cpp:	strInfo+="1.3版本加入了:(20110222)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.支持山东485集中器三个端口的透抄；\r\n";
+FkSetDlg.cpp:	strInfo+="  2.支持F57告警声音允许打开;\r\n";
+FkSetDlg.cpp:	strInfo+="  3.可以设置奇偶校验。(山东使用115200,无校验)\r\n";
+FkSetDlg.cpp:	strInfo+="1.4版本修改了:(20111009)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.APN设置不能达到16位的问题\r\n";	
+FkSetDlg.cpp:	strInfo+="1.5版本修改了:(20111009)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.清除APN前后的空格\r\n";	
+FkSetDlg.cpp:	strInfo+="1.6版本修改了:(20120726)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.加入了mac地址的设置、读取\r\n";	
+FkSetDlg.cpp:	strInfo+="  2.加入了内部软件版本号的读取\r\n";	
+FkSetDlg.cpp:	strInfo+="1.7版本修改了:(20120817)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.加入了设置门节点有效状态\r\n";	
+FkSetDlg.cpp:	strInfo+="1.7版本修改了:(20120817)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.加入了设置门节点有效状态\r\n";	
+FkSetDlg.cpp:	strInfo+="1.8版本修改了:(20120919)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.增加CDMA用户名密码的查询设置\r\n";
+FkSetDlg.cpp:	strInfo+="  2.增加交采清表底功能\r\n";
+FkSetDlg.cpp:	strInfo+="  3.增加对8位16进制地址的支持\r\n";
+FkSetDlg.cpp:	strInfo+="1.9版本修改了:(20121122)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.增加对多路脉冲的设置\r\n";
+FkSetDlg.cpp:	strInfo+="  2.MAC地址改为由80-XX-XX...改为08-XX-XX...\r\n";
+FkSetDlg.cpp:	strInfo+="2.0版本修改了:(20121122)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.增加对参数F8终端上行通信工作方式的设置\r\n";
+FkSetDlg.cpp:	strInfo+="2.1版本修改了:(20130118)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.MAC地址设置时可以自由设置\r\n";
+FkSetDlg.cpp:	strInfo+="2.2版本修改了:(20130121)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.MAC地址设置时改为设置某批次终端的起始地址和数量，\r\n";
+FkSetDlg.cpp:	strInfo+="    及对应的起始MAC地址。以方便批量设置。\r\n";
+FkSetDlg.cpp:	strInfo+="  2.修改设置IP时会把0开头的数字解析为八进制数字的问题\r\n";
+FkSetDlg.cpp:	strInfo+="2.3版本修改了:(20130202)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.修改MAC地址设置时的错误\r\n";	
+FkSetDlg.cpp:	GetDlgItem(IDC_EDIT_INFO)->SetWindowText(strInfo);
+FkSetDlg.cpp:	strInfo+="2.4版本修改了:(20130222)\r\n";
+FkSetDlg.cpp:	strInfo+="  1.为福建地区增加了设置终端资产编码F225\r\n";	
+FkSetDlg.cpp:	GetDlgItem(IDC_EDIT_INFO)->SetWindowText(strInfo);	
+FkSetDlg.cpp:void CAboutDlg::DoDataExchange(CDataExchange* pDX)
+FkSetDlg.cpp:	CDialog::DoDataExchange(pDX);
+FkSetDlg.cpp:BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
+FkSetDlg.cpp:// CFkSetDlg dialog
+FkSetDlg.cpp:	: CDialog(CFkSetDlg::IDD, pParent)
+FkSetDlg.cpp:	//{{AFX_DATA_INIT(CFkSetDlg)
+FkSetDlg.cpp:	m_editmt1 = _T("");
+FkSetDlg.cpp:	m_editmt2 = _T("");
+FkSetDlg.cpp:	//m_editmt3 = _T("");
+FkSetDlg.cpp:	//}}AFX_DATA_INIT
+FkSetDlg.cpp:	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
+FkSetDlg.cpp:	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+FkSetDlg.cpp:void CFkSetDlg::DoDataExchange(CDataExchange* pDX)
+FkSetDlg.cpp:	CDialog::DoDataExchange(pDX);
+FkSetDlg.cpp:	//DDX_Control(pDX, IDC_COMBO_PLUSENUM, m_PluseNum);
+FkSetDlg.cpp:	DDX_Control(pDX, IDC_COMBO_PARITY, m_selParity);
+FkSetDlg.cpp:	DDX_Control(pDX, IDC_COMBO5, m_sel4852);
+FkSetDlg.cpp:	DDX_Control(pDX, IDC_COMBO4, m_sel4851);
+FkSetDlg.cpp:	DDX_Control(pDX, IDC_EDIT, m_ctlResult);
+FkSetDlg.cpp:	DDX_Control(pDX, IDC_COMBO_B, m_ctlB);
+FkSetDlg.cpp:	DDX_Control(pDX, IDC_COMBO_COM, m_ctlCom);
+FkSetDlg.cpp:	DDX_Control(pDX, IDC_LIST, m_AddressList);
+FkSetDlg.cpp:	//DDX_Text(pDX, IDC_EDIT_ACPORT, m_nAcPort);
+FkSetDlg.cpp:	//DDV_MinMaxInt(pDX, m_nAcPort, 0, 32);
+FkSetDlg.cpp:	//DDX_Text(pDX, IDC_EDIT_4851, m_n4851Port);
+FkSetDlg.cpp:	//DDV_MinMaxInt(pDX, m_n4851Port, 0, 32);
+FkSetDlg.cpp:	DDX_Text(pDX, IDC_EDITMT1, m_editmt1);
+FkSetDlg.cpp:	DDV_MaxChars(pDX, m_editmt1, 12);
+FkSetDlg.cpp:	DDX_Text(pDX, IDC_EDITMT2, m_editmt2);
+FkSetDlg.cpp:	DDV_MaxChars(pDX, m_editmt2, 12);
+FkSetDlg.cpp:BEGIN_MESSAGE_MAP(CFkSetDlg, CDialog)
+FkSetDlg.cpp:	ON_WM_PAINT()
+FkSetDlg.cpp:	ON_WM_QUERYDRAGICON()
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_ADD, OnAdd)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_DEL, OnDel)
+FkSetDlg.cpp:	ON_BN_CLICKED(ID_CLICK_OK, OnClickOk)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_OPEN_COM, OnOpenCom)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_CLOSE_COM, OnCloseCom)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON1, OnButton1)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON2, OnButton2)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON3, OnButton3)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON4, OnButton4)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON5, OnButton5)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON6, OnButton6)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON7, OnButton7)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON8, OnButton8)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON9, OnButton9)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON10, OnButton10)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON11, OnButton11)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON12, OnButton12)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON13, OnButton13)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON14, OnButton14)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON15, OnButton15)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON16, OnButton16)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_CHECK1, OnCheck1)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON17, OnButton17)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON18, OnButton18)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON19, OnButton19)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON20, OnButton20)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON21, OnButton21)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON22, OnButton22)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON23, OnButton23)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON24, OnButton24)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON26, OnButton26)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON27, OnButton27)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON29, OnButton29)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON30, OnButton30)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON28, OnButton28)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON32, OnButtonSetMac)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON35, OnButtonRdMac)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON34, OnButtonRdVer)
+FkSetDlg.cpp:	ON_NOTIFY(NM_CLICK, IDC_LIST, OnClickList)
+FkSetDlg.cpp:	ON_NOTIFY(NM_KILLFOCUS, IDC_LIST, OnKillfocusList)
+FkSetDlg.cpp:	ON_NOTIFY(NM_RETURN, IDC_LIST, OnReturnList)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON_DOOR, OnButtonDoor)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON33, OnButton33)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON36, OnButton36)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON_CLRAC, OnButtonClrAC)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON37, OnButton37)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON_SETID, OnButtonSetid)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON38, OnButton38)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_BUTTON_UPMODEM, OnButtonUpmodem)
+FkSetDlg.cpp:	ON_BN_CLICKED(IDC_ESAM, OnEsam)
+FkSetDlg.cpp:BOOL CFkSetDlg::OnInitDialog()
+FkSetDlg.cpp:	CDialog::OnInitDialog();
+FkSetDlg.cpp:	// Add "About..." menu item to system menu.
+FkSetDlg.cpp:	// IDM_ABOUTBOX must be in the system command range.
+FkSetDlg.cpp:	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
+FkSetDlg.cpp:	ASSERT(IDM_ABOUTBOX < 0xF000);
+FkSetDlg.cpp:	if (pSysMenu != NULL)
+FkSetDlg.cpp:		CString strAboutMenu;
+FkSetDlg.cpp:		strAboutMenu.LoadString(IDS_ABOUTBOX);
+FkSetDlg.cpp:		if (!strAboutMenu.IsEmpty())
+FkSetDlg.cpp:			pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
+FkSetDlg.cpp:	// Set the icon for this dialog.  The framework does this automatically
+FkSetDlg.cpp:	//  when the application's main window is not a dialog
+FkSetDlg.cpp:	SetIcon(m_hIcon, TRUE);			// Set big icon
+FkSetDlg.cpp:	SetIcon(m_hIcon, FALSE);		// Set small icon
+FkSetDlg.cpp:	InitializeCriticalSection(&m_conData.m_recCS);
+FkSetDlg.cpp:	m_AddressList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_CHECKBOXES | LVS_EX_GRIDLINES );
+FkSetDlg.cpp:	m_AddressList.InsertColumn(0,_T("序号"),LVCFMT_LEFT,50);
+FkSetDlg.cpp:	m_AddressList.InsertColumn(1,_T("终端地址 L=9或12"),LVCFMT_LEFT,120);
+FkSetDlg.cpp:	m_AddressList.InsertColumn(2,_T("备注"),LVCFMT_LEFT,337);
+FkSetDlg.cpp:	LoadParamFile();
+FkSetDlg.cpp:	//((CButton*)GetDlgItem(IDC_RADIO_698))->SetCheck(TRUE);
+FkSetDlg.cpp:	g_RtuType = TERMINAL_TYPE_GW698;
+FkSetDlg.cpp:	//((CButton*)GetDlgItem(IDC_RADIO_PWLONG))->SetCheck(TRUE);
+FkSetDlg.cpp://	GetDlgItem(IDC_BUTTON4)->EnableWindow(FALSE);
+FkSetDlg.cpp://	GetDlgItem(IDC_BUTTON7)->EnableWindow(FALSE);
+FkSetDlg.cpp://	GetDlgItem(IDC_BUTTON19)->EnableWindow(FALSE);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON22)->EnableWindow(TRUE);
+FkSetDlg.cpp:	m_selParity.SetCurSel(2);
+FkSetDlg.cpp:void CFkSetDlg::OnSysCommand(UINT nID, LPARAM lParam)
+FkSetDlg.cpp:	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
+FkSetDlg.cpp:		CDialog::OnSysCommand(nID, lParam);
+FkSetDlg.cpp:// If you add a minimize button to your dialog, you will need the code below
+FkSetDlg.cpp://  to draw the icon.  For MFC applications using the document/view model,
+FkSetDlg.cpp://  this is automatically done for you by the framework.
+FkSetDlg.cpp:void CFkSetDlg::OnPaint() 
+FkSetDlg.cpp:	if (IsIconic())
+FkSetDlg.cpp:		CPaintDC dc(this); // device context for painting
+FkSetDlg.cpp:		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
+FkSetDlg.cpp:		// Center icon in client rectangle
+FkSetDlg.cpp:		int cxIcon = GetSystemMetrics(SM_CXICON);
+FkSetDlg.cpp:		int cyIcon = GetSystemMetrics(SM_CYICON);
+FkSetDlg.cpp:		GetClientRect(&rect);
+FkSetDlg.cpp:		int x = (rect.Width() - cxIcon + 1) / 2;
+FkSetDlg.cpp:		int y = (rect.Height() - cyIcon + 1) / 2;
+FkSetDlg.cpp:		// Draw the icon
+FkSetDlg.cpp:		dc.DrawIcon(x, y, m_hIcon);
+FkSetDlg.cpp:		CDialog::OnPaint();
+FkSetDlg.cpp:// The system calls this to obtain the cursor to display while the user drags
+FkSetDlg.cpp://  the minimized window.
+FkSetDlg.cpp:HCURSOR CFkSetDlg::OnQueryDragIcon()
+FkSetDlg.cpp:	return (HCURSOR) m_hIcon;
+FkSetDlg.cpp:void CFkSetDlg::OnOK()
+FkSetDlg.cpp:void CFkSetDlg::OnCancel()
+FkSetDlg.cpp:void CFkSetDlg::OnAdd() 
+FkSetDlg.cpp:	int index;
+FkSetDlg.cpp:	int count = m_AddressList.GetItemCount();
+FkSetDlg.cpp:	CString strTmp;
+FkSetDlg.cpp:	if(count == 0)
+FkSetDlg.cpp:		index = m_AddressList.InsertItem(m_AddressList.GetItemCount(),"1");
+FkSetDlg.cpp:		m_AddressList.SetItemText(index,1,"111100001");
+FkSetDlg.cpp:		strTmp.Format("%d",m_AddressList.GetItemCount()+1);
+FkSetDlg.cpp:		index = m_AddressList.InsertItem(m_AddressList.GetItemCount(),strTmp);
+FkSetDlg.cpp:		strTmp = m_AddressList.GetItemText(count - 1,1);
+FkSetDlg.cpp:		int nNext = atoi(straddr+4) + 1;
+FkSetDlg.cpp:		int nArea = atoi(strarea);
+FkSetDlg.cpp:		if (strlen(strTmp) == 9)
+FkSetDlg.cpp:		else if (strlen(strTmp) == 8)
+FkSetDlg.cpp:		m_AddressList.SetItemText(index,1,strTmp);
+FkSetDlg.cpp:void CFkSetDlg::OnDel() 
+FkSetDlg.cpp:	int i;
+FkSetDlg.cpp:	CUIntArray arr;
+FkSetDlg.cpp:	POSITION pos = m_AddressList.GetFirstSelectedItemPosition();
+FkSetDlg.cpp:	if (pos != NULL)
+FkSetDlg.cpp:		while (pos)
+FkSetDlg.cpp:			int nItem = m_AddressList.GetNextSelectedItem(pos);
+FkSetDlg.cpp:			arr.Add(nItem);
+FkSetDlg.cpp:	for(i = arr.GetSize() - 1 ; i >=0 ;i--)
+FkSetDlg.cpp:		m_AddressList.DeleteItem(arr[i]);
+FkSetDlg.cpp:void CFkSetDlg::OnClickOk() 
+FkSetDlg.cpp:	ExitFkSetData();
+FkSetDlg.cpp:void CFkSetDlg::OnClose() 
+FkSetDlg.cpp:	ExitFkSetData();
+FkSetDlg.cpp:void CFkSetDlg::ExitFkSetData()
+FkSetDlg.cpp:	if(m_conData.m_recEvent != NULL)
+FkSetDlg.cpp:	if(m_conData.m_sendEvent != NULL)
+FkSetDlg.cpp:	DeleteCriticalSection(&m_conData.m_recCS);	
+FkSetDlg.cpp:	SaveParamFile();
+FkSetDlg.cpp:	CDialog::OnOK();
+FkSetDlg.cpp:void CFkSetDlg::OnOpenCom() 
+FkSetDlg.cpp:	CString strTmp;
+FkSetDlg.cpp:	m_ctlB.GetWindowText(strTmp);
+FkSetDlg.cpp:	m_conData.m_cfg.m_icommno = m_ctlCom.GetCurSel() + 1;
+FkSetDlg.cpp:	m_conData.m_cfg.m_iBaud = atoi(strTmp);
+FkSetDlg.cpp:	m_conData.m_cfg.m_cbDataBit = 8;
+FkSetDlg.cpp:	m_conData.m_cfg.m_cbStopBit = 0;
+FkSetDlg.cpp:	m_conData.m_cfg.m_cbParity = m_selParity.GetCurSel();
+FkSetDlg.cpp://	m_conData.m_cfg.m_cbParity = 0;
+FkSetDlg.cpp:	if(!m_port.IsOpen())
+FkSetDlg.cpp:		m_port.Init(&m_conData);
+FkSetDlg.cpp:void CFkSetDlg::OnCloseCom() 
+FkSetDlg.cpp:	if(m_port.IsOpen())
+FkSetDlg.cpp:		m_port.UnInit();
+FkSetDlg.cpp:void CFkSetDlg::SetButtonState()
+FkSetDlg.cpp:	if(m_port.IsOpen())
+FkSetDlg.cpp:		GetDlgItem(IDC_OPEN_COM)->EnableWindow(0);
+FkSetDlg.cpp:		GetDlgItem(IDC_CLOSE_COM)->EnableWindow(1);
+FkSetDlg.cpp:		GetDlgItem(IDC_OPEN_COM)->EnableWindow(1);
+FkSetDlg.cpp:		GetDlgItem(IDC_CLOSE_COM)->EnableWindow(0);
+FkSetDlg.cpp:unsigned char CalcCS_r(unsigned char *pdata, short datalen)
+FkSetDlg.cpp:	unsigned char checksum=0;
+FkSetDlg.cpp:	short i;
+FkSetDlg.cpp:	for(i=0; i<datalen; i++)
+FkSetDlg.cpp:		checksum+=pdata[i];
+FkSetDlg.cpp:int CalcCRC16_r(unsigned char *pdata, int datalen)
+FkSetDlg.cpp:	int tmpCRC=0;
+FkSetDlg.cpp:	int i;
+FkSetDlg.cpp:	int j;
+FkSetDlg.cpp:	int iflag;
+FkSetDlg.cpp:	for(i=0; i<datalen; i++)
+FkSetDlg.cpp:		tmpCRC^=(pdata[i]<<8);
+FkSetDlg.cpp:			iflag=tmpCRC&0x8000;
+FkSetDlg.cpp:			if(iflag)
+FkSetDlg.cpp:void CFkSetDlg::SetCheckTmu(unsigned char cType, unsigned char* pReport, unsigned short len,BOOL bPwdLong, void* param1, void* param2, void* param3)
+FkSetDlg.cpp:	CString		strTmp,strTmp1;
+FkSetDlg.cpp:	LMUACKINFO	lmuinfo;
+FkSetDlg.cpp:	memset(rtuAddress,0,sizeof(rtuAddress));
+FkSetDlg.cpp:	memset(&lmuinfo,0,sizeof(LMUACKINFO));
+FkSetDlg.cpp:	int tmp,analy,k;
+FkSetDlg.cpp:	int Dtlen = 0;
+FkSetDlg.cpp:	if(!m_port.IsOpen())
+FkSetDlg.cpp:	for(int i = 0 ; i < m_AddressList.GetItemCount() ; i++)
+FkSetDlg.cpp:		if(m_AddressList.GetCheck(i))
+FkSetDlg.cpp:			CString		strAddr;
+FkSetDlg.cpp:			strAddr = m_AddressList.GetItemText(i,1);
+FkSetDlg.cpp:			//if(RtuStrToCode(strTmp.GetBuffer(9),rtuAddress) != 0)
+FkSetDlg.cpp:			if(RtuStrToCode(strAddr.GetBuffer(12),rtuAddress) != 0)
+FkSetDlg.cpp:			unsigned char c1 = rtuAddress[0];
+FkSetDlg.cpp:			unsigned char c2 = rtuAddress[1];
+FkSetDlg.cpp:			unsigned char c3 = rtuAddress[2];
+FkSetDlg.cpp:			unsigned char c4 = rtuAddress[3];
+FkSetDlg.cpp:			unsigned char c5 = rtuAddress[4];
+FkSetDlg.cpp:			unsigned char c6 = rtuAddress[5];
+FkSetDlg.cpp:			lmuinfo.Address.AreaCode = c2*256+c1;			
+FkSetDlg.cpp:			lmuinfo.Address.UnitAddr = c4*256+c3;
+FkSetDlg.cpp:			lmuinfo.Address.HostAddr = 0x51;
+FkSetDlg.cpp:			pReport[7] = (unsigned char)lmuinfo.Address.AreaCode;
+FkSetDlg.cpp:			pReport[8] = (unsigned char)(lmuinfo.Address.AreaCode>>8);
+FkSetDlg.cpp:			pReport[9] = (unsigned char)lmuinfo.Address.UnitAddr;
+FkSetDlg.cpp:			pReport[10] = (unsigned char)(lmuinfo.Address.UnitAddr>>8);
+FkSetDlg.cpp://			pReport[11] = (unsigned char)lmuinfo.Address.HostAddr;
+FkSetDlg.cpp:			if(cType == 38)
+FkSetDlg.cpp:				int iSerial;
+FkSetDlg.cpp:				int nReportLen = 18;
+FkSetDlg.cpp:				char szSeria[12];
+FkSetDlg.cpp:			//	MakeSerialFrame(pReport,(BYTE*)param1);
+FkSetDlg.cpp:				iSerial=MakeSetSERFrame(pReport,strAddr);
+FkSetDlg.cpp:				if(iSerial<0)
+FkSetDlg.cpp:					continue;
+FkSetDlg.cpp:				sprintf(szSeria,"%08d",iSerial);
+FkSetDlg.cpp:				memcpy(pReport+nReportLen, (BYTE*)szSeria,8);
+FkSetDlg.cpp:			//	int nCrc16 =CalcCRC16_r(pReport+18,8);
+FkSetDlg.cpp:			if(cType == 40)
+FkSetDlg.cpp:				int iSerial;
+FkSetDlg.cpp:				int nReportLen = 18;
+FkSetDlg.cpp:				char szSeria[32];
+FkSetDlg.cpp:				memset(szSeria, 0,32);
+FkSetDlg.cpp:				iSerial=MakeSetSERFrame(pReport,strAddr);//获得序列号
+FkSetDlg.cpp:				strncpy(szSeria,m_CDMAsERIA.m_sz4,4);
+FkSetDlg.cpp:				sprintf(szSeria+4,"%08d",iSerial);		
+FkSetDlg.cpp:			//	MakeSerialFrame(pReport,(BYTE*)param1);
+FkSetDlg.cpp:				for(int m=0;m<12;m++)
+FkSetDlg.cpp:					sxNx[m]= szSeria[11-m];
+FkSetDlg.cpp:				memcpy(pReport+nReportLen+32, (BYTE*)szSeria,32);	
+FkSetDlg.cpp:				int nCrc16 =CalcCRC16_r(pReport+18,8);
+FkSetDlg.cpp:			if(cType == 4)
+FkSetDlg.cpp:			if(cType == 7)
+FkSetDlg.cpp:				pReport[14] = (unsigned char)param1;
+FkSetDlg.cpp:				cTemp = (((unsigned char)param2) << 4) | ((unsigned char)param3);
+FkSetDlg.cpp:			if(cType == 17)
+FkSetDlg.cpp:				IPPORTINFO* p = (IPPORTINFO*)param1;
+FkSetDlg.cpp:				sockaddr_in sa;
+FkSetDlg.cpp:				int nReportLen = 18;
+FkSetDlg.cpp:				sa.sin_addr.s_addr=inet_addr((char*)p->m_strEndIP);	
+FkSetDlg.cpp:				sscanf((char*)p->m_strEndIP,"%u.%u.%u.%u",
+FkSetDlg.cpp:					&sa.sin_addr.s_net,
+FkSetDlg.cpp:					&sa.sin_addr.s_host,
+FkSetDlg.cpp:					&sa.sin_addr.s_lh,
+FkSetDlg.cpp:					&sa.sin_addr.s_impno);
+FkSetDlg.cpp:				pReport[nReportLen++] = sa.sin_addr.s_net;
+FkSetDlg.cpp:				pReport[nReportLen++] = sa.sin_addr.s_host;
+FkSetDlg.cpp:				pReport[nReportLen++] = sa.sin_addr.s_lh;
+FkSetDlg.cpp:				pReport[nReportLen++] = sa.sin_addr.s_impno;
+FkSetDlg.cpp:				memcpy((void*)&pReport[nReportLen],&p->m_nEndPort,2);
+FkSetDlg.cpp:				sa.sin_addr.s_addr=inet_addr((char*)p->m_strEndIP2);
+FkSetDlg.cpp:				sscanf((char*)p->m_strEndIP2,"%u.%u.%u.%u",
+FkSetDlg.cpp:					&sa.sin_addr.s_net,
+FkSetDlg.cpp:					&sa.sin_addr.s_host,
+FkSetDlg.cpp:					&sa.sin_addr.s_lh,
+FkSetDlg.cpp:					&sa.sin_addr.s_impno);
+FkSetDlg.cpp:				pReport[nReportLen++] = sa.sin_addr.s_net;
+FkSetDlg.cpp:				pReport[nReportLen++] = sa.sin_addr.s_host;
+FkSetDlg.cpp:				pReport[nReportLen++] = sa.sin_addr.s_lh;
+FkSetDlg.cpp:				pReport[nReportLen++] = sa.sin_addr.s_impno;
+FkSetDlg.cpp:				memcpy((void*)&pReport[nReportLen],&p->m_nEndPort2,2);
+FkSetDlg.cpp:				if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:				CString strAPN(p->m_nEndAPN);
+FkSetDlg.cpp:				strAPN.TrimLeft();
+FkSetDlg.cpp:				strAPN.TrimRight();
+FkSetDlg.cpp:				memset((void*)&pReport[nReportLen],0,16);
+FkSetDlg.cpp:			if(cType == 18)
+FkSetDlg.cpp:				CString strTmp;
+FkSetDlg.cpp:				int	nTmp;
+FkSetDlg.cpp:				unsigned char cTmp;
+FkSetDlg.cpp:				CTime tm = CTime::GetCurrentTime();
+FkSetDlg.cpp:				pReport[23] = GetBcd((unsigned char)(tm.GetYear() % 100));
+FkSetDlg.cpp:				cTmp = GetBcd((unsigned char)tm.GetMonth());
+FkSetDlg.cpp:				if(nTmp == 1)
+FkSetDlg.cpp:				cTmp |= ((unsigned char)nTmp)<<5;
+FkSetDlg.cpp:				pReport[21] = GetBcd((unsigned char)tm.GetDay());
+FkSetDlg.cpp:				pReport[20] = GetBcd((unsigned char)tm.GetHour());
+FkSetDlg.cpp:				pReport[19] = GetBcd((unsigned char)tm.GetMinute());
+FkSetDlg.cpp:				pReport[18] = GetBcd((unsigned char)tm.GetSecond());
+FkSetDlg.cpp:			if ((cType == 29)||(cType == 30)||(cType == 31))
+FkSetDlg.cpp:			if (cType == 32) // 设置mac地址
+FkSetDlg.cpp:				int nReportLen = 18;
+FkSetDlg.cpp:#if 0
+FkSetDlg.cpp:				int nReportLen = 18;
+FkSetDlg.cpp:#endif
+FkSetDlg.cpp:				int nCrc16 =CalcCRC16_r(pReport+18,8);
+FkSetDlg.cpp:				int rtn = MakeSetMacFrame(pReport,strAddr);
+FkSetDlg.cpp:				switch(rtn)
+FkSetDlg.cpp:				if(rtn < 0)
+FkSetDlg.cpp:					m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:					continue;
+FkSetDlg.cpp:			if (cType == TYPE_SET_CDMA) // 
+FkSetDlg.cpp:				int nReportLen = 18;
+FkSetDlg.cpp:				int nCrc16 =CalcCRC16_r(pReport+18,8);
+FkSetDlg.cpp:			if (cType == TYPE_SET_F8) // 
+FkSetDlg.cpp:				int nReportLen = 18;	
+FkSetDlg.cpp:				memcpy(pReport+nReportLen,&(p1->nIntervalForever),2);	
+FkSetDlg.cpp:				pReport[nReportLen++] = p1->nRetryPassive;
+FkSetDlg.cpp:				pReport[nReportLen++] = p1->nIntervalPassive;
+FkSetDlg.cpp:				memcpy(pReport+nReportLen,&(p1->nFlgOnline),3);
+FkSetDlg.cpp:				int nCrc16 =CalcCRC16_r(pReport+18,8);
+FkSetDlg.cpp:			if (cType == TYPE_SET_225) // 
+FkSetDlg.cpp:				int nReportLen = 18;	
+FkSetDlg.cpp:			//	int nCrc16 =CalcCRC16_r(pReport+18,8);
+FkSetDlg.cpp:#if 0
+FkSetDlg.cpp:			if((bPwdLong)&&(pReport[12]!=0x09)&&(pReport[12]!=0x0c)&&(pReport[12]!=0xf1))
+FkSetDlg.cpp:				memcpy((VOID *)(&Dtlen), (VOID *)(pReport+1), 2);
+FkSetDlg.cpp:				int tmplen = (Dtlen<<2)|0x02; // 新规约用2表示本规约
+FkSetDlg.cpp:				memcpy((VOID *)(m_conData.m_sendBuf+1), (VOID *)(&tmplen), 2);
+FkSetDlg.cpp:				memcpy((VOID *)(m_conData.m_sendBuf+3), (VOID *)(&tmplen), 2);
+FkSetDlg.cpp:#endif
+FkSetDlg.cpp:			int templen = len;
+FkSetDlg.cpp:			int tmplen = 0;
+FkSetDlg.cpp:			memcpy((VOID *)(&Dtlen), (VOID *)(pReport+1), 2);
+FkSetDlg.cpp:			if(bPwdLong)
+FkSetDlg.cpp:				if((pReport[12]!=0x09)&&(pReport[12]!=0x0c)&&(pReport[12]!=0xf1))	
+FkSetDlg.cpp:					memcpy((VOID *)(m_conData.m_sendBuf+1), (VOID *)(&tmplen), 2);
+FkSetDlg.cpp:					memcpy((VOID *)(m_conData.m_sendBuf+3), (VOID *)(&tmplen), 2);
+FkSetDlg.cpp:					memcpy((VOID *)(m_conData.m_sendBuf+1), (VOID *)(&tmplen), 2);
+FkSetDlg.cpp:					memcpy((VOID *)(m_conData.m_sendBuf+3), (VOID *)(&tmplen), 2);
+FkSetDlg.cpp:			if(strlen(strAddr)==12)
+FkSetDlg.cpp:				memcpy((VOID *)(m_conData.m_sendBuf+1), (VOID *)(&tmplen), 2);
+FkSetDlg.cpp:				memcpy((VOID *)(m_conData.m_sendBuf+3), (VOID *)(&tmplen), 2);
+FkSetDlg.cpp:			m_conData.m_sendBuf[templen - 2] = CalcCS_r((unsigned char*)&m_conData.m_sendBuf[6],templen - 8);
+FkSetDlg.cpp:			if(cType != 40&&cType != 41)
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, "");	
+FkSetDlg.cpp:			for(int j = 0 ; j < 1 ; j++)
+FkSetDlg.cpp:				//set edit
+FkSetDlg.cpp:				CTime tm = CTime::GetCurrentTime();
+FkSetDlg.cpp:				AddStr2Edit("\n");
+FkSetDlg.cpp:				strTmp.Format("串口发送(%d-%02d-%02d %02d:%02d:%02d):", tm.GetYear(), tm.GetMonth(), tm.GetDay(), tm.GetHour(), tm.GetMinute(), tm.GetSecond());
+FkSetDlg.cpp:				AddStr2Edit(strTmp);
+FkSetDlg.cpp:				AddStr2Edit(strTmp);
+FkSetDlg.cpp:					tmp = WaitForSingleObject(m_conData.m_recEvent ,6000);
+FkSetDlg.cpp:					if(tmp == WAIT_TIMEOUT)
+FkSetDlg.cpp:					EnterCriticalSection(&m_conData.m_recCS);
+FkSetDlg.cpp:					analy= AnalyticData((unsigned char*)m_conData.m_recBuf , m_conData.m_recLength,i);
+FkSetDlg.cpp:					LeaveCriticalSection(&m_conData.m_recCS);
+FkSetDlg.cpp:				} while(analy == ANALY_DATA_LESS);
+FkSetDlg.cpp:				if(tmp == WAIT_TIMEOUT)
+FkSetDlg.cpp:					continue;				
+FkSetDlg.cpp:				if(analy == ANALY_RIGHT)
+FkSetDlg.cpp:			if(j == 1)
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, "发送数据超时.");
+FkSetDlg.cpp:				if (g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:				//	GetDlgItem(IDC_BUTTON4)->EnableWindow(TRUE);
+FkSetDlg.cpp://					GetDlgItem(IDC_BUTTON7)->EnableWindow(TRUE);
+FkSetDlg.cpp:				//	GetDlgItem(IDC_BUTTON19)->EnableWindow(TRUE);
+FkSetDlg.cpp:				//	GetDlgItem(IDC_BUTTON22)->EnableWindow(FALSE);
+FkSetDlg.cpp:				//	GetDlgItem(IDC_BUTTON4)->EnableWindow(0);
+FkSetDlg.cpp://					GetDlgItem(IDC_BUTTON7)->EnableWindow(0);
+FkSetDlg.cpp:				//	GetDlgItem(IDC_BUTTON19)->EnableWindow(0);
+FkSetDlg.cpp:				//	GetDlgItem(IDC_BUTTON22)->EnableWindow(1);
+FkSetDlg.cpp:				g_PortInfo = FALSE;
+FkSetDlg.cpp:			if (m_conData.m_recBuf[12]==0
+FkSetDlg.cpp:				if (m_conData.m_recBuf[16]==1)
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:				continue;
+FkSetDlg.cpp:			if(cType == 20)
+FkSetDlg.cpp:					if(cTemp & (1 << j))
+FkSetDlg.cpp:					if(cTemp & (1 << j))
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:			if (cType == TYPE_SET_CDMA) // 
+FkSetDlg.cpp:				if (m_conData.m_recBuf[18]==0) 
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:			if (cType == TYPE_GET_CDMA) // 
+FkSetDlg.cpp:				if (m_conData.m_recBuf[18]==0) 
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:			if (cType == 39) // 
+FkSetDlg.cpp:				int it = atoi(tmp);
+FkSetDlg.cpp:				if (it== MakeSetSERFrame(pReport,strAddr)) 
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:			if (cType == TYPE_CLR_AC) // 
+FkSetDlg.cpp:				if (m_conData.m_recBuf[18]==0) 
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:			if (cType == 41) // 
+FkSetDlg.cpp:				m_AddressList.GetItemText(i, 2,szTT,100);
+FkSetDlg.cpp:				if (m_conData.m_recBuf[18]==0) 
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:			if (cType == TYPE_GET_F8) // 
+FkSetDlg.cpp:				memcpy(TempBuff+1,&(p1->nIntervalForever),2);	
+FkSetDlg.cpp:				TempBuff[3] = p1->nRetryPassive;
+FkSetDlg.cpp:				TempBuff[4] = p1->nIntervalPassive;
+FkSetDlg.cpp:				memcpy(TempBuff+5,&(p1->nFlgOnline),3);
+FkSetDlg.cpp:				if (memcmp(TempBuff,m_conData.m_recBuf+18,8)==0)
+FkSetDlg.cpp:				m_AddressList.SetItemText(i, 2, strTmp);
+FkSetDlg.cpp:	if (g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp://		GetDlgItem(IDC_BUTTON4)->EnableWindow(TRUE);
+FkSetDlg.cpp://		GetDlgItem(IDC_BUTTON7)->EnableWindow(TRUE);
+FkSetDlg.cpp:///		GetDlgItem(IDC_BUTTON19)->EnableWindow(TRUE);
+FkSetDlg.cpp://		GetDlgItem(IDC_BUTTON22)->EnableWindow(FALSE);
+FkSetDlg.cpp://		GetDlgItem(IDC_BUTTON4)->EnableWindow(0);
+FkSetDlg.cpp://		GetDlgItem(IDC_BUTTON7)->EnableWindow(0);
+FkSetDlg.cpp://		GetDlgItem(IDC_BUTTON19)->EnableWindow(0);
+FkSetDlg.cpp://		GetDlgItem(IDC_BUTTON22)->EnableWindow(1);
+FkSetDlg.cpp:	g_PortInfo = FALSE;
+FkSetDlg.cpp:void CFkSetDlg::OnButton1() 
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(1,SendData1,sizeof(SendData1));
+FkSetDlg.cpp:		SetCheckTmu(1,SendData6981,sizeof(SendData6981),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton2() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(2,SendData2,sizeof(SendData2));
+FkSetDlg.cpp:		SetCheckTmu(2,SendData6982,sizeof(SendData6982),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton3() 
+FkSetDlg.cpp:	SetCheckTmu(3,SendData6983_2,sizeof(SendData6983_2),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton4() 
+FkSetDlg.cpp:	SetCheckTmu(1,ReadBattVol,sizeof(ReadBattVol) ,g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton5() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(5,SendData5,sizeof(SendData5));
+FkSetDlg.cpp:		SetCheckTmu(5,SendData6985,sizeof(SendData6985),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton6() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	//SetCheckTmu(6,SendData6,sizeof(SendData6));
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(6,SendData6,sizeof(SendData6));
+FkSetDlg.cpp:		SetCheckTmu(6,SendData6986,sizeof(SendData6986),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton7() 
+FkSetDlg.cpp:	CString strTmp;
+FkSetDlg.cpp:	if(dlg.DoModal() == IDOK)
+FkSetDlg.cpp:		int nAlarm =1<<(dlg.m_nAlarm);
+FkSetDlg.cpp:		int nDelay = dlg.m_nDelay;
+FkSetDlg.cpp:		int nTime = dlg.m_nTime;
+FkSetDlg.cpp:		//SetCheckTmu(7,SendData7,sizeof(SendData7),(void*)nAlarm, (void*)nDelay, (void*)nTime);
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:			SetCheckTmu(7,SendData7,sizeof(SendData7),FALSE,(void*)nAlarm, (void*)nDelay, (void*)nTime);
+FkSetDlg.cpp:			SetCheckTmu(7,SendData6987,sizeof(SendData6987),g_bPwdLong,(void*)nAlarm, (void*)nDelay, (void*)nTime);
+FkSetDlg.cpp:void CFkSetDlg::OnButton8() 
+FkSetDlg.cpp:	m_ctlResult.SetWindowText("");
+FkSetDlg.cpp:void CFkSetDlg::OnButton9() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	//SetCheckTmu(9,SendData9,sizeof(SendData9));
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(9,SendData9,sizeof(SendData9));
+FkSetDlg.cpp:		SetCheckTmu(9,SendData6989,sizeof(SendData6989),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton10() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	//SetCheckTmu(10,SendData10,sizeof(SendData10));
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(10,SendData10,sizeof(SendData10));
+FkSetDlg.cpp:		SetCheckTmu(10,SendData69810,sizeof(SendData69810),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton11() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	//SetCheckTmu(11,SendData11,sizeof(SendData11));
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(11,SendData11,sizeof(SendData11));
+FkSetDlg.cpp:		SetCheckTmu(11,SendData69811,sizeof(SendData69811),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton12() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	//SetCheckTmu(12,SendData12,sizeof(SendData12));
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(12,SendData12,sizeof(SendData12));
+FkSetDlg.cpp:		SetCheckTmu(12,SendData69812,sizeof(SendData69812),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton13() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	//SetCheckTmu(13,SendData13,sizeof(SendData13));
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(13,SendData13,sizeof(SendData13));
+FkSetDlg.cpp:		SetCheckTmu(13,SendData69813,sizeof(SendData69813),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton14() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	//SetCheckTmu(14,SendData14,sizeof(SendData14));
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(14,SendData14,sizeof(SendData14));
+FkSetDlg.cpp:		SetCheckTmu(14,SendData69814,sizeof(SendData69814),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton15() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	//SetCheckTmu(15,SendData15,sizeof(SendData15));
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(15,SendData15,sizeof(SendData15));
+FkSetDlg.cpp:		SetCheckTmu(15,SendData69815,sizeof(SendData69815),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton16() 
+FkSetDlg.cpp:	SetCheckTmu(16,SendData69816,sizeof(SendData69816),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnCheck1() 
+FkSetDlg.cpp:	CButton* pWin = (CButton*)GetDlgItem(IDC_CHECK1);
+FkSetDlg.cpp:	BOOL bCheck = pWin->GetCheck();
+FkSetDlg.cpp:	for(int i = 0 ; i < m_AddressList.GetItemCount() ; i++)
+FkSetDlg.cpp:		m_AddressList.SetCheck(i,bCheck);
+FkSetDlg.cpp:void CFkSetDlg::OnButton17() 
+FkSetDlg.cpp:	CSetIPAndPort dlg;
+FkSetDlg.cpp:	if(dlg.DoModal() == IDOK)
+FkSetDlg.cpp:		SetCheckTmu(17,SendData69817,sizeof(SendData69817),g_bPwdLong,(void*)&dlg.m_data);
+FkSetDlg.cpp:void CFkSetDlg::OnButton18() 
+FkSetDlg.cpp:	//SetCheckTmu(18,SendData18,sizeof(SendData18));
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(18,SendData18,sizeof(SendData18));
+FkSetDlg.cpp:		SetCheckTmu(18,SendData69818,sizeof(SendData69818),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton19() 
+FkSetDlg.cpp:	//SetCheckTmu(19,SendData19,sizeof(SendData19));	
+FkSetDlg.cpp:/*	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(19,SendData19,sizeof(SendData19));
+FkSetDlg.cpp:		SetCheckTmu(19,SendData69819,sizeof(SendData69819),g_bPwdLong);
+FkSetDlg.cpp:	if(dlg.DoModal() == IDOK)
+FkSetDlg.cpp:		//SetCheckTmu(17,SendData17,sizeof(SendData17),(void*)&dlg.m_data);
+FkSetDlg.cpp:		if (dlg.m_bSet)
+FkSetDlg.cpp:			SetCheckTmu(TYPE_SET_F8,SendDataSetF8,sizeof(SendDataSetF8),FALSE,(void*)&dlg.m_para);
+FkSetDlg.cpp:			SetCheckTmu(TYPE_GET_F8,SendDataGetF8,sizeof(SendDataGetF8),FALSE,(void*)&dlg.m_para);
+FkSetDlg.cpp:void CFkSetDlg::OnButton20() 
+FkSetDlg.cpp:	//SetCheckTmu(20,SendData20,sizeof(SendData20));	
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(20,SendData20,sizeof(SendData20));
+FkSetDlg.cpp:		SetCheckTmu(20,SendData69820,sizeof(SendData69820),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton21() 
+FkSetDlg.cpp:	//SetCheckTmu(21,SendData21,sizeof(SendData21));	
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(21,SendData21,sizeof(SendData21));
+FkSetDlg.cpp:		SetCheckTmu(21,SendData69821,sizeof(SendData69821),g_bPwdLong);
+FkSetDlg.cpp:unsigned char CFkSetDlg::GetBcd(unsigned char uSrc)
+FkSetDlg.cpp:	unsigned char uDest;
+FkSetDlg.cpp:	int nTmp;
+FkSetDlg.cpp:	uDest |= (unsigned char)nTmp<<4;
+FkSetDlg.cpp:int CFkSetDlg::AnalyticData(unsigned char* pReport, unsigned short& nReportLen,int nItem)
+FkSetDlg.cpp:	CString strTmp, strTmp1;
+FkSetDlg.cpp:	int k;
+FkSetDlg.cpp:	unsigned short datalen;
+FkSetDlg.cpp:	if( nReportLen < MIN_SERVER_PACKET_LEN)//接收数据长度小于最小桢长度
+FkSetDlg.cpp:		return ANALY_DATA_LESS;//不予处理,等待接收数据长度大于等于MIN_SERVER_PACKET_LEN
+FkSetDlg.cpp:	switch(pReport[0])
+FkSetDlg.cpp:		if((*(pReport+1) != *(pReport+3))||(*(pReport+2) != *(pReport+4)))
+FkSetDlg.cpp://			WriteLog("两个长度不相等!");
+FkSetDlg.cpp://			find_SOH(pReport,nReportLen,1);
+FkSetDlg.cpp:	//	if((*(pReport+1)&0x03)!=0x01)	/*规约标识不正确*/	
+FkSetDlg.cpp://			WriteLog("规约标识不正确!");
+FkSetDlg.cpp://			find_SOH(pReport,nReportLen,1);
+FkSetDlg.cpp:		memcpy((VOID *)(&datalen), (VOID *)(pReport+1), 2);
+FkSetDlg.cpp:		if(nReportLen <(datalen+8))		//检测长度
+FkSetDlg.cpp:		if(pReport[datalen+7] != 0x16)
+FkSetDlg.cpp://			find_SOH(pReport,nReportLen,1);
+FkSetDlg.cpp:		if(pReport[datalen+6] != crc)
+FkSetDlg.cpp://			WriteLog("校验和不对!");
+FkSetDlg.cpp://			find_SOH(pReport,nReportLen,1);
+FkSetDlg.cpp://		find_SOH(pReport,nReportLen,1);
+FkSetDlg.cpp:	//set edit
+FkSetDlg.cpp:	CTime tm = CTime::GetCurrentTime();
+FkSetDlg.cpp:	strTmp.Format("串口接收(%d-%02d-%02d %02d:%02d:%02d):", tm.GetYear(), tm.GetMonth(), tm.GetDay(), tm.GetHour(), tm.GetMinute(), tm.GetSecond());
+FkSetDlg.cpp:	AddStr2Edit(strTmp);
+FkSetDlg.cpp:	AddStr2Edit(strTmp);
+FkSetDlg.cpp:	AddStr2Edit(strTmp);
+FkSetDlg.cpp://	AddStr2Edit("\r\n");
+FkSetDlg.cpp:	if(g_PortInfo)
+FkSetDlg.cpp:		AnalyticPortinfo(pReport+18,datalen+8-18-2);
+FkSetDlg.cpp://	g_PortInfo = FALSE;
+FkSetDlg.cpp:	int lenstart=12;
+FkSetDlg.cpp:	if(g_bAddrLong)
+FkSetDlg.cpp:	if (pReport[lenstart] == 0x09)
+FkSetDlg.cpp:		if ((pReport[lenstart+4] == 0x80)&&(pReport[lenstart+5] == 0x0a))
+FkSetDlg.cpp:				sprintf(strtmp,"内部版本%s",pReport+lenstart+6);
+FkSetDlg.cpp:				AddStr2Edit(strtmp);
+FkSetDlg.cpp:	else if (pReport[lenstart] == 0x10) // afn10
+FkSetDlg.cpp:		AnalyticAFN10(pReport+lenstart+6,datalen+8-18-2);
+FkSetDlg.cpp:	else if (pReport[lenstart] == 0xf1) // afn10
+FkSetDlg.cpp:		if ((pReport[lenstart+4] == 0x01)&&(pReport[lenstart+5] == 0x14))
+FkSetDlg.cpp:			if (pReport[lenstart+6] == 0x00)
+FkSetDlg.cpp:				CString temp="设置mac地址成功!";
+FkSetDlg.cpp:				AddStr2Edit("设置mac地址成功!");
+FkSetDlg.cpp:				m_AddressList.SetItemText(nItem, 2, temp);
+FkSetDlg.cpp:		if ((pReport[lenstart+4] == 0x02)&&(pReport[lenstart+5] == 0x14))
+FkSetDlg.cpp:			if (pReport[lenstart+6] == 0x00)
+FkSetDlg.cpp:				sprintf(strtmp,"MAC地址：%02X-%02X-%02X-%02X-%02X-%02X",
+FkSetDlg.cpp:				AddStr2Edit(strtmp);
+FkSetDlg.cpp:				m_AddressList.SetItemText(nItem, 2, strtmp);
+FkSetDlg.cpp:	find_SOH(pReport,nReportLen,datalen+8);
+FkSetDlg.cpp:	return ANALY_RIGHT;	
+FkSetDlg.cpp:int CFkSetDlg::AnalyticPortinfo(unsigned char* pBuf, unsigned short nAppLen)
+FkSetDlg.cpp:	CString strTmp, strTmp1;
+FkSetDlg.cpp:	int k = 0;
+FkSetDlg.cpp:	if(nAppLen < 17) return -1;
+FkSetDlg.cpp:	unsigned char cTmp = 0;
+FkSetDlg.cpp:		switch((cTmp&0x30)>>5) // bit 5,6
+FkSetDlg.cpp:		cTmp = (pBuf[18+k*12]&0xE0)>>5; // bit 13_15
+FkSetDlg.cpp:		switch(cTmp)
+FkSetDlg.cpp:		strTmp1.Format("支持的最高波特率:%ld:\r\n",*(int*)&pBuf[19+12*k]);
+FkSetDlg.cpp:	AddStr2Edit(strTmp);
+FkSetDlg.cpp:int CFkSetDlg::AnalyticAFN10(unsigned char* pBuf, unsigned short nAppLen)
+FkSetDlg.cpp:	CString strTmp, strTmp1;
+FkSetDlg.cpp:	int k = 0;
+FkSetDlg.cpp:	if(nAppLen < 17) return -1;
+FkSetDlg.cpp:	int rlen = pBuf[1]+pBuf[2]*256;
+FkSetDlg.cpp:	if ( rlen >= 20)
+FkSetDlg.cpp:		int i = 0;
+FkSetDlg.cpp:		for( i=0;i<4;i++)
+FkSetDlg.cpp:			pBuf[3+rlen-6+i] -= 0x33;
+FkSetDlg.cpp:			result[3-i] = (pBuf[3+rlen-6+i]/16*10)+pBuf[3+rlen-6+i]%16;
+FkSetDlg.cpp:		for(i=0;i<4;i++)
+FkSetDlg.cpp:			strTmp1.Format("%02d",result[i]);
+FkSetDlg.cpp:	AddStr2Edit(strTmp);
+FkSetDlg.cpp://int CFkSetDlg::AnalyticAFNF1(unsigned char* pBuf, unsigned short nAppLen)
+FkSetDlg.cpp:void CFkSetDlg::find_SOH(unsigned char* pReport, unsigned short& nReportLen,int i)
+FkSetDlg.cpp:	int j;
+FkSetDlg.cpp:	if(i==0)
+FkSetDlg.cpp:	while((pReport[i] != 0x68)&&(i < nReportLen))
+FkSetDlg.cpp:		i++;
+FkSetDlg.cpp:	for(j=0; i<nReportLen; i++, j++)		//进行搬动
+FkSetDlg.cpp:		pReport[j] = pReport[i];
+FkSetDlg.cpp:void CFkSetDlg::RefreshNum()
+FkSetDlg.cpp:	CString strTmp;
+FkSetDlg.cpp:	for(int i = 0 ; i < m_AddressList.GetItemCount() ; i++)
+FkSetDlg.cpp:		strTmp.Format("%d",i+1);
+FkSetDlg.cpp:		m_AddressList.SetItemText(i,0,strTmp);			
+FkSetDlg.cpp:void CFkSetDlg::EnableAllButton(BOOL b)
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON1)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON2)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON3)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON5)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON6)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON7)->EnableWindow(b);	
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON9)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON10)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON11)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON12)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON13)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON14)->EnableWindow(b);
+FkSetDlg.cpp:	//GetDlgItem(IDC_BUTTON15)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON16)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON17)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON18)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON19)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON20)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON21)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON22)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON23)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON24)->EnableWindow(b);
+FkSetDlg.cpp:	//GetDlgItem(IDC_BUTTON25)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON26)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON27)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON28)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON32)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON33)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON34)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON35)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON_DOOR)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON34)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON36)->EnableWindow(b);
+FkSetDlg.cpp:	GetDlgItem(IDC_BUTTON_CLRAC)->EnableWindow(b);
+FkSetDlg.cpp:void CFkSetDlg::AddStr2Edit(const CString& str)
+FkSetDlg.cpp:	int nLen = m_ctlResult.GetWindowTextLength();
+FkSetDlg.cpp:	if (nLen >= 30000 - 1)
+FkSetDlg.cpp:		m_ctlResult.SetWindowText("");
+FkSetDlg.cpp:void CFkSetDlg::LoadParamFile()
+FkSetDlg.cpp:	CFile f;
+FkSetDlg.cpp:	CFileException e;
+FkSetDlg.cpp:	int nCount;
+FkSetDlg.cpp:	CString strTmp;
+FkSetDlg.cpp:	strcat(path,"\\FkSetInfo.cfg");
+FkSetDlg.cpp:	if( !f.Open( path,CFile::modeReadWrite, &e ) )
+FkSetDlg.cpp:#ifdef _DEBUG
+FkSetDlg.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+FkSetDlg.cpp:#endif
+FkSetDlg.cpp:		SetDlgItemText(IDC_COMBO_PLUSENUM,strTmp1);	*/
+FkSetDlg.cpp:		m_PluseNum.SelectString(0,strTmp1);
+FkSetDlg.cpp:	f.Read(&nCount,sizeof(nCount));
+FkSetDlg.cpp:	for(int i = 0 ; i < nCount ; i++)
+FkSetDlg.cpp:		strTmp.Format("%d",i + 1);
+FkSetDlg.cpp:		int index = m_AddressList.InsertItem(m_AddressList.GetItemCount(),strTmp);
+FkSetDlg.cpp:		m_AddressList.SetItemText(index,1,strTmp1);		
+FkSetDlg.cpp:	memset(strTmp1,0,sizeof(strTmp1));
+FkSetDlg.cpp:	int n = atol(strTmp1);
+FkSetDlg.cpp:	if(!(n > 0 && n <=4))
+FkSetDlg.cpp:	m_PluseNum.SelectString(0,strTmp1);	
+FkSetDlg.cpp:void CFkSetDlg::SaveParamFile()
+FkSetDlg.cpp:	CFile f;
+FkSetDlg.cpp:	CFileException e;
+FkSetDlg.cpp:	CString strTmp;
+FkSetDlg.cpp:	int nCount;
+FkSetDlg.cpp:	strcat(path,"\\FkSetInfo.cfg");
+FkSetDlg.cpp:	if( !f.Open( path, CFile::modeCreate | CFile::modeReadWrite, &e ) )
+FkSetDlg.cpp:#ifdef _DEBUG
+FkSetDlg.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+FkSetDlg.cpp:#endif
+FkSetDlg.cpp:	nCount = m_AddressList.GetItemCount();
+FkSetDlg.cpp:	f.Write(&nCount,sizeof(nCount));
+FkSetDlg.cpp:	for(int i = 0 ; i < nCount ; i++)
+FkSetDlg.cpp:		strTmp = m_AddressList.GetItemText(i,1);		
+FkSetDlg.cpp:		f.Write(strTmp.Mid(0,12),13);
+FkSetDlg.cpp:	GetDlgItemText(IDC_COMBO_PLUSENUM,strTmp);
+FkSetDlg.cpp:	f.Write(strTmp.Mid(0,1),2);
+FkSetDlg.cpp://void CFkSetDlg::OnRadioPwlong() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp://		if (((CButton*)GetDlgItem(IDC_RADIO_PWLONG))->GetCheck())
+FkSetDlg.cpp://void CFkSetDlg::OnRadioPwsht() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp://	if (((CButton*)GetDlgItem(IDC_RADIO_PWSHT))->GetCheck())
+FkSetDlg.cpp:void CFkSetDlg::OnButton22() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(22,SendData69822,sizeof(SendData69822),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton23() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(23,SendData69823,sizeof(SendData69823),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton24() 
+FkSetDlg.cpp:		SetCheckTmu(24,SendData69824,sizeof(SendData69824),g_bPwdLong);	
+FkSetDlg.cpp:void CFkSetDlg::OnButton26() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(26,SendData69826,sizeof(SendData69826),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton27() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		int n = GetDlgItemInt(IDC_COMBO_PLUSENUM);
+FkSetDlg.cpp:		if(n==1||n==2)
+FkSetDlg.cpp:			SetCheckTmu(27,SendData69827_1,sizeof(SendData69827_1),g_bPwdLong);
+FkSetDlg.cpp:		else if(n == 3||n==4)
+FkSetDlg.cpp:			SetCheckTmu(27,SendData69827_2,sizeof(SendData69827_2),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton28() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		SetCheckTmu(28,SendData69828,sizeof(SendData69828),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton29() 
+FkSetDlg.cpp:	if (GetMeteraddr(1,straddr) < 0)
+FkSetDlg.cpp:	SetCheckTmu(29,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton30() 
+FkSetDlg.cpp:	if (GetMeteraddr(2,straddr) < 0)
+FkSetDlg.cpp:	SetCheckTmu(30,SendData69829_4851,sizeof(SendData69829_4851),g_bPwdLong);
+FkSetDlg.cpp:int CFkSetDlg::MakeSetMacFrame(BYTE *pReport,CString &strAddr)
+FkSetDlg.cpp:	int num;
+FkSetDlg.cpp:	int nReportLen = 18;
+FkSetDlg.cpp:	if (strAddr.GetLength()!=(int)strlen(m_macdlg.m_para.szStratTermAddr))
+FkSetDlg.cpp:	switch(strAddr.GetLength())
+FkSetDlg.cpp:		addr1 =	atoi((LPCTSTR)strAddr);
+FkSetDlg.cpp:		addr2 =	atoi(m_macdlg.m_para.szStratTermAddr);
+FkSetDlg.cpp:		addr1 =	atoi((LPCTSTR)strAddr+4);
+FkSetDlg.cpp:		addr2 =	atoi(m_macdlg.m_para.szStratTermAddr+4);
+FkSetDlg.cpp:	if(num < 0 || num >(int)m_macdlg.m_para.dwTermNumber )
+FkSetDlg.cpp:	if (strlen(m_macdlg.m_para.szStratMAC)!=12)
+FkSetDlg.cpp:	int nCrc16 =CalcCRC16_r(pReport+18,8);
+FkSetDlg.cpp:int CFkSetDlg::MakeSetSERFrame(BYTE *pReport,CString &strAddr)
+FkSetDlg.cpp:	int num;
+FkSetDlg.cpp:	int nReportLen = 18;
+FkSetDlg.cpp:	if (strAddr.GetLength()!=(int)strlen(m_CDMAsERIA.m_szTermID))
+FkSetDlg.cpp:		TRACE("地址长度不一致[%s][%s]",(LPCTSTR)strAddr,m_CDMAsERIA.m_szTermID);
+FkSetDlg.cpp:	switch(strAddr.GetLength())
+FkSetDlg.cpp:		sscanf(m_CDMAsERIA.m_szTermID,"%04X%05d",&area2,&addr2);
+FkSetDlg.cpp:	if(num < 0 || num >(int)m_CDMAsERIA.dwTermNumber )
+FkSetDlg.cpp:		TRACE("地址不在范围[%s][%s]",(LPCTSTR)strAddr,m_CDMAsERIA.dwTermNumber);
+FkSetDlg.cpp: int tmp ;	
+FkSetDlg.cpp:	 tmp = atoi(m_CDMAsERIA.m_sz8)+num;
+FkSetDlg.cpp:int CFkSetDlg::MakeSetSERFrametwo(BYTE *pReport,CString &strAddr)
+FkSetDlg.cpp:	int num;
+FkSetDlg.cpp:	int nReportLen = 18;
+FkSetDlg.cpp:	if (strAddr.GetLength()!=(int)strlen(m_macdlg.m_para.szStratTermAddr))
+FkSetDlg.cpp:	switch(strAddr.GetLength())
+FkSetDlg.cpp:		sscanf(m_CDMAsERIA.m_szTermID,"%04X%05d",&area2,&addr2);
+FkSetDlg.cpp: int tmp ;	return
+FkSetDlg.cpp:	 tmp = atoi(m_CDMAsERIA.m_szSerisID)+num;
+FkSetDlg.cpp:void CFkSetDlg::OnButtonSetMac() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(m_macdlg.DoModal() == IDOK)
+FkSetDlg.cpp:		//SetCheckTmu(17,SendData17,sizeof(SendData17),(void*)&dlg.m_data);
+FkSetDlg.cpp:		if(g_RtuType == TERMINAL_TYPE_FK)
+FkSetDlg.cpp:		//	SetCheckTmu(32,SendData17,sizeof(SendData17),FALSE,(void*)&dlg.m_data);
+FkSetDlg.cpp:		//	void* pp;
+FkSetDlg.cpp:		//	SetCheckTmu(32,SendData69832_mac,sizeof(SendData69832_mac),g_bPwdLong,(void*)dlg.m_strMac);
+FkSetDlg.cpp:			SetCheckTmu(32,SendData69832_mac,sizeof(SendData69832_mac),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButtonRdMac() 
+FkSetDlg.cpp:	SetCheckTmu(33,SendData69833_mac,sizeof(SendData69833_mac),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButtonRdVer() 
+FkSetDlg.cpp:		SetCheckTmu(34,SendData69834_ver,sizeof(SendData69834_ver),g_bPwdLong);
+FkSetDlg.cpp:int CFkSetDlg::GetMeteraddr(int index,char *pAddr) 
+FkSetDlg.cpp:	int lenId = 0;
+FkSetDlg.cpp:	this->UpdateData(TRUE);
+FkSetDlg.cpp:	CString strMtno;
+FkSetDlg.cpp:	switch(index)
+FkSetDlg.cpp:		lenId = m_editmt1.GetLength();
+FkSetDlg.cpp:		strMtno.Format("%s",m_editmt1);
+FkSetDlg.cpp:		lenId = m_editmt2.GetLength();
+FkSetDlg.cpp:		strMtno.Format("%s",m_editmt2);
+FkSetDlg.cpp:	CString strtmp = "";
+FkSetDlg.cpp:	if (lenId < 1)
+FkSetDlg.cpp:	if (lenId <= 12)
+FkSetDlg.cpp:	for(int i=0;i<12;i++)		// 数据项编号。占四字节，低位在前
+FkSetDlg.cpp:        if(strtmp.GetLength()<2)
+FkSetDlg.cpp:        CString str=strtmp.Right(2);
+FkSetDlg.cpp:        strtmp.TrimRight();
+FkSetDlg.cpp:        pAddr[i]=nChar;		
+FkSetDlg.cpp:void CFkSetDlg::OnClickList(NMHDR* pNMHDR, LRESULT* pResult) 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:void CFkSetDlg::OnKillfocusList(NMHDR* pNMHDR, LRESULT* pResult) 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:void CFkSetDlg::OnReturnList(NMHDR* pNMHDR, LRESULT* pResult) 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:void CFkSetDlg::OnButtonDoor() 
+FkSetDlg.cpp:		SetCheckTmu(35,SendData69835_door,sizeof(SendData69835_door),g_bPwdLong);
+FkSetDlg.cpp:void CFkSetDlg::OnButton33() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	if(dlg.DoModal() == IDOK)
+FkSetDlg.cpp:		//SetCheckTmu(17,SendData17,sizeof(SendData17),(void*)&dlg.m_data);
+FkSetDlg.cpp:		SetCheckTmu(TYPE_SET_CDMA,SendDataSetCDMA,sizeof(SendDataSetCDMA),FALSE,(void*)&dlg.m_data);
+FkSetDlg.cpp:void CFkSetDlg::OnButton36() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:		SetCheckTmu(TYPE_GET_CDMA,SendDataGetCDMA,sizeof(SendDataGetCDMA),FALSE);	
+FkSetDlg.cpp:void CFkSetDlg::OnButtonClrAC() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:		SetCheckTmu(TYPE_CLR_AC,SendDataClrAC,sizeof(SendDataClrAC),FALSE);		
+FkSetDlg.cpp:void CFkSetDlg::OnButton37() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:void CFkSetDlg::OnButtonSetid() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:	CSetTermID dlg;
+FkSetDlg.cpp:	if(dlg.DoModal() == IDOK)
+FkSetDlg.cpp:		//SetCheckTmu(17,SendData17,sizeof(SendData17),(void*)&dlg.m_data);
+FkSetDlg.cpp:		SetCheckTmu(TYPE_SET_225,SendDataSetF225,sizeof(SendDataSetF225),FALSE,(void*)&dlg.m_szTermID);
+FkSetDlg.cpp:void CFkSetDlg::OnButton38() 
+FkSetDlg.cpp:	if(m_CDMAsERIA.DoModal() == IDOK)
+FkSetDlg.cpp:		//SetCheckTmu(17,SendData17,sizeof(SendData17),(void*)&dlg.m_data);
+FkSetDlg.cpp:	//	SetCheckTmu(TYPE_SET_225,SendDataSetF225,sizeof(SendDataSetF225),FALSE,(void*)&m_CDMAsERIA.m_sz8);
+FkSetDlg.cpp:		SetCheckTmu(38,SendDataSetF225,sizeof(SendDataSetF225),FALSE,(void*)&m_CDMAsERIA.m_sz8,(void*)&m_CDMAsERIA.dwTermNumber);
+FkSetDlg.cpp:		SetCheckTmu(39,SendData69821,sizeof(SendData69821),g_bPwdLong);
+FkSetDlg.cpp://		SetCheckTmu(TYPE_SET_CDMA,SendDataSetCDMA,sizeof(SendDataSetCDMA),FALSE,(void*)&m_CDMAsERIA.m_szTermCDMA);
+FkSetDlg.cpp:	SetCheckTmu(40,SendDataSetCDMA,sizeof(SendDataSetCDMA),FALSE,(void*)&m_CDMAsERIA.m_szTermCDMA);
+FkSetDlg.cpp:		SetCheckTmu(41,SendDataGetCDMA,sizeof(SendDataGetCDMA),FALSE);	
+FkSetDlg.cpp:void CFkSetDlg::OnButtonUpmodem() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.cpp:void CFkSetDlg::OnEsam() 
+FkSetDlg.cpp:	// TODO: Add your control notification handler code here
+FkSetDlg.h:// FkSetDlg.h : header file
+FkSetDlg.h:#if !defined(AFX_FKSETDLG_H__16BF1361_523D_4D17_8A2F_C757BFAF1F46__INCLUDED_)
+FkSetDlg.h:#define AFX_FKSETDLG_H__16BF1361_523D_4D17_8A2F_C757BFAF1F46__INCLUDED_
+FkSetDlg.h:#if _MSC_VER > 1000
+FkSetDlg.h:#endif // _MSC_VER > 1000
+FkSetDlg.h:#include "EditListCtrl.h"
+FkSetDlg.h:#include "SerialPort.h"
+FkSetDlg.h:#include "DlgMACSet.h"
+FkSetDlg.h:#include "DlgCDMASeria.h"
+FkSetDlg.h:// CFkSetDlg dialog
+FkSetDlg.h:class CFkSetDlg : public CDialog
+FkSetDlg.h:// Construction
+FkSetDlg.h:public:
+FkSetDlg.h:// Dialog Data
+FkSetDlg.h:	enum { IDD = IDD_FKSET_DIALOG };
+FkSetDlg.h:	CComboBox	m_selParity;
+FkSetDlg.h:	CEdit	m_ctlResult;
+FkSetDlg.h:	CEditListCtrl	m_AddressList;
+FkSetDlg.h:	int		m_nAcPort;
+FkSetDlg.h:	int		m_n4851Port;
+FkSetDlg.h:	int		m_n4852Port;
+FkSetDlg.h:	CString	m_editmt1;
+FkSetDlg.h:	CString	m_editmt2;
+FkSetDlg.h:	//CString	m_editmt3;
+FkSetDlg.h:	// ClassWizard generated virtual function overrides
+FkSetDlg.h:	//{{AFX_VIRTUAL(CFkSetDlg)
+FkSetDlg.h:	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
+FkSetDlg.h:	//}}AFX_VIRTUAL
+FkSetDlg.h:	virtual void OnOK();
+FkSetDlg.h:	virtual void OnCancel();
+FkSetDlg.h:// Implementation
+FkSetDlg.h:	HICON m_hIcon;
+FkSetDlg.h:	// Generated message map functions
+FkSetDlg.h:	virtual BOOL OnInitDialog();
+FkSetDlg.h:	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
+FkSetDlg.h:	afx_msg void OnPaint();
+FkSetDlg.h:	afx_msg HCURSOR OnQueryDragIcon();
+FkSetDlg.h:	afx_msg void OnAdd();
+FkSetDlg.h:	afx_msg void OnDel();
+FkSetDlg.h:	afx_msg void OnClickOk();
+FkSetDlg.h:	afx_msg void OnClose();
+FkSetDlg.h:	afx_msg void OnOpenCom();
+FkSetDlg.h:	afx_msg void OnCloseCom();
+FkSetDlg.h:	afx_msg void OnButton1();
+FkSetDlg.h:	afx_msg void OnButton2();
+FkSetDlg.h:	afx_msg void OnButton3();
+FkSetDlg.h:	afx_msg void OnButton4();
+FkSetDlg.h:	afx_msg void OnButton5();
+FkSetDlg.h:	afx_msg void OnButton6();
+FkSetDlg.h:	afx_msg void OnButton7();
+FkSetDlg.h:	afx_msg void OnButton8();
+FkSetDlg.h:	afx_msg void OnButton9();
+FkSetDlg.h:	afx_msg void OnButton10();
+FkSetDlg.h:	afx_msg void OnButton11();
+FkSetDlg.h:	afx_msg void OnButton12();
+FkSetDlg.h:	afx_msg void OnButton13();
+FkSetDlg.h:	afx_msg void OnButton14();
+FkSetDlg.h:	afx_msg void OnButton15();
+FkSetDlg.h:	afx_msg void OnButton16();
+FkSetDlg.h:	afx_msg void OnCheck1();
+FkSetDlg.h:	afx_msg void OnButton17();
+FkSetDlg.h:	afx_msg void OnButton18();
+FkSetDlg.h:	afx_msg void OnButton19();
+FkSetDlg.h:	afx_msg void OnButton20();
+FkSetDlg.h:	afx_msg void OnButton21();
+FkSetDlg.h:	afx_msg void OnRadioFk();
+FkSetDlg.h:	afx_msg void OnRadio698();
+FkSetDlg.h:	afx_msg void OnRadioPwlong();
+FkSetDlg.h:	afx_msg void OnRadioPwsht();
+FkSetDlg.h:	afx_msg void OnButton22();
+FkSetDlg.h:	afx_msg void OnButton23();
+FkSetDlg.h:	afx_msg void OnButton24();
+FkSetDlg.h:	afx_msg void OnButton26();
+FkSetDlg.h:	afx_msg void OnButton27();
+FkSetDlg.h:	afx_msg void OnButton29();
+FkSetDlg.h:	afx_msg void OnButton30();
+FkSetDlg.h:	afx_msg void OnButton28();
+FkSetDlg.h:	afx_msg void OnButtonSetMac();
+FkSetDlg.h:	afx_msg void OnButtonRdMac();
+FkSetDlg.h:	afx_msg void OnButtonRdVer();
+FkSetDlg.h:	afx_msg void OnClickList(NMHDR* pNMHDR, LRESULT* pResult);
+FkSetDlg.h:	afx_msg void OnKillfocusList(NMHDR* pNMHDR, LRESULT* pResult);
+FkSetDlg.h:	afx_msg void OnReturnList(NMHDR* pNMHDR, LRESULT* pResult);
+FkSetDlg.h:	afx_msg void OnButtonDoor();
+FkSetDlg.h:	afx_msg void OnButton33();
+FkSetDlg.h:	afx_msg void OnButton36();
+FkSetDlg.h:	afx_msg void OnButtonClrAC();
+FkSetDlg.h:	afx_msg void OnButton37();
+FkSetDlg.h:	afx_msg void OnButtonSetid();
+FkSetDlg.h:	afx_msg void OnButton38();
+FkSetDlg.h:	afx_msg void OnButton25();
+FkSetDlg.h:	afx_msg void OnButtonUpmodem();
+FkSetDlg.h:	afx_msg void OnEsam();
+FkSetDlg.h:public:
+FkSetDlg.h:	CSerialPort				m_port;
+FkSetDlg.h:	CDlgCDMASeria m_CDMAsERIA;
+FkSetDlg.h:	void ExitFkSetData();
+FkSetDlg.h:	void SetButtonState();
+FkSetDlg.h:	void SetCheckTmu(unsigned char cType, unsigned char* pReport, unsigned short len, BOOL bPwdLong=FALSE,void* param1 = NULL, void* param2 = NULL, void* param3 = NULL);
+FkSetDlg.h:	unsigned char GetBcd(unsigned char uSrc);
+FkSetDlg.h:	int AnalyticData(unsigned char* pReport, unsigned short& nReportLen,int nItem);
+FkSetDlg.h:	void find_SOH(unsigned char* pReport, unsigned short& nReportLen,int i);
+FkSetDlg.h:	void RefreshNum();
+FkSetDlg.h:	void EnableAllButton(BOOL b);
+FkSetDlg.h:	void AddStr2Edit(const CString& str);
+FkSetDlg.h:	int AnalyticPortinfo(unsigned char* pBuf, unsigned short nAppLen);
+FkSetDlg.h:	int AnalyticAFN10(unsigned char* pBuf, unsigned short nAppLen);
+FkSetDlg.h:	void LoadParamFile();
+FkSetDlg.h:	void SaveParamFile();
+FkSetDlg.h:	int GetMeteraddr(int index,char *pAddr) ;
+FkSetDlg.h:	int MakeSetMacFrame(BYTE *pReport,CString &strAddr);
+FkSetDlg.h:	void MakeSerialFrame();
+FkSetDlg.h:	int MakeSetSERFrame(BYTE *pReport,CString &strAddr);
+FkSetDlg.h:	int MakeSetSERFrametwo(BYTE *pReport,CString &strAddr);
+FkSetDlg.h://{{AFX_INSERT_LOCATION}}
+FkSetDlg.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+FkSetDlg.h:#endif // !defined(AFX_FKSETDLG_H__16BF1361_523D_4D17_8A2F_C757BFAF1F46__INCLUDED_)
+global.cpp:#include "StdAfx.h"
+global.cpp:#include "global.h"
+global.cpp:#include "stdio.h"
+global.cpp:#include "stdlib.h"
+global.cpp:#include "Mmsystem.h"
+global.cpp:#include <afxmt.h>
+global.cpp:#include "Afxsock.h"
+global.cpp:#pragma comment(lib,"Winmm.lib")
+global.cpp:int theDebugToNet=0;
+global.cpp:int theDebugToDisk=1;
+global.cpp:CCriticalSection g_logfilemutex;
+global.cpp:unsigned char g_mac[6];
+global.cpp:int GetModulePath(char *path)
+global.cpp://	if (theProgramPath[0]==0x00)
+global.cpp:		::GetModuleFileName(NULL,path,MAX_PATH);
+global.cpp:		char *pFind = strrchr(path,'\\');
+global.cpp:		if (pFind!=NULL) 
+global.cpp:			*(pFind+1)=0;
+global.cpp:void ulong2bcdex_r(int tmp, char *pbcd, int bcdlen, char symbol)
+global.cpp:	int i;
+global.cpp:	if(tmp==0)
+global.cpp:	for(i=0; (i<bcdlen)&&(tmp!=0); i++)
+global.cpp:		pbcd[i]=tmp%10;
+global.cpp:		pbcd[i]|=((tmp%10)<<4);
+global.cpp:int RtuStrToCode(char *Str, char* Code)
+global.cpp:	int i;
+global.cpp:	int n;
+global.cpp://	if (strlen(Str)!=9) return -1;
+global.cpp:	int len = strlen(Str);
+global.cpp:	if(len == 8)
+global.cpp:		for(i = 0; i < 8; i++)
+global.cpp:			if(!isxdigit(Str[i]))
+global.cpp:			if((Str[i] >='A' && Str[i] <= 'F')
+global.cpp:				||(Str[i] >='a' && Str[i] <= 'f'))
+global.cpp:				Code[i/2]|=((_toupper(Str[i])-'A'+10)<<((i%2)*4));
+global.cpp:				Code[i/2]|=((Str[i]-'0')<<((i%2)*4));
+global.cpp:	if((len!=9)&&(len!=12)) 
+global.cpp:	for (i=0;i<len;i++)
+global.cpp:		n = Str[i];
+global.cpp:		if (isdigit(n)==FALSE) return -2;
+global.cpp:	n = atoi(&Str[4]);
+global.cpp:	//if (n>65535) return -3;
+global.cpp:	if (n>99999999) return -3;
+global.cpp:	int addrbytes=((len==9)?2:4);
+global.cpp:	//memcpy((void*)&Code[2],(void*)&n,2);
+global.cpp:	int naddr = n;
+global.cpp:	if(len==12) // bcd
+global.cpp:		memcpy((void*)&Code[2],(void*)&naddr,addrbytes);
+global.cpp:#if 0
+global.cpp:	CString strtmp="";
+global.cpp:	for (i =0;i<6;i++)
+global.cpp:		strtmp.Format("%02x",Code[i]);
+global.cpp:#endif
+global.cpp:int RtuCodeToStr(char *Code, char* Str)
+global.cpp:	int n=0;
+global.cpp:	memcpy((void*)&n,(void*)&Code[2],2);
+global.cpp:	sprintf(&Str[4],"%05d",n);
+global.cpp:#ifdef _DEBUG_OUT_
+global.cpp:int DiskDebugOut(char* data,int len)
+global.cpp:	CString strTmp;
+global.cpp:	char file[MAX_PATH];
+global.cpp:	g_logfilemutex.Lock();
+global.cpp:	GetModulePath(file);
+global.cpp:	CTime tm = CTime::GetCurrentTime();
+global.cpp:	strcat(file,strTmp);
+global.cpp:	if (theDebugToDisk)
+global.cpp:		FILE* fp = fopen(file,"ab");
+global.cpp:		if(fp != NULL)
+global.cpp:			fwrite(data,len,1,fp);
+global.cpp:	g_logfilemutex.Unlock();
+global.cpp:void LogFileDS(char* data,char* filename,int linenum)
+global.cpp:	struct tm *newtime;
+global.cpp:	time_t aclock;
+global.cpp:	time( &aclock );                 /* Get time in seconds */
+global.cpp:	newtime = localtime( &aclock );  /* Convert time to struct */
+global.cpp:	sprintf(temp,"%02d-%02d ",newtime->tm_mon+1,newtime->tm_mday);
+global.cpp:	DiskDebugOut(temp,strlen(temp));
+global.cpp:	sprintf(temp,"%02d:%02d:%02d ",newtime->tm_hour,newtime->tm_min,newtime->tm_sec);
+global.cpp:	DiskDebugOut(temp,strlen(temp));
+global.cpp:	filename = strrchr(filename,'\\')+1;
+global.cpp:	DiskDebugOut(filename,strlen(filename));
+global.cpp:	sprintf(temp," %4d: ",linenum);
+global.cpp:	DiskDebugOut(temp,strlen(temp));
+global.cpp:	DiskDebugOut(data,strlen(data));
+global.cpp:	DiskDebugOut("\r\n",strlen("\r\n"));
+global.cpp:int LogFileFmt(int Destination, char* filename,int linenum, const char*format, ...)
+global.cpp:	int nRet;
+global.cpp:	va_list args;
+global.cpp:	nRet = vsprintf(sDebug, format, args);
+global.cpp:	if ((Destination &_DISK_FLAG) ==_DISK_FLAG)
+global.cpp:		LogFileFmtDisk(filename,linenum, sDebug);
+global.cpp:int LogFileFmtDisk(char* filename,int linenum, char*buffer)
+global.cpp:	struct tm *newtime;
+global.cpp:	time_t aclock;
+global.cpp:	time( &aclock );                 /* Get time in seconds */
+global.cpp:	newtime = localtime( &aclock );  /* Convert time to struct */
+global.cpp:	/* Print local time as a string */
+global.cpp:	sprintf(temp,"%02d-%02d %02d:%02d:%02d ",newtime->tm_mon+1,newtime->tm_mday,newtime->tm_hour,newtime->tm_min,newtime->tm_sec);
+global.cpp:	DiskDebugOut(temp,strlen(temp));
+global.cpp:	filename = strrchr(filename,'\\')+1;
+global.cpp:	DiskDebugOut(filename,strlen(filename));
+global.cpp:	sprintf(temp," %4d: ",linenum);
+global.cpp:	DiskDebugOut(temp,strlen(temp));
+global.cpp:	DiskDebugOut(buffer,strlen(buffer));
+global.cpp:	DiskDebugOut("\r\n",strlen("\r\n"));
+global.cpp:void LogHexEx(char* pTip, char* pBuf, int size,char* filename,int linenum)
+global.cpp:	struct tm *newtime;
+global.cpp:	time_t aclock;
+global.cpp:	time( &aclock );                 /* Get time in seconds */
+global.cpp:	newtime = localtime( &aclock );  /* Convert time to struct */
+global.cpp:	sprintf(temp,"%02d-%02d ",newtime->tm_mon+1,newtime->tm_mday);
+global.cpp:	DiskDebugOut(temp,strlen(temp));
+global.cpp:	sprintf(temp,"%02d:%02d:%02d ",newtime->tm_hour,newtime->tm_min,newtime->tm_sec);
+global.cpp:	DiskDebugOut(temp,strlen(temp));
+global.cpp:	filename = strrchr(filename,'\\')+1;
+global.cpp:	DiskDebugOut(filename,strlen(filename));
+global.cpp:	sprintf(temp," %4d: ",linenum);
+global.cpp:	DiskDebugOut(temp,strlen(temp));
+global.cpp:	DiskDebugOut(pTip, strlen(pTip));
+global.cpp:	int i=0;
+global.cpp:	while(i<size)
+global.cpp:		sprintf(temp,"%02X ",(unsigned char)(*pBuf++));
+global.cpp:		i++;
+global.cpp:#if 1
+global.cpp:		int len=strlen(sDebug);
+global.cpp:		if ((len>sizeof(sDebug)-10)||(i==size)) 
+global.cpp:			DiskDebugOut(sDebug,len);
+global.cpp:		DiskDebugOut(temp,3);
+global.cpp:#endif
+global.cpp:	DiskDebugOut("\r\n",strlen("\r\n"));
+global.cpp:int LogFileFmt(int Destination, char* filename,int linenum, const char*format, ...)
+global.cpp:#endif
+global.cpp:unsigned short CRC16(unsigned char *byte, unsigned short nbyte)
+global.cpp:	unsigned short itemp=0;
+global.cpp:	unsigned short i, j;
+global.cpp:	unsigned short iflag;	
+global.cpp:	for(i=0; i<nbyte; i++)
+global.cpp:		itemp^=(byte[i]<<8);
+global.cpp:			iflag=itemp&0x8000;
+global.cpp:			itemp<<=1;
+global.cpp:			if(iflag)
+global.cpp:				itemp^=0x1021;
+global.cpp:	LogFileFmt(TOALL,"crc is %d",itemp);
+global.cpp:	return itemp;
+global.cpp:int reserve(char*  str)   
+global.cpp:	int len = strlen(str);
+global.cpp:	for (int i=0;i<len;i++)
+global.cpp:		str[i] = stemp[len-1-i];
+global.h:#ifndef _GLOBAL_H_
+global.h:#define _GLOBAL_H_
+global.h:// file name
+global.h:int GetModulePath(char *path);
+global.h:int mstimeout(DWORD *timep, int msec);
+global.h:int RtuCodeToStr(char *Code, char* Str);
+global.h:int RtuStrToCode(char *Str, char* Code);
+global.h:unsigned short CRC16(unsigned char *pdata, unsigned short datalen);
+global.h:int  reserve(char*  str);
+global.h:#define  _DEBUG_OUT_            // 允许调试信息输出，代码级关闭
+global.h:#define _DISK_FLAG               0x01
+global.h:#define _PORT_FLAG               0x02
+global.h:#define TODISK        _DISK_FLAG,  __FILE__,__LINE__
+global.h:#define TOPORT        _PORT_FLAG,  __FILE__,__LINE__
+global.h:#define TOALL        _PORT_FLAG | _DISK_FLAG,  __FILE__,__LINE__
+global.h:#define _PROTOCOL_FK2004 	1
+global.h:#define _PROTOCOL_DLT698	2
+global.h:void LogHexEx(char* pTip, char* pBuf, int size,char* filename,int linenum);
+global.h:#ifdef _DEBUG_OUT_
+global.h:	#define LogHex(a,b,c)   LogHexEx(a,b,c,__FILE__,__LINE__)
+global.h:	#define LogFile(x)   LogFileDS(x,__FILE__,__LINE__)
+global.h:	void LogFileDS(char* data,char* filename,int linenum);
+global.h:	int LogFileFmt(int Destination, char* filename,int linenum, const char*format, ...);
+global.h:	int LogFileFmtDisk(char* filename,int linenum, char*buffer);
+global.h:	int DiskDebugOut(char* data,int len);
+global.h:	#define LogHex(a,b,c)
+global.h:	#define LogFile(x)   
+global.h:	int LogFileFmt(int Destination, char* filename,int linenum, const char*format, ...);
+global.h:#endif
+global.h:#endif
+resource.h://{{NO_DEPENDENCIES}}
+resource.h:// Microsoft Developer Studio generated include file.
+resource.h:#define IDM_ABOUTBOX                    0x0010
+resource.h:#define IDD_ABOUTBOX                    100
+resource.h:#define IDS_ABOUTBOX                    101
+resource.h:#define IDD_FKSET_DIALOG                102
+resource.h:#define IDD_DIALOG1                     130
+resource.h:#define IDD_DIALOG2                     132
+resource.h:#define IDD_DIALOG3                     134
+resource.h:#define IDD_DIALOGMAC                   136
+resource.h:#define IDD_DIALOG4                     137
+resource.h:#define IDR_MAINFRAME                   139
+resource.h:#define IDD_DIALOG5                     140
+resource.h:#define IDD_DIALOG6                     142
+resource.h:#define IDD_DIALOG7                     143
+resource.h:#define IDD_DIALOG8                     146
+resource.h:#define ID_CLICK_OK                     1000
+resource.h:#define IDC_LIST                        1001
+resource.h:#define IDC_ADD                         1002
+resource.h:#define IDC_DEL                         1003
+resource.h:#define IDC_COMBO_COM                   1004
+resource.h:#define IDC_OPEN_COM                    1005
+resource.h:#define IDC_CLOSE_COM                   1006
+resource.h:#define IDC_BUTTON1                     1007
+resource.h:#define IDC_BUTTON2                     1008
+resource.h:#define IDC_COMBO1                      1008
+resource.h:#define IDC_BUTTON3                     1009
+resource.h:#define IDC_COMBO2                      1009
+resource.h:#define IDC_BUTTON4                     1010
+resource.h:#define IDC_COMBO3                      1010
+resource.h:#define IDC_BUTTON5                     1011
+resource.h:#define IDC_BUTTON6                     1012
+resource.h:#define IDC_BUTTON7                     1013
+resource.h:#define IDC_CHECK1                      1014
+resource.h:#define IDC_BUTTON9                     1015
+resource.h:#define IDC_CHECK2                      1015
+resource.h:#define IDC_BUTTON10                    1016
+resource.h:#define IDC_CHECK3                      1016
+resource.h:#define IDC_BUTTON11                    1017
+resource.h:#define IDC_CHECK4                      1017
+resource.h:#define IDC_BUTTON12                    1018
+resource.h:#define IDC_CHECK5                      1018
+resource.h:#define IDC_BUTTON13                    1019
+resource.h:#define IDC_CHECK6                      1019
+resource.h:#define IDC_BUTTON14                    1020
+resource.h:#define IDC_CHECK7                      1020
+resource.h:#define IDC_BUTTON15                    1021
+resource.h:#define IDC_CHECK8                      1021
+resource.h:#define IDC_BUTTON16                    1022
+resource.h:#define IDC_CHECK9                      1022
+resource.h:#define IDC_BUTTON17                    1023
+resource.h:#define IDC_CHECK10                     1023
+resource.h:#define IDC_EDIT_IP1                    1024
+resource.h:#define IDC_BUTTON28                    1024
+resource.h:#define IDC_CHECK11                     1024
+resource.h:#define IDC_EDIT_PORT1                  1025
+resource.h:#define IDC_BUTTON32                    1025
+resource.h:#define IDC_CHECK12                     1025
+resource.h:#define IDC_EDIT_IP2                    1026
+resource.h:#define IDC_CHECK13                     1026
+resource.h:#define IDC_BUTTON38                    1026
+resource.h:#define IDC_EDIT_PORT2                  1027
+resource.h:#define IDC_BUTTON34                    1027
+resource.h:#define IDC_CHECK14                     1027
+resource.h:#define IDC_EDIT_APN                    1028
+resource.h:#define IDC_CHECK15                     1028
+resource.h:#define IDC_CHECK16                     1029
+resource.h:#define IDC_BUTTON18                    1030
+resource.h:#define IDC_CHECK17                     1030
+resource.h:#define IDC_COMBO_B                     1031
+resource.h:#define IDC_CHECK18                     1031
+resource.h:#define IDC_BUTTON19                    1032
+resource.h:#define IDC_CHECK19                     1032
+resource.h:#define IDC_BUTTON20                    1033
+resource.h:#define IDC_CHECK20                     1033
+resource.h:#define IDC_BUTTON21                    1034
+resource.h:#define IDC_CHECK21                     1034
+resource.h:#define IDC_BUTTON22                    1035
+resource.h:#define IDC_CHECK22                     1035
+resource.h:#define IDC_BUTTON8                     1036
+resource.h:#define IDC_CHECK23                     1036
+resource.h:#define IDC_EDIT                        1037
+resource.h:#define IDC_CHECK24                     1037
+resource.h:#define IDC_RADIO1                      1038
+resource.h:#define IDC_RADIO_FK                    1038
+resource.h:#define IDC_RADIO2                      1039
+resource.h:#define IDC_RADIO_698                   1039
+resource.h:#define IDC_RADIO_PWLONG                1040
+resource.h:#define IDC_RADIO3                      1040
+resource.h:#define IDC_RADIO_PWSHT                 1041
+resource.h:#define IDC_COMBO_PARITY                1042
+resource.h:#define IDC_BUTTON23                    1043
+resource.h:#define IDC_BUTTON24                    1044
+resource.h:#define IDC_BUTTON25                    1045
+resource.h:#define IDC_ESAM                        1045
+resource.h:#define IDC_BUTTON35                    1046
+resource.h:#define IDC_EDIT_ACPORT                 1047
+resource.h:#define IDC_EDIT_4851                   1048
+resource.h:#define IDC_BUTTON26                    1049
+resource.h:#define IDC_BUTTON27                    1050
+resource.h:#define IDC_COMBO4                      1051
+resource.h:#define IDC_BUTTON29                    1052
+resource.h:#define IDC_COMBO5                      1053
+resource.h:#define IDC_BUTTON30                    1054
+resource.h:#define IDC_EDITMT1                     1057
+resource.h:#define IDC_EDITMT2                     1058
+resource.h:#define IDC_EDIT1                       1058
+resource.h:#define IDC_EDIT_CDMAPWD                1058
+resource.h:#define IDC_EDIT_INFO                   1058
+resource.h:#define IDC_STATIC_INFO                 1059
+resource.h:#define IDC_EDIT_CDMAUSR                1059
+resource.h:#define IDC_EDIT8                       1059
+resource.h:#define IDC_EDIT2                       1061
+resource.h:#define IDC_EDIT10                      1061
+resource.h:#define IDC_BUTTON_DOOR                 1062
+resource.h:#define IDC_BUTTON33                    1063
+resource.h:#define IDC_EDIT9                       1063
+resource.h:#define IDC_BUTTON36                    1064
+resource.h:#define IDC_BUTTON_CLRAC                1065
+resource.h:#define IDC_COMBO_PLUSENUM              1066
+resource.h:#define IDC_BUTTON37                    1067
+resource.h:#define IDC_BUTTON_SETID                1068
+resource.h:#define IDC_EDIT3                       1069
+resource.h:#define IDC_EDIT4                       1070
+resource.h:#define IDC_BUTTON39                    1070
+resource.h:#define IDC_BUTTON_UPMODEM              1070
+resource.h:#define IDC_EDIT5                       1071
+resource.h:#define IDC_BUTTON40                    1071
+resource.h:#define IDC_EDIT6                       1072
+resource.h:#define IDC_EDIT7                       1073
+resource.h:#ifdef APSTUDIO_INVOKED
+resource.h:#ifndef APSTUDIO_READONLY_SYMBOLS
+resource.h:#define _APS_NEXT_RESOURCE_VALUE        147
+resource.h:#define _APS_NEXT_COMMAND_VALUE         32771
+resource.h:#define _APS_NEXT_CONTROL_VALUE         1072
+resource.h:#define _APS_NEXT_SYMED_VALUE           101
+resource.h:#endif
+resource.h:#endif
+SerialPort.cpp:#include "stdafx.h"
+SerialPort.cpp:#include "SerialPort.h"
+SerialPort.cpp:#include "global.h"
+SerialPort.cpp:CSerialPort::CSerialPort()
+SerialPort.cpp:	m_hFile=NULL;
+SerialPort.cpp:CSerialPort::~CSerialPort()
+SerialPort.cpp:BOOL CSerialPort::Init(ACCONNECTDATA* pConData)
+SerialPort.cpp:	_ASSERTE(pConData->m_cfg.m_icommno >=0 && pConData->m_cfg.m_icommno < 255);
+SerialPort.cpp:	if(m_bOpened)
+SerialPort.cpp:	sprintf(str,"COM%d",pConData->m_cfg.m_icommno);
+SerialPort.cpp:	m_hFile = ::CreateFile(str,
+SerialPort.cpp:						   GENERIC_READ|GENERIC_WRITE,
+SerialPort.cpp:						   OPEN_EXISTING,
+SerialPort.cpp:						   FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OVERLAPPED,
+SerialPort.cpp:	if (m_hFile == INVALID_HANDLE_VALUE)
+SerialPort.cpp:		switch (::GetLastError())
+SerialPort.cpp:		case ERROR_FILE_NOT_FOUND:
+SerialPort.cpp:		case ERROR_ACCESS_DENIED:
+SerialPort.cpp:		m_hFile = NULL;
+SerialPort.cpp:	dcb.DCBlength = sizeof(DCB);
+SerialPort.cpp:	if (!::GetCommState(m_hFile,&dcb))
+SerialPort.cpp:		CloseHandle(m_hFile);
+SerialPort.cpp:		m_hFile = NULL;
+SerialPort.cpp:	dcb.BaudRate = m_pConData->m_cfg.m_iBaud;
+SerialPort.cpp:	dcb.ByteSize = m_pConData->m_cfg.m_cbDataBit;
+SerialPort.cpp:	dcb.Parity   = m_pConData->m_cfg.m_cbParity;
+SerialPort.cpp:	dcb.StopBits = m_pConData->m_cfg.m_cbStopBit;
+SerialPort.cpp:	dcb.fBinary = TRUE;
+SerialPort.cpp:	dcb.fParity = TRUE;
+SerialPort.cpp:	if (!::SetCommState(m_hFile,&dcb))	
+SerialPort.cpp:		sprintf(cherror,"COM%d设置错误：\n可能不支持所选波特率，或停止位，或数据位",pConData->m_cfg.m_icommno);
+SerialPort.cpp:		CloseHandle(m_hFile);
+SerialPort.cpp:		m_hFile = NULL;
+SerialPort.cpp:	if (!::SetCommMask(m_hFile,EV_RXCHAR))	
+SerialPort.cpp:		CloseHandle(m_hFile);
+SerialPort.cpp:		m_hFile = NULL;
+SerialPort.cpp:	if (!::SetupComm(m_hFile,BUFFER_SIZE,BUFFER_SIZE))
+SerialPort.cpp:		CloseHandle(m_hFile);
+SerialPort.cpp:		m_hFile = NULL;
+SerialPort.cpp:	COMMTIMEOUTS cto;
+SerialPort.cpp:	if (!::GetCommTimeouts(m_hFile,&cto))	
+SerialPort.cpp:		CloseHandle(m_hFile);
+SerialPort.cpp:		m_hFile = NULL;
+SerialPort.cpp:	cto.ReadIntervalTimeout = 20;
+SerialPort.cpp:	cto.ReadTotalTimeoutConstant = 0;
+SerialPort.cpp:	cto.ReadTotalTimeoutMultiplier = 0;
+SerialPort.cpp:	cto.WriteTotalTimeoutConstant =0;
+SerialPort.cpp:	cto.WriteTotalTimeoutMultiplier =0;
+SerialPort.cpp:	if (!::SetCommTimeouts(m_hFile,&cto))	
+SerialPort.cpp:		CloseHandle(m_hFile);
+SerialPort.cpp:		m_hFile = NULL;
+SerialPort.cpp:	::ZeroMemory(&dcb, sizeof(DCB));
+SerialPort.cpp:	::ZeroMemory(&cto, sizeof(COMMTIMEOUTS));
+SerialPort.cpp:	if (m_hEventCloseThread == 0)	
+SerialPort.cpp:		::CloseHandle(m_hFile);
+SerialPort.cpp:		m_hFile = NULL;
+SerialPort.cpp:	DWORD theadId;
+SerialPort.cpp:	m_hThread= CreateThread(NULL, 0, CommThread, this, 0, &theadId);
+SerialPort.cpp:DWORD  CSerialPort::CommThread(LPVOID pParam)
+SerialPort.cpp:	CSerialPort *port = (CSerialPort*)pParam;
+SerialPort.cpp:	::ZeroMemory(&olRead, sizeof(OVERLAPPED));
+SerialPort.cpp:	if(olRead.hEvent==NULL)	
+SerialPort.cpp:		return (UINT)-1;
+SerialPort.cpp:	if (!port->m_hFile)
+SerialPort.cpp:		return (UINT)-1;
+SerialPort.cpp:	PurgeComm(port->m_hFile, PURGE_RXCLEAR | PURGE_TXCLEAR | PURGE_RXABORT | PURGE_TXABORT);
+SerialPort.cpp:		SetCommMask(port->m_hFile,EV_RXCHAR);
+SerialPort.cpp:		bResult = WaitCommEvent(port->m_hFile, &dMask, &olRead);
+SerialPort.cpp:		if(!bResult)
+SerialPort.cpp:			if(GetLastError()!=ERROR_IO_PENDING)	
+SerialPort.cpp:			bResult = ClearCommError(port->m_hFile, &dwError, &comstat);
+SerialPort.cpp:			if (comstat.cbInQue == 0) 
+SerialPort.cpp:				continue;
+SerialPort.cpp:		if(bError)	
+SerialPort.cpp:		Event = WaitForMultipleObjects(3, hEventArray, FALSE, INFINITE);
+SerialPort.cpp:		switch (Event)
+SerialPort.cpp:				::ZeroMemory(&comstat, sizeof(COMSTAT));	
+SerialPort.cpp:				ExitThread(100);
+SerialPort.cpp:				GetCommMask(port->m_hFile, &CommEvent);				
+SerialPort.cpp:				if (CommEvent & EV_RXCHAR)
+SerialPort.cpp:					EnterCriticalSection(&port->m_pConData->m_recCS);
+SerialPort.cpp:					int nLeft = BUFFER_SIZE - port->m_pConData->m_recLength;
+SerialPort.cpp:					if(nLeft == 0)
+SerialPort.cpp:						nLeft = BUFFER_SIZE;
+SerialPort.cpp:					LeaveCriticalSection(&port->m_pConData->m_recCS);
+SerialPort.cpp:				LogHex("write->",(char*)port->m_pConData->m_sendBuf,port->m_pConData->m_sendLength);
+SerialPort.cpp:				port->WriteData(port->m_pConData->m_sendBuf, 
+SerialPort.cpp:		if(bError)	break;
+SerialPort.cpp:	::ZeroMemory(&comstat, sizeof(COMSTAT));	
+SerialPort.cpp:DWORD CSerialPort::ReadData(LPVOID cpRXBuffer, OVERLAPPED* olRead , int size)
+SerialPort.cpp:	bResult = ClearCommError(m_hFile, &dwError, &comstat);
+SerialPort.cpp:	if (comstat.cbInQue == 0)	
+SerialPort.cpp:	bResult = ReadFile(m_hFile,cpRXBuffer,size,&dwBytesRead,olRead); 
+SerialPort.cpp:	if(!bResult)
+SerialPort.cpp:		if(GetLastError()==ERROR_IO_PENDING)
+SerialPort.cpp:			GetOverlappedResult(m_hFile,olRead,&dwBytesRead,1);
+SerialPort.cpp:	::ZeroMemory(&comstat, sizeof(COMSTAT));
+SerialPort.cpp:DWORD CSerialPort::WriteData(LPVOID lpBuffer, DWORD dwLength)
+SerialPort.cpp:	if(!dwLength)	return 0;
+SerialPort.cpp:	OVERLAPPED olWrite;
+SerialPort.cpp:	if(!m_hFile)
+SerialPort.cpp:	::ZeroMemory(&olWrite, sizeof(OVERLAPPED));
+SerialPort.cpp:	olWrite.hEvent=CreateEvent(NULL, TRUE, FALSE, NULL);
+SerialPort.cpp:	if(olWrite.hEvent==NULL)	
+SerialPort.cpp:	ClearCommError(m_hFile,&dwErrorFlags,&ComStat);
+SerialPort.cpp:	bResult=WriteFile(m_hFile,lpBuffer,length,&length,&olWrite);
+SerialPort.cpp:	if(!bResult)
+SerialPort.cpp:		if(GetLastError()==ERROR_IO_PENDING)
+SerialPort.cpp:			GetOverlappedResult(m_hFile,&olWrite,&length,TRUE);// 等待
+SerialPort.cpp:	::ZeroMemory(&ComStat, sizeof(COMSTAT));
+SerialPort.cpp:	::CloseHandle (olWrite.hEvent);
+SerialPort.cpp:BOOL CSerialPort::UnInit()
+SerialPort.cpp:	if(m_hEventCloseThread)
+SerialPort.cpp:	if(m_hThread)
+SerialPort.cpp:		if(WAIT_TIMEOUT == WaitForSingleObject(m_hThread, 5000))
+SerialPort.cpp:			DWORD exitCode = 0;
+SerialPort.cpp:			TerminateThread(m_hThread,exitCode);
+SerialPort.cpp:	if(m_hThread)
+SerialPort.cpp:	if(m_hEventCloseThread)
+SerialPort.cpp:	if (m_hFile)
+SerialPort.cpp:		::CloseHandle(m_hFile);
+SerialPort.cpp:	m_hFile = NULL;
+SerialPort.h:#ifndef __SERIALPORT_H
+SerialPort.h:#define __SERIALPORT_H
+SerialPort.h:#include "afxwin.h"
+SerialPort.h:#include "FkSetData.h"
+SerialPort.h:class CSerialPort  
+SerialPort.h:public:
+SerialPort.h:	CSerialPort();
+SerialPort.h:	virtual ~CSerialPort();
+SerialPort.h:	DWORD ReadData(LPVOID cpRXBuffer,OVERLAPPED* olRead,int size=BUFFER_SIZE);
+SerialPort.h:	DWORD WriteData(LPVOID lpBuffer,DWORD dwLength);
+SerialPort.h:	DWORD WriteData(CString str);
+SerialPort.h:	BOOL IsOpen (void) const	{ return m_bOpened; }
+SerialPort.h:	BOOL UnInit();
+SerialPort.h:	BOOL Init(ACCONNECTDATA* pConData);
+SerialPort.h:private:
+SerialPort.h:	HANDLE m_hFile;
+SerialPort.h:	static DWORD WINAPI CommThread(LPVOID pParam);
+SerialPort.h:#endif // __SERIALPORT_H
+SetAlarm.cpp:// SetAlarm.cpp : implementation file
+SetAlarm.cpp:#include "stdafx.h"
+SetAlarm.cpp:#include "FkSet.h"
+SetAlarm.cpp:#include "SetAlarm.h"
+SetAlarm.cpp:#ifdef _DEBUG
+SetAlarm.cpp:#define new DEBUG_NEW
+SetAlarm.cpp:#undef THIS_FILE
+SetAlarm.cpp:static char THIS_FILE[] = __FILE__;
+SetAlarm.cpp:#endif
+SetAlarm.cpp:// CSetAlarm dialog
+SetAlarm.cpp:	: CDialog(CSetAlarm::IDD, pParent)
+SetAlarm.cpp:	//{{AFX_DATA_INIT(CSetAlarm)
+SetAlarm.cpp:	m_nTime = -1;
+SetAlarm.cpp:	//}}AFX_DATA_INIT
+SetAlarm.cpp:void CSetAlarm::DoDataExchange(CDataExchange* pDX)
+SetAlarm.cpp:	CDialog::DoDataExchange(pDX);
+SetAlarm.cpp:	DDX_Control(pDX, IDC_COMBO3, m_comLimitTime);
+SetAlarm.cpp:	DDX_Control(pDX, IDC_COMBO2, m_comAlarmDelay);
+SetAlarm.cpp:	DDX_Control(pDX, IDC_COMBO1, m_com);
+SetAlarm.cpp:	DDX_CBIndex(pDX, IDC_COMBO1, m_nAlarm);
+SetAlarm.cpp:	DDX_CBIndex(pDX, IDC_COMBO2, m_nDelay);
+SetAlarm.cpp:	DDX_CBIndex(pDX, IDC_COMBO3, m_nTime);
+SetAlarm.cpp:BEGIN_MESSAGE_MAP(CSetAlarm, CDialog)
+SetAlarm.cpp:BOOL CSetAlarm::OnInitDialog() 
+SetAlarm.cpp:	CDialog::OnInitDialog();
+SetAlarm.cpp:	m_comLimitTime.SetCurSel(0);
+SetAlarm.cpp:	              // EXCEPTION: OCX Property Pages should return FALSE
+SetAlarm.h:#if !defined(AFX_SETALARM_H__6D69EC22_B817_4C18_A912_E8B004465176__INCLUDED_)
+SetAlarm.h:#define AFX_SETALARM_H__6D69EC22_B817_4C18_A912_E8B004465176__INCLUDED_
+SetAlarm.h:#if _MSC_VER > 1000
+SetAlarm.h:#endif // _MSC_VER > 1000
+SetAlarm.h:// SetAlarm.h : header file
+SetAlarm.h:// CSetAlarm dialog
+SetAlarm.h:class CSetAlarm : public CDialog
+SetAlarm.h:// Construction
+SetAlarm.h:public:
+SetAlarm.h:// Dialog Data
+SetAlarm.h:	enum { IDD = IDD_DIALOG2 };
+SetAlarm.h:	CComboBox	m_comLimitTime;
+SetAlarm.h:	int		m_nAlarm;
+SetAlarm.h:	int		m_nDelay;
+SetAlarm.h:	int		m_nTime;
+SetAlarm.h:// Overrides
+SetAlarm.h:	// ClassWizard generated virtual function overrides
+SetAlarm.h:	//{{AFX_VIRTUAL(CSetAlarm)
+SetAlarm.h:	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+SetAlarm.h:	//}}AFX_VIRTUAL
+SetAlarm.h:// Implementation
+SetAlarm.h:	// Generated message map functions
+SetAlarm.h:	virtual BOOL OnInitDialog();
+SetAlarm.h://{{AFX_INSERT_LOCATION}}
+SetAlarm.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+SetAlarm.h:#endif // !defined(AFX_SETALARM_H__6D69EC22_B817_4C18_A912_E8B004465176__INCLUDED_)
+SetIPAndPort.cpp:// SetIPAndPort.cpp : implementation file
+SetIPAndPort.cpp:#include "stdafx.h"
+SetIPAndPort.cpp:#include "FkSet.h"
+SetIPAndPort.cpp:#include "SetIPAndPort.h"
+SetIPAndPort.cpp:#include "global.h"
+SetIPAndPort.cpp:#ifdef _DEBUG
+SetIPAndPort.cpp:#define new DEBUG_NEW
+SetIPAndPort.cpp:#undef THIS_FILE
+SetIPAndPort.cpp:static char THIS_FILE[] = __FILE__;
+SetIPAndPort.cpp:#endif
+SetIPAndPort.cpp:// CSetIPAndPort dialog
+SetIPAndPort.cpp:CSetIPAndPort::CSetIPAndPort(CWnd* pParent /*=NULL*/)
+SetIPAndPort.cpp:	: CDialog(CSetIPAndPort::IDD, pParent)
+SetIPAndPort.cpp:	//{{AFX_DATA_INIT(CSetIPAndPort)
+SetIPAndPort.cpp:		// NOTE: the ClassWizard will add member initialization here
+SetIPAndPort.cpp:	//}}AFX_DATA_INIT
+SetIPAndPort.cpp:void CSetIPAndPort::DoDataExchange(CDataExchange* pDX)
+SetIPAndPort.cpp:	CDialog::DoDataExchange(pDX);
+SetIPAndPort.cpp:	//{{AFX_DATA_MAP(CSetIPAndPort)
+SetIPAndPort.cpp:	DDX_Control(pDX, IDC_EDIT_APN, m_ctlEndAPN);
+SetIPAndPort.cpp:	DDX_Control(pDX, IDC_EDIT_PORT2, m_ctlEndPort2);
+SetIPAndPort.cpp:	DDX_Control(pDX, IDC_EDIT_IP2, m_ctlEndIP2);
+SetIPAndPort.cpp:	DDX_Control(pDX, IDC_EDIT_PORT1, m_ctlEndPort);
+SetIPAndPort.cpp:	DDX_Control(pDX, IDC_EDIT_IP1, m_ctlEndIP);
+SetIPAndPort.cpp:BEGIN_MESSAGE_MAP(CSetIPAndPort, CDialog)
+SetIPAndPort.cpp:	//{{AFX_MSG_MAP(CSetIPAndPort)
+SetIPAndPort.cpp:// CSetIPAndPort message handlers
+SetIPAndPort.cpp:void CSetIPAndPort::OnOK() 
+SetIPAndPort.cpp:	CString strTmp;
+SetIPAndPort.cpp:	sockaddr_in sa;
+SetIPAndPort.cpp:	unsigned char uc1,uc2,uc3,uc4;
+SetIPAndPort.cpp:	//获得主用IP，Port
+SetIPAndPort.cpp:	m_ctlEndIP.GetWindowText(strTmp);		
+SetIPAndPort.cpp:	sa.sin_addr.s_addr=inet_addr(strTmp);
+SetIPAndPort.cpp:	uc1 = sa.sin_addr.s_net;
+SetIPAndPort.cpp:	uc2 = sa.sin_addr.s_host;
+SetIPAndPort.cpp:	uc3 = sa.sin_addr.s_lh;
+SetIPAndPort.cpp:	uc4 = sa.sin_addr.s_impno;
+SetIPAndPort.cpp:	if(uc1 == 0xff && uc2 == 0xff && uc3 == 0xff && uc4 == 0xff)
+SetIPAndPort.cpp:		AfxMessageBox("IP格式不正确。");
+SetIPAndPort.cpp:		m_ctlEndIP.SetFocus();
+SetIPAndPort.cpp:	strcpy((char*)m_data.m_strEndIP , strTmp);
+SetIPAndPort.cpp:	m_ctlEndPort.GetWindowText(strTmp);
+SetIPAndPort.cpp:	m_data.m_nEndPort = atoi(strTmp);
+SetIPAndPort.cpp:	//获得备用IP，Port
+SetIPAndPort.cpp:	m_ctlEndIP2.GetWindowText(strTmp);		
+SetIPAndPort.cpp:	sa.sin_addr.s_addr=inet_addr(strTmp);
+SetIPAndPort.cpp:	uc1 = sa.sin_addr.s_net;
+SetIPAndPort.cpp:	uc2 = sa.sin_addr.s_host;
+SetIPAndPort.cpp:	uc3 = sa.sin_addr.s_lh;
+SetIPAndPort.cpp:	uc4 = sa.sin_addr.s_impno;
+SetIPAndPort.cpp:	if(uc1 == 0xff && uc2 == 0xff && uc3 == 0xff && uc4 == 0xff)
+SetIPAndPort.cpp:		AfxMessageBox("IP格式不正确。");
+SetIPAndPort.cpp:		m_ctlEndIP2.SetFocus();
+SetIPAndPort.cpp:	strcpy((char*)m_data.m_strEndIP2 , strTmp);
+SetIPAndPort.cpp:	m_ctlEndPort2.GetWindowText(strTmp);
+SetIPAndPort.cpp:	m_data.m_nEndPort2 = atoi(strTmp);
+SetIPAndPort.cpp:	m_ctlEndAPN.GetWindowText(strTmp);
+SetIPAndPort.cpp:	memset(m_data.m_nEndAPN,0,sizeof(m_data.m_nEndAPN));
+SetIPAndPort.cpp:	memcpy((char*)m_data.m_nEndAPN,strTmp.GetBuffer(0),min(16,strTmp.GetLength()));
+SetIPAndPort.cpp:	//strcpy((char*)m_data.m_nEndAPN,strTmp.Mid(0,15));
+SetIPAndPort.cpp:	SaveParamFile();
+SetIPAndPort.cpp:	CDialog::OnOK();
+SetIPAndPort.cpp:BOOL CSetIPAndPort::OnInitDialog() 
+SetIPAndPort.cpp:	CDialog::OnInitDialog();
+SetIPAndPort.cpp:	if(LoadParamFile())
+SetIPAndPort.cpp:		CString strTmp;
+SetIPAndPort.cpp:		m_ctlEndIP.SetWindowText(CString(m_data.m_strEndIP));
+SetIPAndPort.cpp:		m_ctlEndPort.SetWindowText(strTmp);
+SetIPAndPort.cpp:		m_ctlEndIP2.SetWindowText(CString(m_data.m_strEndIP2));
+SetIPAndPort.cpp:		m_ctlEndPort2.SetWindowText(strTmp);
+SetIPAndPort.cpp:		m_ctlEndAPN.SetWindowText(CString(m_data.m_nEndAPN));
+SetIPAndPort.cpp:	return TRUE;  // return TRUE unless you set the focus to a control	              // EXCEPTION: OCX Property Pages should return FALSE
+SetIPAndPort.cpp:BOOL CSetIPAndPort::LoadParamFile()
+SetIPAndPort.cpp:	CFile f;
+SetIPAndPort.cpp:	CFileException e;
+SetIPAndPort.cpp:	strcat(path,"\\ParamIp.cfg");
+SetIPAndPort.cpp:	if( !f.Open( path,CFile::modeReadWrite, &e ) )
+SetIPAndPort.cpp:#ifdef _DEBUG
+SetIPAndPort.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+SetIPAndPort.cpp:#endif
+SetIPAndPort.cpp:	f.Read(&m_data,sizeof(IPPORTINFO));	
+SetIPAndPort.cpp:BOOL CSetIPAndPort::SaveParamFile()
+SetIPAndPort.cpp:	CFile f;
+SetIPAndPort.cpp:	CFileException e;
+SetIPAndPort.cpp:	CString strTmp;
+SetIPAndPort.cpp:	strcat(path,"\\ParamIp.cfg");
+SetIPAndPort.cpp:	if( !f.Open( path, CFile::modeCreate | CFile::modeReadWrite, &e ) )
+SetIPAndPort.cpp:#ifdef _DEBUG
+SetIPAndPort.cpp:		afxDump << "File could not be opened " << e.m_cause << "\n";
+SetIPAndPort.cpp:#endif
+SetIPAndPort.cpp:	f.Write(&m_data,sizeof(IPPORTINFO));
+SetIPAndPort.h:#if !defined(AFX_SETIPANDPORT_H__B7E7D4D7_59D5_456A_B14B_8C1FD664D1D1__INCLUDED_)
+SetIPAndPort.h:#define AFX_SETIPANDPORT_H__B7E7D4D7_59D5_456A_B14B_8C1FD664D1D1__INCLUDED_
+SetIPAndPort.h:#if _MSC_VER > 1000
+SetIPAndPort.h:#endif // _MSC_VER > 1000
+SetIPAndPort.h:// SetIPAndPort.h : header file
+SetIPAndPort.h:// CSetIPAndPort dialog
+SetIPAndPort.h:class CSetIPAndPort : public CDialog
+SetIPAndPort.h:// Construction
+SetIPAndPort.h:public:
+SetIPAndPort.h:	CSetIPAndPort(CWnd* pParent = NULL);   // standard constructor
+SetIPAndPort.h:	IPPORTINFO m_data;
+SetIPAndPort.h:// Dialog Data
+SetIPAndPort.h:	//{{AFX_DATA(CSetIPAndPort)
+SetIPAndPort.h:	enum { IDD = IDD_DIALOG3 };
+SetIPAndPort.h:	CEdit	m_ctlEndAPN;
+SetIPAndPort.h:	CEdit	m_ctlEndPort2;
+SetIPAndPort.h:	CEdit	m_ctlEndIP2;
+SetIPAndPort.h:	CEdit	m_ctlEndPort;
+SetIPAndPort.h:	CEdit	m_ctlEndIP;
+SetIPAndPort.h:// Overrides
+SetIPAndPort.h:	// ClassWizard generated virtual function overrides
+SetIPAndPort.h:	//{{AFX_VIRTUAL(CSetIPAndPort)
+SetIPAndPort.h:	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+SetIPAndPort.h:	//}}AFX_VIRTUAL
+SetIPAndPort.h:// Implementation
+SetIPAndPort.h:	// Generated message map functions
+SetIPAndPort.h:	//{{AFX_MSG(CSetIPAndPort)
+SetIPAndPort.h:	virtual void OnOK();
+SetIPAndPort.h:	virtual BOOL OnInitDialog();
+SetIPAndPort.h:private:
+SetIPAndPort.h:	BOOL LoadParamFile();
+SetIPAndPort.h:	BOOL SaveParamFile();
+SetIPAndPort.h://{{AFX_INSERT_LOCATION}}
+SetIPAndPort.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+SetIPAndPort.h:#endif // !defined(AFX_SETIPANDPORT_H__B7E7D4D7_59D5_456A_B14B_8C1FD664D1D1__INCLUDED_)
+StdAfx.cpp:// stdafx.cpp : source file that includes just the standard includes
+StdAfx.cpp://	FkSet.pch will be the pre-compiled header
+StdAfx.cpp://	stdafx.obj will contain the pre-compiled type information
+StdAfx.cpp:#include "stdafx.h"
+StdAfx.h:// stdafx.h : include file for standard system include files,
+StdAfx.h://  or project specific include files that are used frequently, but
+StdAfx.h://      are changed infrequently
+StdAfx.h:#if !defined(AFX_STDAFX_H__32711418_E2ED_4CEC_82A5_014F159CED82__INCLUDED_)
+StdAfx.h:#define AFX_STDAFX_H__32711418_E2ED_4CEC_82A5_014F159CED82__INCLUDED_
+StdAfx.h:#if _MSC_VER > 1000
+StdAfx.h:#endif // _MSC_VER > 1000
+StdAfx.h:#define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
+StdAfx.h:#include <afxwin.h>         // MFC core and standard components
+StdAfx.h:#include <afxext.h>         // MFC extensions
+StdAfx.h:#include <afxdisp.h>        // MFC Automation classes
+StdAfx.h:#include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls
+StdAfx.h:#ifndef _AFX_NO_AFXCMN_SUPPORT
+StdAfx.h:#include <afxcmn.h>			// MFC support for Windows Common Controls
+StdAfx.h:#endif // _AFX_NO_AFXCMN_SUPPORT
+StdAfx.h:#include <winsock2.h>
+StdAfx.h:#pragma comment(lib,"ws2_32.lib")
+StdAfx.h:typedef struct tagIPPORTINFO
+StdAfx.h:	unsigned char	m_strEndIP[16]; //主用Ip地址
+StdAfx.h:	unsigned short  m_nEndPort;		//主用端口号
+StdAfx.h:	unsigned char	m_strEndIP2[16];//备用Ip地址
+StdAfx.h:	unsigned short  m_nEndPort2;	//备用端口号
+StdAfx.h:	unsigned char   m_nEndAPN[50];	//APN
+StdAfx.h:}IPPORTINFO;
+StdAfx.h://{{AFX_INSERT_LOCATION}}
+StdAfx.h:// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+StdAfx.h:#endif // !defined(AFX_STDAFX_H__32711418_E2ED_4CEC_82A5_014F159CED82__INCLUDED_)

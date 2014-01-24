@@ -94,6 +94,7 @@
 #define IDC_BUTTON23                    1043
 #define IDC_BUTTON24                    1044
 #define IDC_BUTTON25                    1045
+#define IDC_ESAM                        1045
 #define IDC_BUTTON35                    1046
 #define IDC_EDIT_ACPORT                 1047
 #define IDC_EDIT_4851                   1048

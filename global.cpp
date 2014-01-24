@@ -61,7 +61,7 @@ void ulong2bcdex_r(int tmp, char *pbcd, int bcdlen, char symbol)
 	return;
 }
 
-// RTU地址转换
+// RTU地址转换.STR to CODE
 int RtuStrToCode(char *Str, char* Code)
 {
 	int i;

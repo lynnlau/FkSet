@@ -95,7 +95,6 @@ protected:
 	afx_msg void OnButton22();
 	afx_msg void OnButton23();
 	afx_msg void OnButton24();
-	afx_msg void OnButton25();
 	afx_msg void OnButton26();
 	afx_msg void OnButton27();
 	afx_msg void OnButton29();
@@ -116,6 +115,7 @@ protected:
 	afx_msg void OnButton38();
 	afx_msg void OnButton25();
 	afx_msg void OnButtonUpmodem();
+	afx_msg void OnEsam();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
